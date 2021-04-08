@@ -6,8 +6,19 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="clubesportiu" />
         <module name="ei102720javd" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="clubesportiu" target="1.8" />
+      <module name="ei102720javd" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="clubesportiu" options="-parameters" />
+      <module name="ei102720javd" options="-parameters" />
+    </option>
   </component>
 </project>
