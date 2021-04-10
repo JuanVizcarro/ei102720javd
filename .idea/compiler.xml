@@ -13,6 +13,7 @@
     <bytecodeTargetLevel>
       <module name="clubesportiu" target="1.8" />
       <module name="ei102720javd" target="1.8" />
+      <module name="wrapper" target="1.5" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
