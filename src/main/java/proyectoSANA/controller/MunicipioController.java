@@ -46,7 +46,7 @@ public class MunicipioController {
         return "redirect:list";
     }
 
-    @RequestMapping(value="/update/{nom}", method = RequestMethod.GET)
+    @RequestMapping(value="/update/{nombre}", method = RequestMethod.GET)
     public String editMunicipio(Model model, @PathVariable String nombre) {
         model.addAttribute("municipio", municipioDao.getMunicipio(nombre));
         return "municipio/update";
@@ -62,7 +62,7 @@ public class MunicipioController {
         return "redirect:list";
     }
 
-    @RequestMapping(value="/delete/{nom}")
+    @RequestMapping(value="/delete/{nombre}")
     public String processDelete(@PathVariable String nombre) {
         municipioDao.deleteMunicipio(nombre);
         return "redirect:../list";
