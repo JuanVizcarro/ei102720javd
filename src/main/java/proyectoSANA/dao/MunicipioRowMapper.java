@@ -10,7 +10,7 @@ import java.sql.SQLException;
 public final class MunicipioRowMapper implements RowMapper<Municipio> {
     public Municipio mapRow(ResultSet rs, int rowNum) throws SQLException {
         Municipio municipio = new Municipio();
-        municipio.setNom(rs.getString("nom"));
+        municipio.setNom(rs.getString("nombre"));
         municipio.setTelefono(rs.getInt("telefono"));
         municipio.setCp(rs.getInt("cp"));
         return municipio;
