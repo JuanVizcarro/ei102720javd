@@ -23,26 +23,26 @@ public class MunicipioDao {
 
     /* Afegeix el municipio a la base de dades */
     public void addMunicipio(Municipio municipio) {
-        jdbcTemplate.update("INSERT INTO Municipio VALUES(?, ?, ?, ?, ?)",
+        jdbcTemplate.update("INSERT INTO Municipio VALUES(?, ?, ?)",
                 municipio.getNom(), municipio.getTelefono(), municipio.getCp());
     }
 
     /* Esborra el nadador de la base de dades */
     public void deleteMunicipio(String nom) {
-        jdbcTemplate.update("DELETE FROM Municipio WHERE nom = ?",
+        jdbcTemplate.update("DELETE FROM Municipio WHERE nombre = ?",
                 nom);
     }
 
     /* Esborra el nadador de la base de dades */
     public void deleteMunicipio(Municipio municipio) {
-        jdbcTemplate.update("DELETE FROM Municipio WHERE nom = ?",
+        jdbcTemplate.update("DELETE FROM Municipio WHERE nombre = ?",
                 municipio.getNom());
     }
 
     /* Actualitza els atributs del nadador
        (excepte el nom, que és la clau primària) */
     public void updateMunicipio(Municipio municipio) {
-        jdbcTemplate.update("UPDATE Municipio SET telefono = ?, cp = ? WHERE nom = ?",
+        jdbcTemplate.update("UPDATE Municipio SET telefono = ?, cp = ? WHERE nombre = ?",
                 municipio.getTelefono(), municipio.getCp(), municipio.getNom());
     }
 
@@ -50,7 +50,7 @@ public class MunicipioDao {
         public Municipio getMunicipio(String nomMunicipio) {
         try {
             return jdbcTemplate.queryForObject(
-                    "SELECT * FROM Municipio WHERE nom =?",
+                    "SELECT * FROM Municipio WHERE nombre =?",
                     new MunicipioRowMapper(),
                     nomMunicipio);
         }
