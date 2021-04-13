@@ -47,13 +47,13 @@ public class CiudadanoDao {
                 ciudadano.getNombre(), ciudadano.getEmail(), ciudadano.getDireccion(), ciudadano.getMunicipio(), ciudadano.getPais());
     }
 
-    /* Obté el municipi amb el nom donat. Torna null si no existeix. */
-    public Municipio getMunicipio(String nomMunicipio) {
+    /* Obté el municipi amb el dni donat. Torna null si no existeix. */
+    public Ciudadano getCiudadano(int dniCiudadano) {
         try {
             return jdbcTemplate.queryForObject(
-                    "SELECT * FROM Municipio WHERE nombre =?",
-                    new MunicipioRowMapper(),
-                    nomMunicipio);
+                    "SELECT * FROM Municipio WHERE DNI =?",
+                    new CiudadanoRowMapper(),
+                    dniCiudadano);
         }
         catch(EmptyResultDataAccessException e) {
             return null;
@@ -61,12 +61,12 @@ public class CiudadanoDao {
     }
 
     /* Obté tots els municipis. Torna una llista buida si no n'hi ha cap. */
-    public List<Municipio> getMunicipios() {
+    public List<Ciudadano> getCiudadanos() {
         try {
-            return jdbcTemplate.query("SELECT * FROM Municipio", new MunicipioRowMapper());
+            return jdbcTemplate.query("SELECT * FROM Ciudadano", new CiudadanoRowMapper());
         }
         catch(EmptyResultDataAccessException e) {
-            return new ArrayList<Municipio>();
+            return new ArrayList<Ciudadano>();
         }
     }
 }

@@ -1,4 +1,74 @@
 package proyectoSANA.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import proyectoSANA.dao.CiudadanoDao;
+import proyectoSANA.dao.MunicipioDao;
+import proyectoSANA.model.Ciudadano;
+import proyectoSANA.model.Municipio;
+
+
+@Controller
+@RequestMapping("/ciudadano")
 public class CiudadanoController {
+
+    private CiudadanoDao ciudadanoDao;
+
+    @Autowired
+    public void setCiudadanoDao(CiudadanoDao ciudadanoDao) {
+        this.ciudadanoDao=ciudadanoDao;
+    }
+
+    // Operacions: Crear, llistar, actualitzar, esborrar
+    // ...
+    @RequestMapping(value="/add")
+    public String addCiudadano(Model model) {
+        model.addAttribute("ciudadano", new Ciudadano());
+        return "ciudadano/add";
+    }
+
+
+    @RequestMapping("/list")
+    public String listCiudadano(Model model) {
+        model.addAttribute("ciudadanos", ciudadanoDao.getCiudadanos());
+        return "ciudadano/list";
+    }
+
+    @RequestMapping(value="/add", method= RequestMethod.POST)
+    public String processAddSubmit(@ModelAttribute("ciudadano") Ciudadano ciudadano,
+                                   BindingResult bindingResult) {
+        if (bindingResult.hasErrors())
+            return "ciudadano/add";
+        ciudadanoDao.addCiudadano(ciudadano);
+        return "redirect:list";
+    }
+
+    @RequestMapping(value="/update/{nombre}", method = RequestMethod.GET)
+    public String editCiudadano(Model model, @PathVariable int dni) {
+        model.addAttribute("ciudadano", ciudadanoDao.getCiudadano(dni));
+        return "ciudadano/update";
+    }
+
+    @RequestMapping(value="/update", method = RequestMethod.POST)
+    public String processUpdateSubmit(
+            @ModelAttribute("ciudadano") Ciudadano ciudadano,
+            BindingResult bindingResult) {
+        if (bindingResult.hasErrors())
+            return "ciudadano/update";
+        ciudadanoDao.updateCiudadano(ciudadano);
+        return "redirect:list";
+    }
+
+    @RequestMapping(value="/delete/{nombre}")
+    public String processDelete(@PathVariable int dni) {
+        ciudadanoDao.deleteCiudadano(dni);
+        return "redirect:../list";
+    }
+
 }

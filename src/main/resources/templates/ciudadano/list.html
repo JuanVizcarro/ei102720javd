@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Gestionar Ciudadanos</title>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" />
+</head>
+<body>
+<h1>Lista de Ciudadanos</h1>
+<table class="table table-striped">
+    <thead>
+    <tr>
+        <th scope="col">Nombre</th>
+        <th scope="col">DNI</th>
+        <th scope="col">E-mail</th>
+        <th scope="col">Direccion</th>
+        <th scope="col">Municipio</th>
+        <th scope="col">Pais</th>
+        <th scope="col"></th>
+        <th scope="col"></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="ciudadano: ${ciudadanos}">
+        <td th:text="${ciudadano.nombre}"></td>
+        <td th:text="${ciudadano.dni}"></td>
+        <td th:text="${ciudadano.email}"></td>
+        <td th:text="${ciudadano.direccion}"></td>
+        <td th:text="${ciudadano.municipio}"></td>
+        <td th:text="${ciudadano.pais}"></td>
+        <td><a class="btn btn-warning" th:href="@{/ciudadano/update/{nombre}(nombre=${ciudadano.nombre})}" role="button">Edita</a>
+        </td>
+        <td><a class="btn btn-danger" th:href="@{/ciudadano/delete/{nombre}(nombre=${ciudadano.nombre})}" role="button">Borra</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+<a class="btn btn-success" href="add" role="button">Añadir ciudadano</a>
+</body>
+</html>
