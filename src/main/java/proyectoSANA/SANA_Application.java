@@ -9,10 +9,15 @@ import javax.sql.DataSource;
 import org.springframework.context.annotation.Bean;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.boot.jdbc.DataSourceBuilder;
+import org.springframework.jdbc.core.JdbcTemplate;
+import proyectoSANA.dao.MunicipioRowMapper;
+import proyectoSANA.model.Municipio;
 
 @SpringBootApplication
 public class SANA_Application implements CommandLineRunner {
     private static final Logger log = Logger.getLogger(SANA_Application.class.getName());
+
+    private JdbcTemplate jdbcTemplate;
 
     public static void main(String[] args) {
         // Auto-configura l'aplicació
@@ -22,6 +27,12 @@ public class SANA_Application implements CommandLineRunner {
     // Funció principal
     public void run(String... strings) throws Exception {
         log.info("Ací va el meu codi");
+
+        log.info("Selecciona la nadadora Gemma Mengual");
+        Municipio m1 = jdbcTemplate.queryForObject(
+                "SELECT * FROM Municipio where nombre = 'Castellon'",
+                new MunicipioRowMapper());
+        log.info(m1.toString());
     }
 
     // Configura l'accés a la base de dades (DataSource)
