@@ -3,22 +3,22 @@ package proyectoSANA.model;
 import java.util.Date;
 
 public class Reserva {
-    private Ciudadano persona;
+    private String persona;
     private Date fecha;
     private int numeroPersonas;
     private String qr;
     private int limiteReserva;
-   // private Area area;
-    private Zona zona;
+    private String area;
+    private String zona;
     private HorarioReserva horarioReserva;
 
     public Reserva() {}
 
-    public Ciudadano getPersona() {
+    public String getPersona() {
         return persona;
     }
 
-    public void setPersona(Ciudadano persona) {
+    public void setPersona(String persona) {
         this.persona = persona;
     }
 
@@ -54,19 +54,19 @@ public class Reserva {
         this.limiteReserva = limiteReserva;
     }
 
-  /*  public Area getArea() {
+    public String getArea() { // Cambiar String por Area
         return area;
     }
 
-    public void setArea(Area area) {
+    public void setArea(String area) { // Cambiar String por Area
         this.area = area;
     }
-*/
-    public Zona getZona() {
+
+    public String getZona() {
         return zona;
     }
 
-    public void setZona(Zona zona) {
+    public void setZona(String zona) {
         this.zona = zona;
     }
 
@@ -86,7 +86,7 @@ public class Reserva {
                 ", numeroPersonas=" + numeroPersonas +
                 ", qr='" + qr + '\'' +
                 ", limiteReserva=" + limiteReserva +
-            //    ", area=" + area +
+                ", area=" + area +
                 ", zona=" + zona +
                 ", horarioReserva=" + horarioReserva +
                 '}';
