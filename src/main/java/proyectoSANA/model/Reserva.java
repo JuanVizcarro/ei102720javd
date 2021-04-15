@@ -10,7 +10,7 @@ public class Reserva {
     private int limiteReserva;
     private String area;
     private String zona;
-    private HorarioReserva horarioReserva;
+    private String horarioReserva; //Cambiar String por tipo: HorarioReserva
 
     public Reserva() {}
 
@@ -70,11 +70,11 @@ public class Reserva {
         this.zona = zona;
     }
 
-    public HorarioReserva getHorarioReserva() {
+    public String getHorarioReserva() {
         return horarioReserva;
     }
 
-    public void setHorarioReserva(HorarioReserva horarioReserva) {
+    public void setHorarioReserva(String horarioReserva) {
         this.horarioReserva = horarioReserva;
     }
 

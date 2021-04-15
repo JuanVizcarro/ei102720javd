@@ -10,8 +10,6 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.boot.jdbc.DataSourceBuilder;
 import org.springframework.jdbc.core.JdbcTemplate;
-import proyectoSANA.dao.MunicipioRowMapper;
-import proyectoSANA.model.Municipio;
 
 @SpringBootApplication
 public class SANA_Application implements CommandLineRunner {

@@ -4,7 +4,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
-import proyectoSANA.model.Ciudadano;
 import proyectoSANA.model.Reserva;
 
 import javax.sql.DataSource;
@@ -36,7 +35,7 @@ public class ReservaDao {
     }
 
     /* Esborra la reserva de la base de dades */
-    public void deleteCiudadano(Reserva reserva) {
+    public void deleteReserva(Reserva reserva) {
         jdbcTemplate.update("DELETE FROM Reserva WHERE DNI = ? AND fecha = ?",
                 reserva.getPersona(), reserva.getFecha());
     }
@@ -67,7 +66,7 @@ public class ReservaDao {
             return jdbcTemplate.query("SELECT * FROM Reserva", new ReservaRowMapper());
         }
         catch(EmptyResultDataAccessException e) {
-            return new ArrayList<Reserva>();
+            return new ArrayList<>();
         }
     }
 }
