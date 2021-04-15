@@ -1,16 +1,19 @@
 package proyectoSANA.model;
 
 public class Municipio {
-    private String nom;
-    private int telefono;
+    private String nombre;
+    private int tlf;
     private int cp;
 
-    public int getTelefono() {
-        return telefono;
+    public Municipio() {
     }
 
-    public void setTelefono(int telefono) {
-        this.telefono = telefono;
+    public int getTlf() {
+        return tlf;
+    }
+
+    public void setTlf(int tlf) {
+        this.tlf = tlf;
     }
 
     public int getCp() {
@@ -21,22 +24,19 @@ public class Municipio {
         this.cp = cp;
     }
 
-    public Municipio() {
+    public String getNombre() {
+        return nombre;
     }
 
-    public String getNom() {
-        return nom;
-    }
-
-    public void setNom(String nom) {
-        this.nom = nom;
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
 
     @Override
     public String toString() {
         return "Municipio{" +
-                "nom='" + nom + '\'' +
-                ", telefono=" + telefono +
+                "nombre='" + nombre + '\'' +
+                ", tlf=" + tlf +
                 ", cp=" + cp +
                 '}';
     }

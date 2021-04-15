@@ -27,12 +27,6 @@ public class SANA_Application implements CommandLineRunner {
     // Funció principal
     public void run(String... strings) throws Exception {
         log.info("Ací va el meu codi");
-
-        log.info("Selecciona la nadadora Gemma Mengual");
-        Municipio m1 = jdbcTemplate.queryForObject(
-                "SELECT * FROM Municipio where nombre = 'Castellon'",
-                new MunicipioRowMapper());
-        log.info(m1.toString());
     }
 
     // Configura l'accés a la base de dades (DataSource)

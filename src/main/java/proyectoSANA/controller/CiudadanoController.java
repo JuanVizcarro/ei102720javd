@@ -8,63 +8,66 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import proyectoSANA.dao.CiudadanoDao;
 import proyectoSANA.dao.MunicipioDao;
+import proyectoSANA.model.Ciudadano;
 import proyectoSANA.model.Municipio;
 
-@Controller
-@RequestMapping("/municipio")
-public class MunicipioController {
 
-    private MunicipioDao municipioDao;
+@Controller
+@RequestMapping("/ciudadano")
+public class CiudadanoController {
+
+    private CiudadanoDao ciudadanoDao;
 
     @Autowired
-    public void setMunicipioDao(MunicipioDao municipioDao) {
-        this.municipioDao=municipioDao;
+    public void setCiudadanoDao(CiudadanoDao ciudadanoDao) {
+        this.ciudadanoDao=ciudadanoDao;
     }
 
     // Operacions: Crear, llistar, actualitzar, esborrar
     // ...
     @RequestMapping(value="/add")
-    public String addMunicipio(Model model) {
-        model.addAttribute("municipio", new Municipio());
-        return "municipio/add";
+    public String addCiudadano(Model model) {
+        model.addAttribute("ciudadano", new Ciudadano());
+        return "ciudadano/add";
     }
 
 
     @RequestMapping("/list")
-    public String listMunicipios(Model model) {
-        model.addAttribute("municipios", municipioDao.getMunicipios());
-        return "municipio/list";
+    public String listCiudadano(Model model) {
+        model.addAttribute("ciudadanos", ciudadanoDao.getCiudadanos());
+        return "ciudadano/list";
     }
 
     @RequestMapping(value="/add", method= RequestMethod.POST)
-    public String processAddSubmit(@ModelAttribute("municipio") Municipio municipio,
+    public String processAddSubmit(@ModelAttribute("ciudadano") Ciudadano ciudadano,
                                    BindingResult bindingResult) {
         if (bindingResult.hasErrors())
-            return "municipio/add";
-        municipioDao.addMunicipio(municipio);
+            return "ciudadano/add";
+        ciudadanoDao.addCiudadano(ciudadano);
         return "redirect:list";
     }
 
     @RequestMapping(value="/update/{nombre}", method = RequestMethod.GET)
-    public String editMunicipio(Model model, @PathVariable String nombre) {
-        model.addAttribute("municipio", municipioDao.getMunicipio(nombre));
-        return "municipio/update";
+    public String editCiudadano(Model model, @PathVariable int dni) {
+        model.addAttribute("ciudadano", ciudadanoDao.getCiudadano(dni));
+        return "ciudadano/update";
     }
 
     @RequestMapping(value="/update", method = RequestMethod.POST)
     public String processUpdateSubmit(
-            @ModelAttribute("municipio") Municipio municipio,
+            @ModelAttribute("ciudadano") Ciudadano ciudadano,
             BindingResult bindingResult) {
         if (bindingResult.hasErrors())
-            return "municipio/update";
-        municipioDao.updateMunicipio(municipio);
+            return "ciudadano/update";
+        ciudadanoDao.updateCiudadano(ciudadano);
         return "redirect:list";
     }
 
     @RequestMapping(value="/delete/{nombre}")
-    public String processDelete(@PathVariable String nombre) {
-        municipioDao.deleteMunicipio(nombre);
+    public String processDelete(@PathVariable int dni) {
+        ciudadanoDao.deleteCiudadano(dni);
         return "redirect:../list";
     }
 

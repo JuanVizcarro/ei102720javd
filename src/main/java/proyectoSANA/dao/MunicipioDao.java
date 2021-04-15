@@ -24,26 +24,26 @@ public class MunicipioDao {
     /* Afegeix el municipio a la base de dades */
     public void addMunicipio(Municipio municipio) {
         jdbcTemplate.update("INSERT INTO Municipio VALUES(?, ?, ?)",
-                municipio.getNom(), municipio.getTelefono(), municipio.getCp());
+                municipio.getNombre(), municipio.getTlf(), municipio.getCp());
     }
 
     /* Esborra el nadador de la base de dades */
-    public void deleteMunicipio(String nom) {
+    public void deleteMunicipio(String nombre) {
         jdbcTemplate.update("DELETE FROM Municipio WHERE nombre = ?",
-                nom);
+                nombre);
     }
 
     /* Esborra el nadador de la base de dades */
     public void deleteMunicipio(Municipio municipio) {
         jdbcTemplate.update("DELETE FROM Municipio WHERE nombre = ?",
-                municipio.getNom());
+                municipio.getNombre());
     }
 
     /* Actualitza els atributs del nadador
        (excepte el nom, que és la clau primària) */
     public void updateMunicipio(Municipio municipio) {
-        jdbcTemplate.update("UPDATE Municipio SET telefono = ?, cp = ? WHERE nombre = ?",
-                municipio.getTelefono(), municipio.getCp(), municipio.getNom());
+        jdbcTemplate.update("UPDATE Municipio SET tlf = ?, cp = ? WHERE nombre = ?",
+                municipio.getTlf(), municipio.getCp(), municipio.getNombre());
     }
 
     /* Obté el municipi amb el nom donat. Torna null si no existeix. */
