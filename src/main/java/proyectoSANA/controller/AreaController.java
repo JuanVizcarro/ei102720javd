@@ -30,7 +30,7 @@ public class AreaController {
 
     @RequestMapping("/list")
     public String listArea(Model model) {
-        model.addAttribute("areas", areasDao.getAreas());
+        model.addAttribute("areas", areaDao.getAreas());
         return "areas/list";
     }
 
