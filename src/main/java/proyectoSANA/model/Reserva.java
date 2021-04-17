@@ -3,6 +3,7 @@ package proyectoSANA.model;
 import java.util.Date;
 
 public class Reserva {
+    private int numeroReserva;
     private String persona;
     private Date fecha;
     private int numeroPersonas;
@@ -10,9 +11,17 @@ public class Reserva {
     private int limiteReserva;
     private String area;
     private String zona;
-    private String horarioReserva; //Cambiar String por tipo: HorarioReserva
+    private Date horarioReserva;
 
     public Reserva() {}
+
+    public int getNumeroReserva() {
+        return numeroReserva;
+    }
+
+    public void setNumeroReserva(int numeroReserva) {
+        this.numeroReserva = numeroReserva;
+    }
 
     public String getPersona() {
         return persona;
@@ -54,11 +63,11 @@ public class Reserva {
         this.limiteReserva = limiteReserva;
     }
 
-    public Area getArea() {
+    public String getArea() {
         return area;
     }
 
-    public void setArea(String area) { // Cambiar String por Area
+    public void setArea(String area) {
         this.area = area;
     }
 
@@ -70,24 +79,25 @@ public class Reserva {
         this.zona = zona;
     }
 
-    public String getHorarioReserva() {
+    public Date getHorarioReserva() {
         return horarioReserva;
     }
 
-    public void setHorarioReserva(String horarioReserva) {
+    public void setHorarioReserva(Date horarioReserva) {
         this.horarioReserva = horarioReserva;
     }
 
     @Override
     public String toString() {
         return "Reserva{" +
-                "persona=" + persona +
+                "numeroReserva=" + numeroReserva +
+                ", persona='" + persona + '\'' +
                 ", fecha=" + fecha +
                 ", numeroPersonas=" + numeroPersonas +
                 ", qr='" + qr + '\'' +
                 ", limiteReserva=" + limiteReserva +
-                ", area=" + area +
-                ", zona=" + zona +
+                ", area='" + area + '\'' +
+                ", zona='" + zona + '\'' +
                 ", horarioReserva=" + horarioReserva +
                 '}';
     }

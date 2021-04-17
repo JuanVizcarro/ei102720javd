@@ -58,7 +58,7 @@ public class Area {
         this.nombre = nombre;
     }
     public void setUbicacionGeografica(String ubicacionGeografica){
-        this.ubicacionGeografica = ubicacionGeográfica;
+        this.ubicacionGeografica = ubicacionGeografica;
     }
     public void setOrientacion(String orientacion){
         this.orientacion = orientacion;
