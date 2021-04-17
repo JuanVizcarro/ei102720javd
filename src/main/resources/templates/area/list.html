@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Gestionar Municipios</title>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" />
+</head>
+<body>
+<h1>Lista de Municipios</h1>
+<table class="table table-striped">
+    <thead>
+    <tr>
+        <th scope="col">Nombre</th>
+        <th scope="col">Municipio</th>
+        <th scope="col">TipoAcceso</th>
+        <th scope="col">Descripcion</th>
+        <th scope="col">NumeroZonas</th>
+        <th scope="col">UbicacionGeografica</th>
+        <th scope="col">Orientacion</th>
+        <th scope="col">Instalacion</th>
+        <th scope="col">Comentarios</th>
+        <th scope="col"></th>
+        <th scope="col"></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="area: ${areas}">
+        <td th:text="${area.Nombre}"></td>
+        <td th:text="${area.Municipio}"></td>
+        <td th:text="${area.TipoAcceso}"></td>
+        <td th:text="${area.Descripcion}"></td>
+        <td th:text="${area.NumeroZonas}"></td>
+        <td th:text="${area.UbicacionGeografica}"></td>
+        <td th:text="${area.Orientacion}"></td>
+        <td th:text="${area.Instalacion}"></td>
+        <td th:text="${area.Comentarios}"></td>
+        <td><a class="btn btn-warning" th:href="@{/area/update/{nombre}(nombre=${area.nombre})}" role="button">Edita</a>
+        </td>
+        <td><a class="btn btn-danger" th:href="@{/municipio/delete/{nombre}(nombre=${area.nombre})}" role="button">Borra</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+<a class="btn btn-success" href="add" role="button">Añadir municipio</a>
+</body>
+</html>
