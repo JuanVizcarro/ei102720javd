@@ -7,7 +7,6 @@ public class Reserva {
     private String persona;
     private Date fecha;
     private int numeroPersonas;
-    private String qr;
     private int limiteReserva;
     private String area;
     private String zona;
@@ -45,14 +44,6 @@ public class Reserva {
 
     public void setNumeroPersonas(int numeroPersonas) {
         this.numeroPersonas = numeroPersonas;
-    }
-
-    public String getQr() {
-        return qr;
-    }
-
-    public void setQr(String qr) {
-        this.qr = qr;
     }
 
     public int getLimiteReserva() {
@@ -94,7 +85,6 @@ public class Reserva {
                 ", persona='" + persona + '\'' +
                 ", fecha=" + fecha +
                 ", numeroPersonas=" + numeroPersonas +
-                ", qr='" + qr + '\'' +
                 ", limiteReserva=" + limiteReserva +
                 ", area='" + area + '\'' +
                 ", zona='" + zona + '\'' +
