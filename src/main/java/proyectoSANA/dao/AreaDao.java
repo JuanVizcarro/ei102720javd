@@ -55,7 +55,7 @@ public class AreaDao {
             return jdbcTemplate.query("SELECT * FROM Area", new AreaRowMapper());
         }
         catch(EmptyResultDataAccessException e) {
-            return new ArrayList<Municipio>();
+            return new ArrayList<Area>();
         }
     }
 }
