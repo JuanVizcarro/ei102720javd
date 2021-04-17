@@ -15,7 +15,7 @@ import proyectoSANA.model.Area;
 @RequestMapping("/area")
 public class AreaController {
 
-    private AreaDao areaDAO;
+    private AreaDao areaDao;
 
     @Autowired
     public void setAreaDAO(AreaDao areaDao) {
