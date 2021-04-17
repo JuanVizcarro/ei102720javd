@@ -25,35 +25,35 @@ public class ReservaDao {
     /* Afegeix la reserva a la base de dades */
     public void addReserva(Reserva reserva) {
         jdbcTemplate.update("INSERT INTO Reserva VALUES(?, ?, ?, ?, ?, ?, ?, ?)",
-                reserva.getPersona(), reserva.getFecha(), reserva.getNumeroPersonas(), reserva.getQr(), reserva.getLimiteReserva(), reserva.getArea(), reserva.getZona(), reserva.getHorarioReserva());
+                reserva.getNumeroReserva(), reserva.getPersona(), reserva.getFecha(), reserva.getNumeroPersonas(), reserva.getLimiteReserva(), reserva.getArea(), reserva.getZona(), reserva.getHorarioReserva());
     }
 
     /* Esborra la reserva de la base de dades */
-    public void deleteReserva(String persona, Date fecha) {
-        jdbcTemplate.update("DELETE FROM Reserva WHERE DNI = ? AND fecha = ?",
-                persona, fecha);
+    public void deleteReserva(int numeroReserva) {
+        jdbcTemplate.update("DELETE FROM Reserva WHERE numeroReserva = ?",
+                numeroReserva);
     }
 
     /* Esborra la reserva de la base de dades */
     public void deleteReserva(Reserva reserva) {
-        jdbcTemplate.update("DELETE FROM Reserva WHERE DNI = ? AND fecha = ?",
-                reserva.getPersona(), reserva.getFecha());
+        jdbcTemplate.update("DELETE FROM Reserva WHERE numeroReserva = ?",
+                reserva.getNumeroReserva());
     }
 
     /* Actualitza els atributs del nadador
        (excepte el nom, que és la clau primària) */
     public void updateReserva(Reserva reserva) {
-        jdbcTemplate.update("UPDATE Reserva SET numeroPersonas = ?, qr = ?, limiteReserva = ?, area = ?, zona = ?, horarioReserva = ? WHERE DNI = ? AND fecha = ?",
-                reserva.getNumeroPersonas(), reserva.getQr(), reserva.getLimiteReserva(), reserva.getArea(), reserva.getZona(), reserva.getHorarioReserva(), reserva.getPersona(), reserva.getFecha());
+        jdbcTemplate.update("UPDATE Reserva SET persona = ?, fecha = ?, numeroPersonas = ?, limiteReserva = ?, area = ?, zona = ?, horarioReserva = ? WHERE numeroReserva = ?",
+                reserva.getPersona(), reserva.getFecha(), reserva.getNumeroPersonas(), reserva.getLimiteReserva(), reserva.getArea(), reserva.getZona(), reserva.getHorarioReserva(), reserva.getNumeroReserva());
     }
 
     /* Obté la reserv amb el dni i  fecha donats. Torna null si no existeix. */
-    public Reserva getReserva(int dniPersona, Date fecha) {
+    public Reserva getReserva(int numeroReserva) {
         try {
             return jdbcTemplate.queryForObject(
-                    "SELECT * FROM Reserva WHERE DNI = ? AND fecha = ?",
+                    "SELECT * FROM Reserva WHERE numeroReserva = ?",
                     new ReservaRowMapper(),
-                    dniPersona, fecha);
+                    numeroReserva);
         }
         catch(EmptyResultDataAccessException e) {
             return null;
