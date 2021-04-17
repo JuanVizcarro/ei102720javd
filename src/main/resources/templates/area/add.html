@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Crear nuevo municipio</title>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"/>
+</head>
+<body>
+<h2>Nuevo Municipio</h2>
+<form action="#" th:action="@{/area/add}"
+      th:object="${area}" method="post">
+    <table>
+        <tr>
+            <td><label>Nombre</label></td>
+            <td><input type="text" th:field="*{nombre}" /></td>
+        </tr>
+        <tr>
+            <td><label>Municipio</label></td>
+            <td><input type="text" th:field="*{municipio}" /></td>
+        </tr>
+        <tr>
+            <td><label>NumeroZonas</label></td>
+            <td><input type="number" th:field="*{numeroZonas}" /></td>
+        </tr>
+        <tr>
+            <td><label>TipoAcceso</label></td>
+            <td><input type="text" th:field="*{tipoAcceso}" /></td>
+        </tr>
+        <tr>
+            <td><label>Descripcion</label></td>
+            <td><input type="text" th:field="*{descripcion}" /></td>
+        </tr>
+        <tr>
+            <td><label>UbicacionGeografica</label></td>
+            <td><input type="text" th:field="*{ubicacionGeografica}" /></td>
+        </tr>
+        <tr>
+            <td><label>Orientacion</label></td>
+            <td><input type="text" th:field="*{orientacion}" /></td>
+        </tr>
+        <tr>
+            <td><label>instalacion</label></td>
+            <td><input type="text" th:field="*{instalacion}" /></td>
+        </tr>
+        <tr>
+            <td><label>comentarios</label></td>
+            <td><input type="text" th:field="*{comentarios}" /></td>
+        </tr>
+        <tr>
+            <td colspan="2"><input type="submit" value="Añadir Area" /></td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>

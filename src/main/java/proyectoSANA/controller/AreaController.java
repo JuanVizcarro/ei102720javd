@@ -9,17 +9,13 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import proyectoSANA.dao.AreaDao;
-import proyectoSANA.dao.MunicipioDao;
 import proyectoSANA.model.Area;
-import proyectoSANA.dao.AreaDAO;
-import proyectoSANA.model.Area;
-import proyectoSANA.model.Municipio;
 
 @Controller
 @RequestMapping("/area")
 public class AreaController {
 
-    private AreaDAO areaDAO;
+    private AreaDao areaDAO;
 
     @Autowired
     public void setAreaDAO(AreaDao areaDao) {
@@ -33,9 +29,9 @@ public class AreaController {
     }
 
     @RequestMapping("/list")
-    public String listMunicipios(Model model) {
-        model.addAttribute("municipios", municipioDao.getMunicipios());
-        return "municipio/list";
+    public String listArea(Model model) {
+        model.addAttribute("areas", areasDao.getAreas());
+        return "areas/list";
     }
 
     @RequestMapping(value="/add", method= RequestMethod.POST)
