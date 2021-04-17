@@ -51,7 +51,7 @@ public class CiudadanoDao {
     public Ciudadano getCiudadano(int dniCiudadano) {
         try {
             return jdbcTemplate.queryForObject(
-                    "SELECT * FROM Municipio WHERE DNI =?",
+                    "SELECT * FROM Ciudadano WHERE DNI = ?",
                     new CiudadanoRowMapper(),
                     dniCiudadano);
         }

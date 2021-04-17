@@ -49,7 +49,7 @@ public class CiudadanoController {
         return "redirect:list";
     }
 
-    @RequestMapping(value="/update/{nombre}", method = RequestMethod.GET)
+    @RequestMapping(value="/update/{dni}", method = RequestMethod.GET)
     public String editCiudadano(Model model, @PathVariable int dni) {
         model.addAttribute("ciudadano", ciudadanoDao.getCiudadano(dni));
         return "ciudadano/update";
@@ -65,7 +65,7 @@ public class CiudadanoController {
         return "redirect:list";
     }
 
-    @RequestMapping(value="/delete/{nombre}")
+    @RequestMapping(value="/delete/{DNI}")
     public String processDelete(@PathVariable int dni) {
         ciudadanoDao.deleteCiudadano(dni);
         return "redirect:../list";
