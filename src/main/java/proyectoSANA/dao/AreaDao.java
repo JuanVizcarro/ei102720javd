@@ -10,7 +10,7 @@ import proyectoSANA.model.Municipio;
 import javax.sql.DataSource;
 import java.util.ArrayList;
 import java.util.List;
-public class AreaDAO {
+public class AreaDao {
     private JdbcTemplate jdbcTemplate;
 
     // Obté el jdbcTemplate a partir del Data Source
