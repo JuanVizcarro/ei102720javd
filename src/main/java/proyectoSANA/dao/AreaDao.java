@@ -10,6 +10,7 @@ import proyectoSANA.model.Municipio;
 import javax.sql.DataSource;
 import java.util.ArrayList;
 import java.util.List;
+@Repository // En Spring els DAOs van anotats amb @Repository
 public class AreaDao {
     private JdbcTemplate jdbcTemplate;
 
