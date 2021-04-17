@@ -39,7 +39,7 @@ public class AreaDAO {
                 area.getUbicacionGeografica(),area.getOrientacion(),area.getInstalacion(),
                 area.getComentarios(),area.getNombre());
     }
-    public Municipio getArea(String nomMunicipio) {
+    public Area getArea(String nomMunicipio) {
         try {
             return jdbcTemplate.queryForObject(
                     "SELECT * FROM Area WHERE nombre =?",
