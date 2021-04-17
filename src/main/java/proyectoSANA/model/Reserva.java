@@ -54,7 +54,7 @@ public class Reserva {
         this.limiteReserva = limiteReserva;
     }
 
-    public String getArea() { // Cambiar String por Area
+    public Area getArea() {
         return area;
     }
 

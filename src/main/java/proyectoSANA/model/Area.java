@@ -7,7 +7,7 @@ public class Area {
     private String descripcion;
     private int numeroZonas;
     private String nombre;
-    private String ubicacionGeográfica;
+    private String ubicacionGeografica;
     private String orientacion;
     private String instalacion;
     private String comentarios;
@@ -30,8 +30,8 @@ public class Area {
     public String getNombre(){
         return nombre;
     }
-    public String getUbicacionGeográfica(){
-        return ubicacionGeográfica;
+    public String getUbicacionGeografica(){
+        return ubicacionGeografica;
     }
     public String getOrientacion(){
         return orientacion;
@@ -57,8 +57,8 @@ public class Area {
     public void setNombre(String nombre){
         this.nombre = nombre;
     }
-    public void setUbicacionGeográfica(String ubicacionGeográfica){
-        this.ubicacionGeográfica = ubicacionGeográfica;
+    public void setUbicacionGeografica(String ubicacionGeografica){
+        this.ubicacionGeografica = ubicacionGeográfica;
     }
     public void setOrientacion(String orientacion){
         this.orientacion = orientacion;
