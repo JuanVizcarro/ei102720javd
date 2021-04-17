@@ -17,7 +17,7 @@ public class ReservaRowMapper implements RowMapper<Reserva> {
         reserva.setLimiteReserva(rs.getInt("limiteReserva"));
         reserva.setArea(rs.getString("area"));
         reserva.setZona(rs.getString("zona"));
-        reserva.setHorarioReserva(rs.getString("horarioReserva"));
+        reserva.setHorarioReserva(rs.getDate("horarioReserva"));
         return reserva;
     }
 }
