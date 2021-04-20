@@ -65,7 +65,7 @@ public class CiudadanoController {
         return "redirect:list";
     }
 
-    @RequestMapping(value="/delete/{DNI}")
+    @RequestMapping(value="/delete/{dni}")
     public String processDelete(@PathVariable String dni) {
         ciudadanoDao.deleteCiudadano(dni);
         return "redirect:../list";
