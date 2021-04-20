@@ -50,7 +50,7 @@ public class CiudadanoController {
     }
 
     @RequestMapping(value="/update/{dni}", method = RequestMethod.GET)
-    public String editCiudadano(Model model, @PathVariable int dni) {
+    public String editCiudadano(Model model, @PathVariable String dni) {
         model.addAttribute("ciudadano", ciudadanoDao.getCiudadano(dni));
         return "ciudadano/update";
     }
@@ -66,7 +66,7 @@ public class CiudadanoController {
     }
 
     @RequestMapping(value="/delete/{DNI}")
-    public String processDelete(@PathVariable int dni) {
+    public String processDelete(@PathVariable String dni) {
         ciudadanoDao.deleteCiudadano(dni);
         return "redirect:../list";
     }

@@ -2,7 +2,7 @@ package proyectoSANA.model;
 
 public class Ciudadano {
     private String nombre;
-    private int DNI;
+    private String DNI;
     private String email;
     private String direccion;
     private String municipio;
@@ -16,7 +16,7 @@ public class Ciudadano {
         this.nombre = nombre;
     }
 
-    public void setDNI(int DNI) {
+    public void setDNI(String DNI) {
         this.DNI = DNI;
     }
 
@@ -40,7 +40,7 @@ public class Ciudadano {
         return nombre;
     }
 
-    public int getDNI() {
+    public String getDNI() {
         return DNI;
     }
 

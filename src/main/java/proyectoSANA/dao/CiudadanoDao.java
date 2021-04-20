@@ -29,7 +29,7 @@ public class CiudadanoDao {
     }
 
     /* Esborra el ciudadano de la base de dades */
-    public void deleteCiudadano(int dni) {
+    public void deleteCiudadano(String dni) {
         jdbcTemplate.update("DELETE FROM Ciudadano WHERE DNI = ?",
                 dni);
     }
@@ -48,7 +48,7 @@ public class CiudadanoDao {
     }
 
     /* Obté el municipi amb el dni donat. Torna null si no existeix. */
-    public Ciudadano getCiudadano(int dniCiudadano) {
+    public Ciudadano getCiudadano(String dniCiudadano) {
         try {
             return jdbcTemplate.queryForObject(
                     "SELECT * FROM Ciudadano WHERE DNI = ?",
