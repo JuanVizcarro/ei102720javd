@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Crear nuevo ciudadano</title>
+    <title>Crear nuevo Gestor Municipal</title>
     <meta charset="UTF-8" />
     <link rel="stylesheet"
           href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"/>
 </head>
 <body>
-<h2>Nuevo Ciudadano</h2>
-<form action="#" th:action="@{/ciudadano/add}"
-      th:object="${ciudadano}" method="post">
+<h2>Nuevo Gestor Municipal</h2>
+<form action="#" th:action="@{/gestormunicipal/add}"
+      th:object="${gestormunicipal}" method="post">
     <table>
         <tr>
             <td><label>Nombre</label></td>
@@ -20,23 +20,19 @@
             <td><input type="text" th:field="*{DNI}" /></td>
         </tr>
         <tr>
-            <td><label>E-mail</label></td>
-            <td><input type="text" th:field="*{email}" /></td>
+            <td><label>Pueblo</label></td>
+            <td><input type="text" th:field="*{pueblo}" /></td>
         </tr>
         <tr>
-            <td><label>Dirección</label></td>
-            <td><input type="text" th:field="*{direccion}" /></td>
+            <td><label>Fecha Inicio</label></td>
+            <td><input type="text" th:field="*{fechaInicio}" /></td>
         </tr>
         <tr>
-            <td><label>Municipio</label></td>
-            <td><input type="text" th:field="*{municipio}" /></td>
+            <td><label>Fecha Fin</label></td>
+            <td><input type="text" th:field="*{fechaFin}" /></td>
         </tr>
         <tr>
-            <td><label>Pais</label></td>
-            <td><input type="text" th:field="*{pais}" /></td>
-        </tr>
-        <tr>
-            <td colspan="2"><input type="submit" value="Añadir ciudadano" /></td>
+            <td colspan="2"><input type="submit" value="Añadir Gestor Municipal" /></td>
         </tr>
     </table>
 </form>
