@@ -10,7 +10,7 @@ public class Area {
     private String ubicacionGeografica;
     private String orientacion;
     private String instalacion;
-    private String comentarios;
+    private String comentario;
 
     public Area(){
 
@@ -39,8 +39,8 @@ public class Area {
     public String getInstalacion(){
         return instalacion;
     }
-    public String getComentarios(){
-        return comentarios;
+    public String getComentario(){
+        return comentario;
     }
     public void setMunicipio(String municipio){
         this.municipio = municipio;
@@ -66,8 +66,8 @@ public class Area {
     public void setInstalacion(String instalacion){
         this.instalacion = instalacion;
     }
-    public void setComentarios(String comentarios){
-        this.comentarios = comentarios;
+    public void setComentario(String comentario){
+        this.comentario = comentario;
     }
 
 }

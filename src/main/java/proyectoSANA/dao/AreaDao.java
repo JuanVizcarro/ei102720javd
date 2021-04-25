@@ -24,7 +24,7 @@ public class AreaDao {
         jdbcTemplate.update("INSERT INTO Area VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?)",
                area.getMunicipio(),area.getTipoAcceso(),area.getDescripcion(),area.getNumeroDeZonas(),
                 area.getNombre(),area.getUbicacionGeografica(),area.getOrientacion(),area.getInstalacion(),
-                area.getComentarios());
+                area.getComentario());
     }
     public void deleteArea(String nombre) {
         jdbcTemplate.update("DELETE FROM Area WHERE nombre = ?",
@@ -35,10 +35,10 @@ public class AreaDao {
                 area.getNombre());
     }
     public void updateArea(Area area) {
-        jdbcTemplate.update("UPDATE Area SET tipoAcceso = ?, descripcion = ?, numeroZonas = ?, ubicacionGeografica = ?, orientacion = ?, instalacion = ?, comentarios = ? WHERE nombre = ?",
+        jdbcTemplate.update("UPDATE Area SET tipoAcceso = ?, descripcion = ?, numeroDeZonas = ?, ubicacionGeografica = ?, orientacion = ?, instalacion = ?, comentario = ? WHERE nombre = ?",
                 area.getTipoAcceso(),area.getDescripcion(),area.getNumeroDeZonas(),
                 area.getUbicacionGeografica(),area.getOrientacion(),area.getInstalacion(),
-                area.getComentarios(),area.getNombre());
+                area.getComentario(),area.getNombre());
     }
     public Area getArea(String nomArea) {
         try {

@@ -18,7 +18,7 @@
         <th scope="col">UbicacionGeografica</th>
         <th scope="col">Orientacion</th>
         <th scope="col">Instalacion</th>
-        <th scope="col">Comentarios</th>
+        <th scope="col">Comentario</th>
         <th scope="col"></th>
         <th scope="col"></th>
     </tr>
@@ -33,14 +33,14 @@
         <td th:text="${area.UbicacionGeografica}"></td>
         <td th:text="${area.Orientacion}"></td>
         <td th:text="${area.Instalacion}"></td>
-        <td th:text="${area.Comentarios}"></td>
+        <td th:text="${area.Comentario}"></td>
         <td><a class="btn btn-warning" th:href="@{/area/update/{nombre}(nombre=${area.nombre})}" role="button">Edita</a>
         </td>
-        <td><a class="btn btn-danger" th:href="@{/municipio/delete/{nombre}(nombre=${area.nombre})}" role="button">Borra</a>
+        <td><a class="btn btn-danger" th:href="@{/area/delete/{nombre}(nombre=${area.nombre})}" role="button">Borra</a>
         </td>
     </tr>
     </tbody>
 </table>
-<a class="btn btn-success" href="add" role="button">Añadir municipio</a>
+<a class="btn btn-success" href="add" role="button">Añadir area</a>
 </body>
 </html>

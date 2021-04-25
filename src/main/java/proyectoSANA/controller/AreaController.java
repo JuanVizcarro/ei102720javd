@@ -18,7 +18,7 @@ public class AreaController {
     private AreaDao areaDao;
 
     @Autowired
-    public void setAreaDAO(AreaDao areaDao) {
+    public void setAreaDao(AreaDao areaDao) {
         this.areaDao = areaDao;
     }
 
