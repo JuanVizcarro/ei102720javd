@@ -1,5 +1,6 @@
 package proyectoSANA.model;
 
+import java.sql.Time;
 import java.util.Date;
 
 public class Reserva {
@@ -7,8 +8,8 @@ public class Reserva {
     private String persona;
     private Date fecha;
     private int numeroPersonas;
-    private time horaInicio;
-    private time horaFin;
+    //private Time horaInicio;
+    //private Time horaFin;
     private int limiteReserva;
     private String area;
     private String zona;
