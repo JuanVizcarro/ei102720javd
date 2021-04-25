@@ -31,7 +31,7 @@ public class AreaController {
     @RequestMapping("/list")
     public String listArea(Model model) {
         model.addAttribute("areas", areaDao.getAreas());
-        return "areas/list";
+        return "area/list";
     }
 
     @RequestMapping(value="/add", method= RequestMethod.POST)
