@@ -21,7 +21,7 @@ public class AreaDao {
     }
 
     public void addArea(Area area) {
-        jdbcTemplate.update("INSERT INTO Area VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?)",
+        jdbcTemplate.update("INSERT INTO Area VALUES(?, ?, ?)",
                area.getMunicipio(),area.getTipoAcceso(),area.getDescripcion(),area.getNumeroDeZonas(),
                 area.getNombre(),area.getUbicacionGeografica(),area.getOrientacion(),area.getInstalacion(),
                 area.getComentario());
@@ -35,17 +35,17 @@ public class AreaDao {
                 area.getNombre());
     }
     public void updateArea(Area area) {
-        jdbcTemplate.update("UPDATE Area SET tipoAcceso = ?, descripcion = ?, numeroDeZonas = ?, ubicacionGeografica = ?, orientacion = ?, instalacion = ?, comentario = ? WHERE nombre = ?",
+        jdbcTemplate.update("UPDATE Area SET tipoAcceso = ?, descripcion = ?, numeroZonas = ?, ubicacionGeografica = ?, orientacion = ?, instalacion = ?, comentarios = ? WHERE nombre = ?",
                 area.getTipoAcceso(),area.getDescripcion(),area.getNumeroDeZonas(),
                 area.getUbicacionGeografica(),area.getOrientacion(),area.getInstalacion(),
                 area.getComentario(),area.getNombre());
     }
-    public Area getArea(String nomArea) {
+    public Area getArea(String nomMunicipio) {
         try {
             return jdbcTemplate.queryForObject(
                     "SELECT * FROM Area WHERE nombre =?",
                     new AreaRowMapper(),
-                    nomArea);
+                    nomMunicipio);
         }
         catch(EmptyResultDataAccessException e) {
             return null;
