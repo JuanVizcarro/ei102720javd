@@ -5,7 +5,7 @@ public class Area {
     private String municipio;
     private String tipoAcceso;
     private String descripcion;
-    private int numeroZonas;
+    private int numeroDeZonas;
     private String nombre;
     private String ubicacionGeografica;
     private String orientacion;
@@ -24,8 +24,8 @@ public class Area {
     public String getDescripcion(){
         return descripcion;
     }
-    public int getNumeroZonas(){
-        return numeroZonas;
+    public int getNumeroDeZonas(){
+        return numeroDeZonas;
     }
     public String getNombre(){
         return nombre;
@@ -51,8 +51,8 @@ public class Area {
     public void setDescripcion(String descripcion){
         this.descripcion = descripcion;
     }
-    public void setNumeroZonas(int numeroZonas){
-        this.numeroZonas = numeroZonas;
+    public void setNumeroDeZonas(int numeroDeZonas){
+        this.numeroDeZonas = numeroDeZonas;
     }
     public void setNombre(String nombre){
         this.nombre = nombre;
