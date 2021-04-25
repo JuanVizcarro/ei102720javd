@@ -7,6 +7,8 @@ public class Reserva {
     private String persona;
     private Date fecha;
     private int numeroPersonas;
+    private time horaInicio;
+    private time horaFin;
     private int limiteReserva;
     private String area;
     private String zona;
