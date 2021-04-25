@@ -25,7 +25,7 @@ public class GestorMunicipalDao {
 
     /* Afegeix el gestormunicipal a la base de dades */
     public void addGestorMun(GestorMunicipal gestorMunicipal) {
-        jdbcTemplate.update("INSERT INTO GestorMunicpal VALUES(?, ?, ?, ?, ?)",
+        jdbcTemplate.update("INSERT INTO GestorMunicipal VALUES(?, ?, ?, ?, ?)",
                 gestorMunicipal.getNombre(), gestorMunicipal.getDNI(), gestorMunicipal.getPueblo(), gestorMunicipal.getFechaInicio(), gestorMunicipal.getFechaFin());
     }
 
