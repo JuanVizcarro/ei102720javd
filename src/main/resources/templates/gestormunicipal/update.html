@@ -1,10 +1,40 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Modificar Gestor Municipal</title>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"/>
 </head>
 <body>
-
+<h2>Modificar Gestor Municipal</h2>
+<form action="#" th:action="@{/gestormunicipal/update}"
+      th:object="${gestormunicipal}" method="post">
+    <table>
+        <tr>
+            <td><label>Nombre</label></td>
+            <td><input type="text" th:field="*{nombre}" /></td>
+        </tr>
+        <tr>
+            <td><label>DNI</label></td>
+            <td><input type="text" th:field="*{DNI}" /></td>
+        </tr>
+        <tr>
+            <td><label>Pueblo</label></td>
+            <td><input type="text" th:field="*{pueblo}" /></td>
+        </tr>
+        <tr>
+            <td><label>Fecha Inicio</label></td>
+            <td><input type="text" th:field="*{fechaInicio}" /></td>
+        </tr>
+        <tr>
+            <td><label>Fecha Fin</label></td>
+            <td><input type="text" th:field="*{fechaFin}" /></td>
+        </tr>
+        <tr>
+            <td colspan="2"><input type="submit" value="Modifica Gestor Municipal" /></td>
+        </tr>
+    </table>
+</form>
 </body>
 </html>
