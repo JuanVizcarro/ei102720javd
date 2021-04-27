@@ -44,7 +44,7 @@ public class CiudadanoDao {
        (excepte el nom, que és la clau primària) */
     public void updateCiudadano(Ciudadano ciudadano) {
         jdbcTemplate.update("UPDATE Ciudadano SET nombre = ?, email = ?, direccion = ?, municipio = ?,pais = ? WHERE DNI = ?",
-                ciudadano.getNombre(), ciudadano.getEmail(), ciudadano.getDireccion(), ciudadano.getMunicipio(), ciudadano.getPais());
+                ciudadano.getNombre(), ciudadano.getEmail(), ciudadano.getDireccion(), ciudadano.getMunicipio(), ciudadano.getPais(), ciudadano.getDNI());
     }
 
     /* Obté el municipi amb el dni donat. Torna null si no existeix. */
