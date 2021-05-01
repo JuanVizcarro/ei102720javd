@@ -8,13 +8,22 @@ public class Area {
     private int numeroDeZonas;
     private String nombre;
     private String ubicacionGeografica;
+    private String tipoArea;
+    private String caracteristicaFisica;
     private String orientacion;
     private String instalacion;
     private String comentario;
+    private String imagen;
 
     public Area(){
 
     }
+    public String getTipoArea() { return tipoArea; }
+    public void setTipoArea(String tipoArea) { this.tipoArea = tipoArea; }
+    public String getCaracteristicaFisica() { return caracteristicaFisica; }
+    public void setCaracteristicaFisica(String caracteristicaFisica) { this.caracteristicaFisica = caracteristicaFisica; }
+    public String getImagen() { return imagen; }
+    public void setImagen(String imagen) { this.imagen = imagen; }
     public String getMunicipio(){
         return municipio;
     }

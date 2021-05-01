@@ -21,10 +21,10 @@ public class AreaDao {
     }
 
     public void addArea(Area area) {
-        jdbcTemplate.update("INSERT INTO Area VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?)",
+        jdbcTemplate.update("INSERT INTO Area VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
                area.getMunicipio(),area.getTipoAcceso(),area.getDescripcion(),area.getNumeroDeZonas(),
-                area.getNombre(),area.getUbicacionGeografica(),area.getOrientacion(),area.getInstalacion(),
-                area.getComentario());
+                area.getNombre(),area.getUbicacionGeografica(),area.getTipoArea(),area.getCaracteristicaFisica(),area.getOrientacion(),area.getInstalacion(),
+                area.getComentario(),area.getImagen());
     }
     public void deleteArea(String nombre) {
         jdbcTemplate.update("DELETE FROM Area WHERE nombre = ?",
@@ -35,17 +35,17 @@ public class AreaDao {
                 area.getNombre());
     }
     public void updateArea(Area area) {
-        jdbcTemplate.update("UPDATE Area SET tipoAcceso = ?, descripcion = ?, numeroDeZonas = ?, ubicacionGeografica = ?, orientacion = ?, instalacion = ?, comentario = ? WHERE nombre = ?",
+        jdbcTemplate.update("UPDATE Area SET tipoAcceso = ?, descripcion = ?, numeroDeZonas = ?, ubicacionGeografica = ?, tipoArea = ?, caracteristicaFisica = ?, orientacion = ?, instalacion = ?, comentario = ? , imagen = ? WHERE nombre = ?",
                 area.getTipoAcceso(),area.getDescripcion(),area.getNumeroDeZonas(),
-                area.getUbicacionGeografica(),area.getOrientacion(),area.getInstalacion(),
-                area.getComentario(),area.getNombre());
+                area.getUbicacionGeografica(),area.getTipoArea(),area.getCaracteristicaFisica(),area.getOrientacion(),area.getInstalacion(),
+                area.getComentario(),area.getImagen(),area.getNombre());
     }
-    public Area getArea(String nomMunicipio) {
+    public Area getArea(String nomArea) {
         try {
             return jdbcTemplate.queryForObject(
                     "SELECT * FROM Area WHERE nombre =?",
                     new AreaRowMapper(),
-                    nomMunicipio);
+                    nomArea);
         }
         catch(EmptyResultDataAccessException e) {
             return null;

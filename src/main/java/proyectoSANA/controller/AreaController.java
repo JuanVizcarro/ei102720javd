@@ -39,6 +39,7 @@ public class AreaController {
                                    BindingResult bindingResult) {
         if (bindingResult.hasErrors())
             return "area/add";
+        System.out.println(area.getNombre()+area.getMunicipio()+area.getNumeroDeZonas()+area.getDescripcion()+area.getTipoAcceso()+area.getUbicacionGeografica()+area.getInstalacion()+area.getInstalacion()+area.getComentario());
         areaDao.addArea(area);
         return "redirect:list";
     }
