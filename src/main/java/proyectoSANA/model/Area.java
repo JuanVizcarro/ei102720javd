@@ -79,4 +79,28 @@ public class Area {
         this.comentario = comentario;
     }
 
+    @Override
+    public String toString() {
+        return "Area{" +
+                "municipio: " + municipio + "\n" +
+                " :" + + ", " +
+                " :" + + ", " +
+                " :" + + ", " +
+                " :" + + ", " +
+                " :" + + ", " +
+                '}';
+    }
+    private String municipio;
+    private String tipoAcceso;
+    private String descripcion;
+    private int numeroDeZonas;
+    private String nombre;
+    private String ubicacionGeografica;
+    private String tipoArea;
+    private String caracteristicaFisica;
+    private String orientacion;
+    private String instalacion;
+    private String comentario;
+    private String imagen;
+
 }

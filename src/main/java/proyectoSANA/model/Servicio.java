@@ -1,6 +1,6 @@
 package proyectoSANA.model;
 
-import org.apache.tomcat.jni.Time;
+import java.sql.Time;
 
 public class Servicio {
     private String identificador;
@@ -12,7 +12,24 @@ public class Servicio {
     private Time fechaInicio;
     private Time fechaFin;
 
-    public Servicio(){
+    public Servicio(){}
 
-    }
+    //Metodos de devolucion de datos, getters
+    public String getIdentificador(){ return identificador;}
+    public String getNombre(){ return nombre;}
+    public String getDescripcion(){ return descripcion;}
+    public String getTipo(){ return tipo;}
+    public String getArea(){ return area;}
+    public int getNumero(){ return numero;}
+    public Time getFechaInicio(){ return fechaInicio;}
+    public Time getFechaFin(){ return fechaFin;}
+
+    //Metodos de introduccion de datos, setters
+    public boolean setNombre(String nombre){this.nombre = nombre; return true;}
+    public boolean setDescripcion(String descripcion){this.descripcion = descripcion; return true;}
+    public boolean setTipo(String tipo){this.tipo = tipo; return true;}
+    public boolean setArea(String area){this.area = area; return true;}
+    public boolean setNumero(int numero){this.numero = numero; return true;}
+    public boolean setFechaInicio(Time fecha){this.fechaInicio = fecha; return true;}
+    public boolean setFechaFin(Time fecha){this.fechaFin = fecha; return true;}
 }
