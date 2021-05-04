@@ -1,18 +1,11 @@
 package proyectoSANA.model;
 
-import java.util.Date;
-
-public class GestorMunicipal {
-
-    private String nombre;
+public class PersonalDeControl {
     private String dni;
+    private String email;
+    private String nombre;
     private String pueblo;
-    private Date   fechaInicio;
-    private Date    fechaFin;
-
-    public GestorMunicipal(){
-
-    }
+    private String area;
 
     public String getDni() {
         return dni;
@@ -20,6 +13,14 @@ public class GestorMunicipal {
 
     public void setDni(String dni) {
         this.dni = dni;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public String getNombre() {
@@ -38,30 +39,22 @@ public class GestorMunicipal {
         this.pueblo = pueblo;
     }
 
-    public Date getFechaInicio() {
-        return fechaInicio;
+    public String getArea() {
+        return area;
     }
 
-    public void setFechaInicio(Date fechaInicio) {
-        this.fechaInicio = fechaInicio;
-    }
-
-    public Date getFechaFin() {
-        return fechaFin;
-    }
-
-    public void setFechaFin(Date fechaFin) {
-        this.fechaFin = fechaFin;
+    public void setArea(String area) {
+        this.area = area;
     }
 
     @Override
     public String toString() {
-        return "Ciudadano{" +
+        return "PersonalDeControl{" +
                 "dni='" + dni + '\'' +
+                ",email=" + email +
                 ", nombre=" + nombre +
                 ", pueblo=" + pueblo +
-                ", fechaInicio=" + fechaInicio +
-                ", fechaFin=" + fechaFin +
+                ", area=" + area +
                 '}';
     }
 }

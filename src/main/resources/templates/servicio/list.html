@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Gestionar de Servicios</title>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" />
+</head>
+<body>
+<h1>Lista de Servicios</h1>
+<table class="table table-striped">
+    <thead>
+    <tr>
+        <th scope="col">Identificador</th>
+        <th scope="col">Nombre</th>
+        <th scope="col">Descripcion</th>
+        <th scope="col">Tipo</th>
+        <th scope="col">Area</th>
+        <th scope="col">Numero</th>
+        <th scope="col">FechaInicio</th>
+        <th scope="col">FechaFin</th>
+        <th scope="col"></th>
+        <th scope="col"></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="servicio: ${servicios}">
+        <td th:text="${servicio.identificador}"></td>
+        <td th:text="${servicio.nombre}"></td>
+        <td th:text="${servicio.descripcion}"></td>
+        <td th:text="${servicio.tipo}"></td>
+        <td th:text="${servicio.area}"></td>
+        <td th:text="${servicio.numero}"></td>
+        <td th:text="${servicio.fechaInicio}"></td>
+        <td th:text="${servicio.fechaFin}"></td>
+        <td><a class="btn btn-warning" th:href="@{/servicio/update/{identificador}(identificador=${servicio.identificador})}" role="button">Edita</a>
+        </td>
+        <td><a class="btn btn-danger" th:href="@{/servicio/delete/{identificador}(identificador=${servicio.identificador})}" role="button">Borra</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+<a class="btn btn-success" href="add" role="button">Añadir municipio</a>
+</body>
+</html>

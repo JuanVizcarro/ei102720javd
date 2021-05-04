@@ -79,4 +79,21 @@ public class Area {
         this.comentario = comentario;
     }
 
+    @Override
+    public String toString() {
+        return "Area{" +
+                "municipio: " + municipio + ", " +
+                "tipoAcceso: " + tipoAcceso + ", " +
+                "descripcion: " + descripcion + ", " +
+                "numeroDeZonas: " + numeroDeZonas + ", " +
+                "nombre: " + nombre+ ", " +
+                "ubicacionGeografica: " + ubicacionGeografica + ", " +
+                "tipoArea: " + tipoArea + ", " +
+                "caracteristicaFisica: " + caracteristicaFisica + ", " +
+                "orientacion: " + orientacion + ", " +
+                "instalacion: " + instalacion + ", " +
+                "comentario: " + comentario + ", " +
+                "imagen: " + imagen + ", " +
+                '}';
+    }
 }
