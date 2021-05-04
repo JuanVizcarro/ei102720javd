@@ -82,25 +82,18 @@ public class Area {
     @Override
     public String toString() {
         return "Area{" +
-                "municipio: " + municipio + "\n" +
-                " :" + + ", " +
-                " :" + + ", " +
-                " :" + + ", " +
-                " :" + + ", " +
-                " :" + + ", " +
+                "municipio: " + municipio + ", " +
+                "tipoAcceso: " + tipoAcceso + ", " +
+                "descripcion: " + descripcion + ", " +
+                "numeroDeZonas: " + numeroDeZonas + ", " +
+                "nombre: " + nombre+ ", " +
+                "ubicacionGeografica: " + ubicacionGeografica + ", " +
+                "tipoArea: " + tipoArea + ", " +
+                "caracteristicaFisica: " + caracteristicaFisica + ", " +
+                "orientacion: " + orientacion + ", " +
+                "instalacion: " + instalacion + ", " +
+                "comentario: " + comentario + ", " +
+                "imagen: " + imagen + ", " +
                 '}';
     }
-    private String municipio;
-    private String tipoAcceso;
-    private String descripcion;
-    private int numeroDeZonas;
-    private String nombre;
-    private String ubicacionGeografica;
-    private String tipoArea;
-    private String caracteristicaFisica;
-    private String orientacion;
-    private String instalacion;
-    private String comentario;
-    private String imagen;
-
 }
