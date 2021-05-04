@@ -1,5 +1,6 @@
 package proyectoSANA.model;
 
+import java.sql.Date;
 import java.sql.Time;
 
 public class Servicio {
@@ -9,8 +10,8 @@ public class Servicio {
     private String tipo;
     private String area;
     private int numero;
-    private Time fechaInicio;
-    private Time fechaFin;
+    private Date fechaInicio;
+    private Date fechaFin;
 
     public Servicio(){}
 
@@ -21,8 +22,8 @@ public class Servicio {
     public String getTipo(){ return tipo;}
     public String getArea(){ return area;}
     public int getNumero(){ return numero;}
-    public Time getFechaInicio(){ return fechaInicio;}
-    public Time getFechaFin(){ return fechaFin;}
+    public Date getFechaInicio(){ return fechaInicio;}
+    public Date getFechaFin(){ return fechaFin;}
 
     //Metodos de introduccion de datos, setters
     public boolean setNombre(String nombre){this.nombre = nombre; return true;}
@@ -30,8 +31,8 @@ public class Servicio {
     public boolean setTipo(String tipo){this.tipo = tipo; return true;}
     public boolean setArea(String area){this.area = area; return true;}
     public boolean setNumero(int numero){this.numero = numero; return true;}
-    public boolean setFechaInicio(Time fecha){this.fechaInicio = fecha; return true;}
-    public boolean setFechaFin(Time fecha){this.fechaFin = fecha; return true;}
+    public boolean setFechaInicio(Date fecha){this.fechaInicio = fecha; return true;}
+    public boolean setFechaFin(Date fecha){this.fechaFin = fecha; return true;}
 
     //Devolucion por pantalla, toString
     @Override
