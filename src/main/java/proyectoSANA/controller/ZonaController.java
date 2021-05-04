@@ -12,10 +12,7 @@ import proyectoSANA.dao.CiudadanoDao;
 import proyectoSANA.dao.GestorMunicipalDao;
 import proyectoSANA.dao.MunicipioDao;
 import proyectoSANA.dao.ZonaDao;
-import proyectoSANA.model.Ciudadano;
-import proyectoSANA.model.GestorMunicipal;
-import proyectoSANA.model.Municipio;
-import proyectoSANA.model.Zona;
+import proyectoSANA.model.*;
 
 @Controller
 @RequestMapping("/zona")
@@ -34,6 +31,7 @@ public class ZonaController {
         model.addAttribute("zona", new Zona());
         return "zona/add";
     }
+
 
     @RequestMapping("/list")
     public String listZona(Model model) {

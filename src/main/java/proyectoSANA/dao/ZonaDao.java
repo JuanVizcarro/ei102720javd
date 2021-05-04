@@ -32,6 +32,7 @@ public class ZonaDao {
                 numero);
     }
 
+
     public void deleteZona(Zona zona) {
         jdbcTemplate.update("DELETE FROM Zona WHERE numero = ?",
                 zona.getNumero());
