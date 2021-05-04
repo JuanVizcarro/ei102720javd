@@ -32,4 +32,19 @@ public class Servicio {
     public boolean setNumero(int numero){this.numero = numero; return true;}
     public boolean setFechaInicio(Time fecha){this.fechaInicio = fecha; return true;}
     public boolean setFechaFin(Time fecha){this.fechaFin = fecha; return true;}
+
+    //Devolucion por pantalla, toString
+    @Override
+    public String toString() {
+        return "Area{" +
+                "Identificador: " + identificador + ", " +
+                "Nombre: " + nombre + ", " +
+                "Descripcion: " + descripcion + ", " +
+                "Tipo: " + tipo + ", " +
+                "Area: " + area + ", " +
+                "Numero: " + numero + ", " +
+                "FechaInicio: " + fechaInicio + ", " +
+                "FechaFin: " + fechaFin + ", " +
+                '}';
+    }
 }
