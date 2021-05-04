@@ -32,9 +32,9 @@
         <td th:text="${servicio.numero}"></td>
         <td th:text="${servicio.fechaInicio}"></td>
         <td th:text="${servicio.fechaFin}"></td>
-        <td><a class="btn btn-warning" th:href="@{/Servicio/update/{identificador}(identificador=${servicio.identificador})}" role="button">Edita</a>
+        <td><a class="btn btn-warning" th:href="@{/servicio/update/{identificador}(identificador=${servicio.identificador})}" role="button">Edita</a>
         </td>
-        <td><a class="btn btn-danger" th:href="@{/municipio/delete/{identificador}(identificador=${servicio.identificador})}" role="button">Borra</a>
+        <td><a class="btn btn-danger" th:href="@{/servicio/delete/{identificador}(identificador=${servicio.identificador})}" role="button">Borra</a>
         </td>
     </tr>
     </tbody>

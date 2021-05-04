@@ -15,29 +15,74 @@ public class Servicio {
 
     public Servicio(){}
 
-    //Metodos de devolucion de datos, getters
-    public String getIdentificador(){ return identificador;}
-    public String getNombre(){ return nombre;}
-    public String getDescripcion(){ return descripcion;}
-    public String getTipo(){ return tipo;}
-    public String getArea(){ return area;}
-    public int getNumero(){ return numero;}
-    public Date getFechaInicio(){ return fechaInicio;}
-    public Date getFechaFin(){ return fechaFin;}
+    public String getIdentificador() {
+        return identificador;
+    }
 
-    //Metodos de introduccion de datos, setters
-    public boolean setNombre(String nombre){this.nombre = nombre; return true;}
-    public boolean setDescripcion(String descripcion){this.descripcion = descripcion; return true;}
-    public boolean setTipo(String tipo){this.tipo = tipo; return true;}
-    public boolean setArea(String area){this.area = area; return true;}
-    public boolean setNumero(int numero){this.numero = numero; return true;}
-    public boolean setFechaInicio(Date fecha){this.fechaInicio = fecha; return true;}
-    public boolean setFechaFin(Date fecha){this.fechaFin = fecha; return true;}
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public String getDescripcion() {
+        return descripcion;
+    }
+
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
+    }
+
+    public String getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
+    }
+
+    public String getArea() {
+        return area;
+    }
+
+    public void setArea(String area) {
+        this.area = area;
+    }
+
+    public int getNumero() {
+        return numero;
+    }
+
+    public void setNumero(int numero) {
+        this.numero = numero;
+    }
+
+    public Date getFechaInicio() {
+        return fechaInicio;
+    }
+
+    public void setFechaInicio(Date fechaInicio) {
+        this.fechaInicio = fechaInicio;
+    }
+
+    public Date getFechaFin() {
+        return fechaFin;
+    }
+
+    public void setFechaFin(Date fechaFin) {
+        this.fechaFin = fechaFin;
+    }
+
+    public void setIdentificador(String identificador) {
+        this.identificador = identificador;
+    }
 
     //Devolucion por pantalla, toString
     @Override
     public String toString() {
-        return "Area{" +
+        return "Servicio{" +
                 "Identificador: " + identificador + ", " +
                 "Nombre: " + nombre + ", " +
                 "Descripcion: " + descripcion + ", " +
