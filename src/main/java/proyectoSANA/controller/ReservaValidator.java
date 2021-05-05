@@ -5,6 +5,12 @@ import org.springframework.validation.Validator;
 import proyectoSANA.model.Area;
 import proyectoSANA.model.Reserva;
 
+import java.sql.Date;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
+
 public class ReservaValidator implements Validator{
     @Override
     public boolean supports(Class<?> cls) {
@@ -23,10 +29,11 @@ public class ReservaValidator implements Validator{
             errors.rejectValue("persona", "obligatorio",
                     "Este campo es obligatorio.");
 
-        if (reserva.getFecha()==null)
+        //Date now = LocalDate.now();
+        /*if (reserva.getFecha() < now)
             errors.rejectValue("fecha", "obligatorio",
                     "Este campo es obligatorio.");
-
+*/
         if (reserva.getNumeroPersonas()==0)
             errors.rejectValue("numeroPersonas", "obligatorio",
                     "Este campo es obligatorio.");
