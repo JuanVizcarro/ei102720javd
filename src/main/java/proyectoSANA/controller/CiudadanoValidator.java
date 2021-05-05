@@ -20,10 +20,16 @@ public class CiudadanoValidator implements Validator {
     public void validate(Object obj, Errors errors) {
         Ciudadano ciudadano = (Ciudadano)obj;
         if (ciudadano.getNombre().trim().equals(""))
-            errors.rejectValue("nom", "obligatori",
-                    "Cal introduir un valor");
-        // Afegeix ací la validació per a Edat > 15 anys
-        if (ciudadano.getEdad() <= 15)
-            errors.rejectValue("edat", "edat incorrecta","L'edat ha de ser major de 15 per poder participar");
+            errors.rejectValue("nombre", "obligatori",
+                    "Es necesario introducir un valor");
+        if (ciudadano.getDNI().trim().equals(""))
+            errors.rejectValue("nombre", "obligatori",
+                    "Es necesario introducir un valor");
+        if (ciudadano.getEmail().trim().equals(""))
+            errors.rejectValue("nombre", "obligatori",
+                    "Es necesario introducir un valor");
+        if (ciudadano.getEdad()==0)
+            errors.rejectValue("nombre", "obligatori",
+                    "Es necesario introducir un valor");
     }
 }
