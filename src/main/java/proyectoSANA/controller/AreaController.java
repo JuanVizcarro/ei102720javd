@@ -41,26 +41,30 @@ public class AreaController {
         areaValidator.validate(area, bindingResult);
         if (bindingResult.hasErrors())
             return "area/add";
-        System.out.println(area.getNombre()+area.getMunicipio()+area.getNumeroDeZonas()+area.getDescripcion()+area.getTipoAcceso()+area.getUbicacionGeografica()+area.getInstalacion()+area.getInstalacion()+area.getComentario());
         areaDao.addArea(area);
         return "redirect:list";
     }
+
     @RequestMapping(value="/update/{nombre}", method = RequestMethod.GET)
     public String editArea(Model model, @PathVariable String nombre) {
         model.addAttribute("area", areaDao.getArea(nombre));
         return "area/update";
     }
+
     @RequestMapping(value="/update", method = RequestMethod.POST)
     public String processUpdateSubmit(
             @ModelAttribute("area") Area area,
             BindingResult bindingResult) {
+
         AreaValidator areaValidator = new AreaValidator();
         areaValidator.validate(area, bindingResult);
+
         if (bindingResult.hasErrors())
             return "area/update";
         areaDao.updateArea(area);
         return "redirect:list";
     }
+
     @RequestMapping(value="/delete/{nombre}")
     public String processDelete(@PathVariable String nombre) {
         areaDao.deleteArea(nombre);

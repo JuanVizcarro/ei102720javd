@@ -19,7 +19,7 @@ public class AreaValidator implements Validator {
                     "Este campo es obligatorio.");
 
         if (area.getTipoAcceso().trim().equals(""))
-            errors.rejectValue("tipo acceso", "obligatorio",
+            errors.rejectValue("tipoAcceso", "obligatorio",
                     "Este campo es obligatorio.");
 
         if (area.getDescripcion().trim().equals(""))
@@ -27,7 +27,7 @@ public class AreaValidator implements Validator {
                     "Este campo es obligatorio.");
 
         if (area.getNumeroDeZonas() == 0)
-            errors.rejectValue("numero de zonas", "obligatorio",
+            errors.rejectValue("numeroDeZonas", "obligatorio",
                     "Este campo es obligatorio.");
 
         if (area.getNombre().trim().equals(""))
@@ -39,7 +39,7 @@ public class AreaValidator implements Validator {
                     "Este campo es obligatorio.");
 
         if (area.getTipoArea().trim().equals(""))
-            errors.rejectValue("tipo area", "obligatorio",
+            errors.rejectValue("tipoArea", "obligatorio",
                     "Este campo es obligatorio.");
     }
 }
