@@ -24,8 +24,8 @@ public class CiudadanoDao {
 
     /* Afegeix el ciudadano a la base de dades */
     public void addCiudadano(Ciudadano ciudadano) {
-        jdbcTemplate.update("INSERT INTO Ciudadano VALUES(?, ?, ?, ?, ?, ?)",
-                ciudadano.getNombre(), ciudadano.getDNI(), ciudadano.getEmail(), ciudadano.getDireccion(), ciudadano.getMunicipio(), ciudadano.getPais());
+        jdbcTemplate.update("INSERT INTO Ciudadano VALUES(?, ?, ?, ?, ?, ?, ?)",
+                ciudadano.getNombre(), ciudadano.getDNI(), ciudadano.getEmail(),ciudadano.getEdad() , ciudadano.getDireccion(), ciudadano.getMunicipio(), ciudadano.getPais());
     }
 
     /* Esborra el ciudadano de la base de dades */
@@ -43,8 +43,8 @@ public class CiudadanoDao {
     /* Actualitza els atributs del nadador
        (excepte el nom, que és la clau primària) */
     public void updateCiudadano(Ciudadano ciudadano) {
-        jdbcTemplate.update("UPDATE Ciudadano SET nombre = ?, email = ?, direccion = ?, municipio = ?,pais = ? WHERE DNI = ?",
-                ciudadano.getNombre(), ciudadano.getEmail(), ciudadano.getDireccion(), ciudadano.getMunicipio(), ciudadano.getPais(), ciudadano.getDNI());
+        jdbcTemplate.update("UPDATE Ciudadano SET nombre = ?, email = ?, edad= ?, direccion = ?, municipio = ?,pais = ? WHERE DNI = ?",
+                ciudadano.getNombre(), ciudadano.getEmail(), ciudadano.getEdad(), ciudadano.getDireccion(), ciudadano.getMunicipio(), ciudadano.getPais(), ciudadano.getDNI());
     }
 
     /* Obté el municipi amb el dni donat. Torna null si no existeix. */
