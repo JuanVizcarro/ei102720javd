@@ -35,7 +35,7 @@ public class AreaValidator implements Validator {
                     "Este campo es obligatorio.");
 
         if (area.getUbicacionGeografica().trim().equals(""))
-            errors.rejectValue("ubicacion geografica", "obligatorio",
+            errors.rejectValue("ubicacionGeografica", "obligatorio",
                     "Este campo es obligatorio.");
 
         if (area.getTipoArea().trim().equals(""))
