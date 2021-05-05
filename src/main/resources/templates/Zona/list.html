@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Gestionar Zonas</title>
+  <meta charset="UTF-8" />
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" />
+</head>
+<body>
+<h1>Lista de Zonas</h1>
+<table class="table table-striped">
+  <thead>
+  <tr>
+    <th scope="col">Area</th>
+    <th scope="col">Numero</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr th:each="zona: ${zonas}">
+    <td th:text="${zona.area}"></td>
+    <td th:text="${zona.numero}"></td>
+    <td><a class="btn btn-danger" th:href="@{/zona/delete/{numero}(numero=${zona.numero})}" role="button">Borra</a>
+    </td>
+  </tr>
+  </tbody>
+</table>
+<a class="btn btn-success" href="add" role="button">Añadir zona</a>
+</body>
+</html>

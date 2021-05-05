@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Modificar zona</title>
+  <meta charset="UTF-8" />
+  <link rel="stylesheet"
+        href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"/>
+</head>
+<body>
+<h2>Modificar zona</h2>
+<form action="#" th:action="@{/zona/update}"
+      th:object="${zona}" method="post">
+  <table>
+    <tr>
+      <td><label>Area</label></td>
+      <td><input type="text" th:field="*{area}" /></td>
+    </tr>
+    <tr>
+      <td colspan="2"><input type="submit" value="Modifica zona" /></td>
+    </tr>
+  </table>
+</form>
+</body>
+</html>
