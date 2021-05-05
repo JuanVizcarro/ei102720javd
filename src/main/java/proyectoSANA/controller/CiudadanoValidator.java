@@ -23,13 +23,13 @@ public class CiudadanoValidator implements Validator {
             errors.rejectValue("nombre", "obligatori",
                     "Es necesario introducir un valor");
         if (ciudadano.getDNI().trim().equals(""))
-            errors.rejectValue("nombre", "obligatori",
+            errors.rejectValue("DNI", "obligatori",
                     "Es necesario introducir un valor");
         if (ciudadano.getEmail().trim().equals(""))
-            errors.rejectValue("nombre", "obligatori",
+            errors.rejectValue("email", "obligatori",
                     "Es necesario introducir un valor");
         if (ciudadano.getEdad()==0)
-            errors.rejectValue("nombre", "obligatori",
+            errors.rejectValue("edad", "obligatori",
                     "Es necesario introducir un valor");
     }
 }
