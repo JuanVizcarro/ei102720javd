@@ -38,10 +38,6 @@ public class AreaValidator implements Validator {
             errors.rejectValue("ubicacion geografica", "obligatorio",
                     "Este campo es obligatorio.");
 
-        if (area.getTipoAcceso().trim().equals(""))
-            errors.rejectValue("tipo acceso", "obligatorio",
-                    "Este campo es obligatorio.");
-
         if (area.getTipoArea().trim().equals(""))
             errors.rejectValue("tipo area", "obligatorio",
                     "Este campo es obligatorio.");
