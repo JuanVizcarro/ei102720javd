@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Crear nuevo Personal</title>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"/>
+</head>
+<body>
+<h2>Nuevo Personal</h2>
+<form action="#" th:action="@{/personaldecontrol/add}"
+      th:object="${personaldecontrol}" method="post">
+    <table>
+        <tr>
+            <td><label>Nombre</label></td>
+            <td><input type="text" th:field="*{nombre}" /></td>
+        </tr>
+        <tr>
+            <td><label>DNI</label></td>
+            <td><input type="text" th:field="*{DNI}" /></td>
+        </tr>
+        <tr>
+            <td><label>E-mail</label></td>
+            <td><input type="text" th:field="*{email}" /></td>
+        </tr>
+        <tr>
+            <td><label>Pueblo</label></td>
+            <td><input type="text" th:field="*{pueblo}" /></td>
+        </tr>
+        <tr>
+            <td><label>Área</label></td>
+            <td><input type="text" th:field="*{area}" /></td>
+        </tr>
+
+        <tr>
+            <td colspan="2"><input type="submit" value="Añadir Personal" /></td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>
