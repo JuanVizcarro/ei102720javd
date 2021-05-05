@@ -54,6 +54,8 @@ public class AreaController {
     public String processUpdateSubmit(
             @ModelAttribute("area") Area area,
             BindingResult bindingResult) {
+        AreaValidator areaValidator = new AreaValidator();
+        areaValidator.validate(area, bindingResult);
         if (bindingResult.hasErrors())
             return "area/update";
         areaDao.updateArea(area);
