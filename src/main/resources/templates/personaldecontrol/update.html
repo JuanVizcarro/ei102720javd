@@ -1,10 +1,40 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Modificar ciudadano</title>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"/>
 </head>
 <body>
-
+<h2>Modificar Personal</h2>
+<form action="#" th:action="@{/personaldecontrol/update}"
+      th:object="${personaldecontrol}" method="post">
+    <table>
+        <tr>
+            <td><label>Nombre</label></td>
+            <td><input type="text" th:field="*{nombre}" /></td>
+        </tr>
+        <tr>
+            <td><label>DNI</label></td>
+            <td><input type="text" th:field="*{dni}" /></td>
+        </tr>
+        <tr>
+            <td><label>E-mail</label></td>
+            <td><input type="text" th:field="*{email}" /></td>
+        </tr>
+        <tr>
+            <td><label>Pueblo</label></td>
+            <td><input type="text" th:field="*{pueblo}" /></td>
+        </tr>
+        <tr>
+            <td><label>Area</label></td>
+            <td><input type="text" th:field="*{area}" /></td>
+        </tr>
+        <tr>
+            <td colspan="2"><input type="submit" value="Modifica Personal" /></td>
+        </tr>
+    </table>
+</form>
 </body>
 </html>
