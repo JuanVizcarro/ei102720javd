@@ -37,6 +37,8 @@ public class AreaController {
     @RequestMapping(value="/add", method= RequestMethod.POST)
     public String processAddSubmit(@ModelAttribute("area") Area area,
                                    BindingResult bindingResult) {
+        AreaValidator areaValidator = new AreaValidator();
+        areaValidator.validate(area, bindingResult);
         if (bindingResult.hasErrors())
             return "area/add";
         System.out.println(area.getNombre()+area.getMunicipio()+area.getNumeroDeZonas()+area.getDescripcion()+area.getTipoAcceso()+area.getUbicacionGeografica()+area.getInstalacion()+area.getInstalacion()+area.getComentario());
