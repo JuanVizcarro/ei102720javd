@@ -39,7 +39,7 @@ public class GestorMunicipalController {
 
     @RequestMapping("/list")
     public String listGestorMunicipal(Model model) {
-        model.addAttribute("gestoresmunicipales", gestorMunicipalDao.getGestoresMun());
+        model.addAttribute("gestormunicipal", gestorMunicipalDao.getGestoresMun());
         return "gestormunicipal/list";
     }
 
