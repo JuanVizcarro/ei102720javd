@@ -4,6 +4,7 @@ import org.springframework.jdbc.core.RowMapper;
 import proyectoSANA.model.Servicio;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.time.LocalDate;
 
 public final class ServicioRowMapper implements RowMapper<Servicio> {
     public Servicio mapRow(ResultSet rs, int rowNum) throws SQLException {
@@ -14,8 +15,8 @@ public final class ServicioRowMapper implements RowMapper<Servicio> {
         servicio.setTipo(rs.getString("Tipo"));
         servicio.setArea(rs.getString("Area"));
         servicio.setNumero(rs.getInt("Numero"));
-        servicio.setFechaInicio(rs.getDate("FechaInicio"));
-        servicio.setFechaFin(rs.getDate("FechaFin"));
+        servicio.setFechaInicio(rs.getObject("FechaInicio", LocalDate.class));
+        servicio.setFechaFin(rs.getObject("FechaFin", LocalDate.class));
 
         return servicio;
     }
