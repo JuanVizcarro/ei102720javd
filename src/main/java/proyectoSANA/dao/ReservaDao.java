@@ -24,8 +24,8 @@ public class ReservaDao {
 
     /* Afegeix la reserva a la base de dades */
     public void addReserva(Reserva reserva) {
-        jdbcTemplate.update("INSERT INTO Reserva VALUES(?, ?, ?, ?, ?, ?, ?, ?)",
-                reserva.getNumeroReserva(), reserva.getPersona(), reserva.getFecha(), reserva.getNumeroPersonas(), reserva.getLimiteReserva(), reserva.getArea(), reserva.getZona(), reserva.getHorarioReserva());
+        jdbcTemplate.update("INSERT INTO Reserva VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
+                reserva.getNumeroReserva(), reserva.getPersona(), reserva.getFecha(), reserva.getNumeroPersonas(),reserva.getHoraInicio(), reserva.getHoraFin(), reserva.getLimiteReserva(), reserva.getArea(), reserva.getZona(), reserva.getHorarioReserva());
     }
 
     /* Esborra la reserva de la base de dades */
@@ -43,8 +43,8 @@ public class ReservaDao {
     /* Actualitza els atributs del nadador
        (excepte el nom, que és la clau primària) */
     public void updateReserva(Reserva reserva) {
-        jdbcTemplate.update("UPDATE Reserva SET persona = ?, fecha = ?, numeroPersonas = ?, limiteReserva = ?, area = ?, zona = ?, horarioReserva = ? WHERE numeroReserva = ?",
-                reserva.getPersona(), reserva.getFecha(), reserva.getNumeroPersonas(), reserva.getLimiteReserva(), reserva.getArea(), reserva.getZona(), reserva.getHorarioReserva(), reserva.getNumeroReserva());
+        jdbcTemplate.update("UPDATE Reserva SET persona = ?, fecha = ?, numeroPersonas = ?, horaInicio = ?, horaFin = ?, limiteReserva = ?, area = ?, zona = ?, horarioReserva = ? WHERE numeroReserva = ?",
+                reserva.getPersona(), reserva.getFecha(), reserva.getNumeroPersonas(), reserva.getHoraInicio(), reserva.getHoraFin(), reserva.getLimiteReserva(), reserva.getArea(), reserva.getZona(), reserva.getHorarioReserva(), reserva.getNumeroReserva());
     }
 
     /* Obté la reserv amb el dni i  fecha donats. Torna null si no existeix. */

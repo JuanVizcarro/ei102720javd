@@ -10,10 +10,12 @@
 <table class="table table-striped">
   <thead>
   <tr>
+    <th scope="col">Número de reserva</th>
     <th scope="col">Persona</th>
     <th scope="col">Fecha</th>
     <th scope="col">Numero Personas</th>
-    <th scope="col">QR</th>
+    <th scope="col">Hora de llegada</th>
+    <th scope="col">Hora de salida</th>
     <th scope="col">Limite Reserva</th>
     <th scope="col">Area</th>
     <th scope="col">Zona</th>
@@ -22,10 +24,12 @@
   </thead>
   <tbody>
   <tr th:each="reserva: ${reservas}">
+    <td th:text="${reserva.numeroReserva}"></td>
     <td th:text="${reserva.persona}"></td>
     <td th:text="${reserva.fecha}"></td>
     <td th:text="${reserva.numeroPersonas}"></td>
-    <td th:text="${reserva.qr}"></td>
+    <td th:text="${reserva.horaInicio}"></td>
+    <td th:text="${reserva.horaFin}"></td>
     <td th:text="${reserva.limiteReserva}"></td>
     <td th:text="${reserva.area}"></td>
     <td th:text="${reserva.zona}"></td>

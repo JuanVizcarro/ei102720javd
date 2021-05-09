@@ -49,6 +49,14 @@ public class Reserva {
         this.numeroPersonas = numeroPersonas;
     }
 
+    public Time getHoraInicio() { return horaInicio; }
+
+    public void setHoraInicio(Time horaInicio) { this.horaInicio = horaInicio; }
+
+    public Time getHoraFin() { return horaFin; }
+
+    public void setHoraFin(Time horaFin) { this.horaFin = horaFin; }
+
     public int getLimiteReserva() {
         return limiteReserva;
     }

@@ -12,36 +12,54 @@
       th:object="${reserva}" method="post">
   <table>
     <tr>
+      <td><label>Número de reserva</label></td>
+      <td><input type="text" th:field="*{numeroReserva}" /></td>
+      <td th:if="${#fields.hasErrors('numeroReserava')}" th:errors="*{numeroReserva}"></td>
+    </tr>
+    <tr>
       <td><label>Persona</label></td>
       <td><input type="text" th:field="*{persona}" /></td>
+      <td th:if="${#fields.hasErrors('persona')}" th:errors="*{persona}"></td>
     </tr>
     <tr>
       <td><label>Fecha</label></td>
       <td><input type="date" th:field="*{fecha}" /></td>
+      <td th:if="${#fields.hasErrors('fecha')}" th:errors="*{fecha}"></td>
     </tr>
     <tr>
       <td><label>Numero Personas</label></td>
       <td><input type="number" th:field="*{numeroPersonas}" /></td>
+      <td th:if="${#fields.hasErrors('numeroPersonas')}" th:errors="*{numeroPersonas}"></td>
     </tr>
     <tr>
-      <td><label>QR</label></td>
-      <td><input type="text" th:field="*{qr}" /></td>
+      <td><label>Hora de llegada</label></td>
+      <td><input type="time" th:field="*{horaInicio}" /></td>
+      <td th:if="${#fields.hasErrors('horaInicio')}" th:errors="*{horaInicio}"></td>
+    </tr>
+    <tr>
+      <td><label>Hora de salida</label></td>
+      <td><input type="time" th:field="*{horaFin}" /></td>
+      <td th:if="${#fields.hasErrors('horaFin')}" th:errors="*{horaFin}"></td>
     </tr>
     <tr>
       <td><label>Limite Reserva</label></td>
       <td><input type="number" th:field="*{limiteReserva}" /></td>
+      <td th:if="${#fields.hasErrors('limiteResrva')}" th:errors="*{limiteReserva}"></td>
     </tr>
     <tr>
       <td><label>Area</label></td>
       <td><input type="text" th:field="*{area}" /></td>
+      <td th:if="${#fields.hasErrors('area')}" th:errors="*{area}"></td>
     </tr>
     <tr>
       <td><label>Zona</label></td>
       <td><input type="text" th:field="*{zona}" /></td>
+      <td th:if="${#fields.hasErrors('zona')}" th:errors="*{zona}"></td>
     </tr>
     <tr>
       <td><label>Horario Reserva</label></td>
       <td><input type="text" th:field="*{horarioReserva}" /></td>
+      <td th:if="${#fields.hasErrors('horarioReserva')}" th:errors="*{horarioReserva}"></td>
     </tr>
     <tr>
       <td colspan="2"><input type="submit" value="Añadir reserva" /></td>
