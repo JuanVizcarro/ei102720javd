@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Crear nueva reserva</title>
+    <title>Crear nuevo servicio</title>
     <meta charset="UTF-8" />
     <link rel="stylesheet"
           href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"/>
 </head>
 <body>
-<h2>Nueva Reserva</h2>
-<form action="#" th:action="@{/reserva/add}"
-      th:object="${reserva}" method="post">
+<h2>Nuevo Servicio</h2>
+<form action="#" th:action="@{/servicio/add}"
+      th:object="${servicio}" method="post">
     <table>
         <tr>
             <td><label>Identificador</label></td>
