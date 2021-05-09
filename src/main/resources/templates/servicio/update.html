@@ -7,44 +7,44 @@
           href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"/>
 </head>
 <body>
-<h2>Modificar reserva</h2>
-<form action="#" th:action="@{/reserva/update}"
-      th:object="${reserva}" method="post">
+<h2>Modificar servicio</h2>
+<form action="#" th:action="@{/servicio/update}"
+      th:object="${servicio}" method="post">
     <table>
         <tr>
-            <td><label>Persona</label></td>
-            <td><input type="text" th:field="*{persona}" /></td>
+            <td><label>Identificador</label></td>
+            <td><input type="text" th:field="*{identificador}" /></td>
         </tr>
         <tr>
-            <td><label>Fecha</label></td>
-            <td><input type="date" th:field="*{fecha}" /></td>
+            <td><label>Nombre</label></td>
+            <td><input type="date" th:field="*{nombre}" /></td>
         </tr>
         <tr>
-            <td><label>Numero Personas</label></td>
-            <td><input type="number" th:field="*{numeroPersonas}" /></td>
+            <td><label>Descripcion</label></td>
+            <td><input type="number" th:field="*{descripcion}" /></td>
         </tr>
         <tr>
-            <td><label>QR</label></td>
-            <td><input type="text" th:field="*{qr}" /></td>
-        </tr>
-        <tr>
-            <td><label>Limite Reserva</label></td>
-            <td><input type="number" th:field="*{limiteReserva}" /></td>
+            <td><label>Tipo</label></td>
+            <td><input type="text" th:field="*{tipo}" /></td>
         </tr>
         <tr>
             <td><label>Area</label></td>
-            <td><input type="text" th:field="*{area}" /></td>
+            <td><input type="number" th:field="*{area}" /></td>
         </tr>
         <tr>
-            <td><label>Zona</label></td>
-            <td><input type="text" th:field="*{zona}" /></td>
+            <td><label>Numero</label></td>
+            <td><input type="text" th:field="*{numero}" /></td>
         </tr>
         <tr>
-            <td><label>Horario Reserva</label></td>
-            <td><input type="text" th:field="*{horarioReserva}" /></td>
+            <td><label>FechaInicio</label></td>
+            <td><input type="text" th:field="*{fechaInicio}" /></td>
         </tr>
         <tr>
-            <td colspan="2"><input type="submit" value="Modifica reserva" /></td>
+            <td><label>FechaFin</label></td>
+            <td><input type="text" th:field="*{fechaFin}" /></td>
+        </tr>
+        <tr>
+            <td colspan="2"><input type="submit" value="Modificar servicio" /></td>
         </tr>
     </table>
 </form>
