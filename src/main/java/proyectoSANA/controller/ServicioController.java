@@ -43,6 +43,10 @@ public class ServicioController {
     @RequestMapping(value="/add", method= RequestMethod.POST)
     public String processAddSubmit(@ModelAttribute("servicio") Servicio servicio,
                                    BindingResult bindingResult) {
+
+        ServicioValidator servicioValidator = new ServicioValidator();
+        servicioValidator.validate(servicio, bindingResult);
+
         if (bindingResult.hasErrors())
             return "servicio/add";
         servicioDao.addServicio(servicio);
@@ -59,6 +63,10 @@ public class ServicioController {
     public String processUpdateSubmit(
             @ModelAttribute("servicio") Servicio servicio,
             BindingResult bindingResult) {
+
+        ServicioValidator servicioValidator = new ServicioValidator();
+        servicioValidator.validate(servicio, bindingResult);
+
         if (bindingResult.hasErrors())
             return "servicio/update";
         servicioDao.updateServicio(servicio);

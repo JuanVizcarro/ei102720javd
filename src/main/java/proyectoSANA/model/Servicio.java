@@ -1,7 +1,12 @@
 package proyectoSANA.model;
 
-import java.sql.Date;
+import org.springframework.format.annotation.DateTimeFormat;
+
 import java.sql.Time;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.util.Date;
 
 public class Servicio {
     private String identificador;
@@ -10,8 +15,9 @@ public class Servicio {
     private String tipo;
     private String area;
     private int numero;
-    private Date fechaInicio;
-    private Date fechaFin;
+    @DateTimeFormat(iso=DateTimeFormat.ISO.DATE)
+    private LocalDate fechaInicio;
+    private LocalDate fechaFin;
 
     public Servicio(){}
 
@@ -59,19 +65,19 @@ public class Servicio {
         this.numero = numero;
     }
 
-    public Date getFechaInicio() {
+    public LocalDate getFechaInicio() {
         return fechaInicio;
     }
 
-    public void setFechaInicio(Date fechaInicio) {
+    public void setFechaInicio(LocalDate fechaInicio) {
         this.fechaInicio = fechaInicio;
     }
 
-    public Date getFechaFin() {
+    public LocalDate getFechaFin() {
         return fechaFin;
     }
 
-    public void setFechaFin(Date fechaFin) {
+    public void setFechaFin(LocalDate fechaFin) {
         this.fechaFin = fechaFin;
     }
 
