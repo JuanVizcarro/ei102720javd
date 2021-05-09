@@ -18,12 +18,12 @@
         </tr>
         <tr>
             <td><label>Nombre</label></td>
-            <td><input type="date" th:field="*{nombre}" /></td>
+            <td><input type="text" th:field="*{nombre}" /></td>
             <td th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}"></td>
         </tr>
         <tr>
             <td><label>Descripcion</label></td>
-            <td><input type="number" th:field="*{descripcion}" /></td>
+            <td><input type="text" th:field="*{descripcion}" /></td>
             <td th:if="${#fields.hasErrors('descripcion')}" th:errors="*{descripcion}"></td>
         </tr>
         <tr>
@@ -33,12 +33,12 @@
         </tr>
         <tr>
             <td><label>Area</label></td>
-            <td><input type="number" th:field="*{area}" /></td>
+            <td><input type="text" th:field="*{area}" /></td>
             <td th:if="${#fields.hasErrors('area')}" th:errors="*{area}"></td>
         </tr>
         <tr>
             <td><label>Numero</label></td>
-            <td><input type="text" th:field="*{numero}" /></td>
+            <td><input type="number" th:field="*{numero}" /></td>
             <td th:if="${#fields.hasErrors('numero')}" th:errors="*{numero}"></td>
         </tr>
         <tr>
