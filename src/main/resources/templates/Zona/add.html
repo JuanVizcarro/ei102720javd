@@ -14,10 +14,12 @@
     <tr>
       <td><label>Area</label></td>
       <td><input type="text" th:field="*{area}" /></td>
+      <td th:if="${#fields.hasErrors('area')}" th:errors="*{area}"></td>
     </tr>
     <tr>
       <td><label>Numero </label></td>
       <td><input type="number" th:field="*{numero}" /></td>
+      <td th:if="${#fields.hasErrors('numero')}" th:errors="*{numero}"></td>
     </tr>
     <tr>
       <td colspan="2"><input type="submit" value="Añadir zona" /></td>

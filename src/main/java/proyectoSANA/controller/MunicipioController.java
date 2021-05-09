@@ -40,6 +40,8 @@ public class MunicipioController {
     @RequestMapping(value="/add", method= RequestMethod.POST)
     public String processAddSubmit(@ModelAttribute("municipio") Municipio municipio,
                                    BindingResult bindingResult) {
+        MunicipioValidator municipioValidator = new MunicipioValidator();
+        municipioValidator.validate(municipio, bindingResult);
         if (bindingResult.hasErrors())
             return "municipio/add";
         municipioDao.addMunicipio(municipio);
@@ -56,6 +58,8 @@ public class MunicipioController {
     public String processUpdateSubmit(
             @ModelAttribute("municipio") Municipio municipio,
             BindingResult bindingResult) {
+        MunicipioValidator municipioValidator = new MunicipioValidator();
+        municipioValidator.validate(municipio, bindingResult);
         if (bindingResult.hasErrors())
             return "municipio/update";
         municipioDao.updateMunicipio(municipio);

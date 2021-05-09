@@ -4,6 +4,7 @@ public class Ciudadano {
     private String nombre;
     private String DNI;
     private String email;
+    private int edad;
     private String direccion;
     private String municipio;
     private String pais;
@@ -56,6 +57,14 @@ public class Ciudadano {
         return municipio;
     }
 
+    public int getEdad() {
+        return edad;
+    }
+
+    public void setEdad(int edad) {
+        this.edad = edad;
+    }
+
     public String getPais() {
         return pais;
     }
@@ -65,6 +74,7 @@ public class Ciudadano {
                 "nombre='" + nombre + '\'' +
                 ", DNI=" + DNI +
                 ", email=" + email +
+                ", edad= " + edad +
                 ", direccion=" + direccion +
                 ", municipio=" + municipio +
                 ", pais=" + pais +

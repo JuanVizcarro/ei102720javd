@@ -40,6 +40,9 @@ public class PersonalDeControlController {
     @RequestMapping(value="/add", method= RequestMethod.POST)
     public String processAddSubmit(@ModelAttribute("personaldecontrol") PersonalDeControl personalDeControl,
                                    BindingResult bindingResult) {
+        PersonalDeControlValidator personalDeControlValidator = new PersonalDeControlValidator();
+        personalDeControlValidator.validate(personalDeControl, bindingResult);
+
         if (bindingResult.hasErrors())
             return "personaldecontrol/add";
         personalDeControlDao.addPersonal(personalDeControl);
@@ -56,6 +59,9 @@ public class PersonalDeControlController {
     public String processUpdateSubmit(
             @ModelAttribute("perosnaldecontrol") PersonalDeControl personalDeControl,
             BindingResult bindingResult) {
+        PersonalDeControlValidator personalDeControlValidator = new PersonalDeControlValidator();
+        personalDeControlValidator.validate(personalDeControl, bindingResult);
+
         if (bindingResult.hasErrors())
             return "personaldecontrol/update";
         personalDeControlDao.updatePersonal(personalDeControl);

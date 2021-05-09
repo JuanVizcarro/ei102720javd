@@ -14,24 +14,28 @@
         <tr>
             <td><label>Nombre</label></td>
             <td><input type="text" th:field="*{nombre}" /></td>
+            <td th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}"></td>
         </tr>
         <tr>
             <td><label>DNI</label></td>
             <td><input type="text" th:field="*{dni}" /></td>
+            <td th:if="${#fields.hasErrors('dni')}" th:errors="*{dni}"></td>
         </tr>
         <tr>
             <td><label>E-mail</label></td>
             <td><input type="text" th:field="*{email}" /></td>
+            <td th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></td>
         </tr>
         <tr>
             <td><label>Pueblo</label></td>
             <td><input type="text" th:field="*{pueblo}" /></td>
+            <td th:if="${#fields.hasErrors('pueblo')}" th:errors="*{pueblo}"></td>
         </tr>
         <tr>
-            <td><label>Area</label></td>
+            <td><label>Área</label></td>
             <td><input type="text" th:field="*{area}" /></td>
+            <td th:if="${#fields.hasErrors('area')}" th:errors="*{area}"></td>
         </tr>
-        <tr>
             <td colspan="2"><input type="submit" value="Modifica Personal" /></td>
         </tr>
     </table>

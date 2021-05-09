@@ -14,14 +14,17 @@
         <tr>
             <td><label>Nombre</label></td>
             <td><input type="text" th:field="*{nombre}" /></td>
+            <td th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}"></td>
         </tr>
         <tr>
             <td><label>Telefono</label></td>
             <td><input type="number" th:field="*{tlf}" /></td>
+            <td th:if="${#fields.hasErrors('tlf')}" th:errors="*{tlf}"></td>
         </tr>
         <tr>
             <td><label>CP</label></td>
             <td><input type="number" th:field="*{cp}" /></td>
+            <td th:if="${#fields.hasErrors('cp')}" th:errors="*{cp}"></td>
         </tr>
         <tr>
             <td colspan="2"><input type="submit" value="Modifica municipio" /></td>
