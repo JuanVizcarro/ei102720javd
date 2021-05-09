@@ -4,22 +4,22 @@ import java.util.Date;
 
 public class GestorMunicipal {
 
+    private String DNI;
     private String nombre;
-    private String dni;
     private String pueblo;
-    private Date   fechaInicio;
-    private Date    fechaFin;
+    private Date fechaInicio;
+    private Date fechaFin;
 
     public GestorMunicipal(){
 
     }
 
-    public String getDni() {
-        return dni;
+    public String getDNI() {
+        return DNI;
     }
 
-    public void setDni(String dni) {
-        this.dni = dni;
+    public void setDNI(String DNI) {
+        this.DNI = DNI;
     }
 
     public String getNombre() {
@@ -56,12 +56,13 @@ public class GestorMunicipal {
 
     @Override
     public String toString() {
-        return "Ciudadano{" +
-                "dni='" + dni + '\'' +
+        return "GestorMunicipal{" +
+                "DNI='" + DNI + '\'' +
                 ", nombre=" + nombre +
                 ", pueblo=" + pueblo +
                 ", fechaInicio=" + fechaInicio +
                 ", fechaFin=" + fechaFin +
+
                 '}';
     }
 }

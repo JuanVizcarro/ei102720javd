@@ -10,29 +10,31 @@
 <table class="table table-striped">
     <thead>
     <tr>
-        <th scope="col">DNI</th>
         <th scope="col">Nombre</th>
-        <th scope="col">Pueblo</th>
-        <th scope="col">Fecha Inicio</th>
-        <th scope="col">Fecha Fin</th>
+        <th scope="col">DNI</th>
+        <th scope="col">E-mail</th>
+        <th scope="col">Direccion</th>
+        <th scope="col">Municipio</th>
+        <th scope="col">Pais</th>
         <th scope="col"></th>
         <th scope="col"></th>
     </tr>
     </thead>
     <tbody>
     <tr th:each="gestormunicipal: ${gestoresmunicipales}">
-        <td th:text="${gestormunicipal.dni}"></td>
         <td th:text="${gestormunicipal.nombre}"></td>
+        <td th:text="${gestormunicipal.DNI}"></td>
         <td th:text="${gestormunicipal.pueblo}"></td>
         <td th:text="${gestormunicipal.fechaInicio}"></td>
         <td th:text="${gestormunicipal.fechaFin}"></td>
-        <td><a class="btn btn-warning" th:href="@{/gestormunicipal/update/{dni}(dni=${gestormunicpal.dni})}" role="button">Edita</a>
+
+        <td><a class="btn btn-warning" th:href="@{/gestormunicipal/update/{dni}(dni=${gestormunicipal.DNI})}" role="button">Edita</a>
         </td>
-        <td><a class="btn btn-danger" th:href="@{/gestormunicipal/delete/{dni}(dni=${gestormunicpal.dni})}" role="button">Borra</a>
+        <td><a class="btn btn-danger" th:href="@{/gestormunicipal/delete/{dni}(dni=${gestormunicipal.DNI})}" role="button">Borra</a>
         </td>
     </tr>
     </tbody>
 </table>
-<a class="btn btn-success" href="add" role="button">Añadir gestor municipal</a>
+<a class="btn btn-success" href="add" role="button">Añadir Gestor Municipal</a>
 </body>
 </html>

@@ -23,51 +23,52 @@ public class GestorMunicipalDao {
         jdbcTemplate = new JdbcTemplate(dataSource);
     }
 
-    /* Afegeix el gestormunicipal a la base de dades */
-    public void addGestorMun(GestorMunicipal gestorMunicipal) {
+    /* Afegeix el ciudadano a la base de dades */
+    public void addGestorMunicipal(GestorMunicipal gestorMunicipal) {
         jdbcTemplate.update("INSERT INTO GestorMunicipal VALUES(?, ?, ?, ?, ?)",
-                gestorMunicipal.getDni(), gestorMunicipal.getNombre(), gestorMunicipal.getPueblo(), gestorMunicipal.getFechaInicio(), gestorMunicipal.getFechaFin());
+                 gestorMunicipal.getDNI(), gestorMunicipal.getNombre(),gestorMunicipal.getPueblo(),gestorMunicipal.getFechaInicio(),gestorMunicipal.getFechaFin());
     }
 
     /* Esborra el ciudadano de la base de dades */
-    public void deleteGestorMun(String dni) {
-        jdbcTemplate.update("DELETE FROM GestorMunicipal WHERE dni = ?",
+    public void deleteGestorMunicipal(String dni) {
+        jdbcTemplate.update("DELETE FROM GestorMunicipal WHERE DNI = ?",
                 dni);
     }
 
     /* Esborra el ciudadano de la base de dades */
-    public void deleteGestorMun(GestorMunicipal gestorMunicipal) {
-        jdbcTemplate.update("DELETE FROM GestorMunicipal WHERE dni = ?",
-                gestorMunicipal.getDni());
+    public void deleteGestorMunicipal(GestorMunicipal gestorMunicipal) {
+        jdbcTemplate.update("DELETE FROM GestorMunicipal WHERE DNI = ?",
+                gestorMunicipal.getDNI());
     }
 
-    /* Actualitza els atributs del gestormunicipal
+    /* Actualitza els atributs del nadador
        (excepte el nom, que és la clau primària) */
-    public void updateGestorMunicipal(GestorMunicipal gestorMunicipal) {
-        jdbcTemplate.update("UPDATE GestorMunicpal SET nombre = ?, pueblo = ?, fechaInicio = ?, fechaFin = ? WHERE dni = ?",
-                gestorMunicipal.getNombre(), gestorMunicipal.getPueblo(), gestorMunicipal.getFechaInicio(), gestorMunicipal.getFechaFin(), gestorMunicipal.getDni());
+    public void updateGestorMun(GestorMunicipal gestorMunicipal) {
+        jdbcTemplate.update("UPDATE GestorMunicipal SET nombre = ?, pueblo = ?, fechaInicio = ?, fechaFin = ? WHERE DNI = ?",
+                gestorMunicipal.getNombre(),gestorMunicipal.getPueblo(),gestorMunicipal.getFechaInicio(),gestorMunicipal.getFechaFin(),gestorMunicipal.getDNI());
     }
 
     /* Obté el municipi amb el dni donat. Torna null si no existeix. */
-    public GestorMunicipal getGestorMun(String dniGestor) {
+    public GestorMunicipal getGM(String dni) {
         try {
             return jdbcTemplate.queryForObject(
-                    "SELECT * FROM GestorMunicipal WHERE dni = ?",
+                    "SELECT * FROM GestorMunicipal WHERE DNI = ?",
                     new GestorMunicpalRowMapper(),
-                    dniGestor);
+                    dni);
         }
         catch(EmptyResultDataAccessException e) {
             return null;
         }
     }
 
-    /* Obté tots els GestorsMunicipals. Torna una llista buida si no n'hi ha cap. */
-    public List<GestorMunicipal> getGestoresMun() {
+    /* Obté tots els municipis. Torna una llista buida si no n'hi ha cap. */
+    public List<GestorMunicipal> getGM() {
         try {
-            return jdbcTemplate.query("SELECT * FROM gestormunicipal", new GestorMunicpalRowMapper());
+            return jdbcTemplate.query("SELECT * FROM GestorMunicipal", new GestorMunicpalRowMapper());
         }
         catch(EmptyResultDataAccessException e) {
             return new ArrayList<GestorMunicipal>();
         }
     }
+
 }
