@@ -29,7 +29,7 @@ public class ServicioController {
     // ...
     @RequestMapping(value="/add")
     public String addServico(Model model) {
-        model.addAttribute("Servicio", new Servicio());
+        model.addAttribute("servicio", new Servicio());
         return "servicio/add";
     }
 

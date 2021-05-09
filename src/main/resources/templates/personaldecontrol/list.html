@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Gestionar Personal</title>
+    <title>Gestionar Personal de Control</title>
     <meta charset="UTF-8" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" />
 </head>
@@ -10,32 +10,31 @@
 <table class="table table-striped">
     <thead>
     <tr>
+        <th scope="col">Nombre</th>
         <th scope="col">DNI</th>
         <th scope="col">E-mail</th>
-        <th scope="col">Nombre</th>
         <th scope="col">Pueblo</th>
         <th scope="col">Area</th>
+
         <th scope="col"></th>
         <th scope="col"></th>
     </tr>
     </thead>
     <tbody>
     <tr th:each="personaldecontrol: ${personalesdecontrol}">
+        <td th:text="${personaldecontrol.nombre}"></td>
         <td th:text="${personaldecontrol.dni}"></td>
         <td th:text="${personaldecontrol.email}"></td>
-        <td th:text="${personaldecontrol.nombre}"></td>
         <td th:text="${personaldecontrol.pueblo}"></td>
         <td th:text="${personaldecontrol.area}"></td>
 
-
-
-        <td><a class="btn btn-warning" th:href="@{/personaldecontrol/update/{dni}(dni=${ciudadano.dni})}" role="button">Edita</a>
+        <td><a class="btn btn-warning" th:href="@{/personaldecontrol/update/{dni}(dni=${personaldecontrol.dni})}" role="button">Edita</a>
         </td>
-        <td><a class="btn btn-danger" th:href="@{/personaldecontrol/delete/{dni}(dni=${ciudadano.dni})}" role="button">Borra</a>
+        <td><a class="btn btn-danger" th:href="@{/personaldecontrol/delete/{dni}(dni=${personaldecontrol.dni})}" role="button">Borra</a>
         </td>
     </tr>
     </tbody>
 </table>
-<a class="btn btn-success" href="add" role="button">Añadir Personal de Control</a>
+<a class="btn btn-success" href="add" role="button">Añadir ciudadano</a>
 </body>
 </html>
