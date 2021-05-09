@@ -2,7 +2,6 @@ package proyectoSANA.controller;
 
 import org.springframework.validation.Errors;
 import org.springframework.validation.Validator;
-import proyectoSANA.model.Area;
 import proyectoSANA.model.Zona;
 
 public class ZonaValidator implements Validator{
