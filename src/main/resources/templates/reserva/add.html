@@ -53,7 +53,7 @@
     </tr>
     <tr>
       <td><label>Zona</label></td>
-      <td><input type="text" th:field="*{zona}" /></td>
+      <td><input type="number" th:field="*{zona}" /></td>
       <td th:if="${#fields.hasErrors('zona')}" th:errors="*{zona}"></td>
     </tr>
     <tr>

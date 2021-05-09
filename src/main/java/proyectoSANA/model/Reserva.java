@@ -6,7 +6,7 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 
 public class Reserva {
-    private int numeroReserva;
+    private String numeroReserva;
     private String persona;
     @DateTimeFormat(iso=DateTimeFormat.ISO.DATE)
     private LocalDate fecha;
@@ -16,16 +16,16 @@ public class Reserva {
     private LocalTime horaFin;
     private int limiteReserva;
     private String area;
-    private String zona;
+    private int zona;
     private String horarioReserva;
 
     public Reserva() {}
 
-    public int getNumeroReserva() {
+    public String getNumeroReserva() {
         return numeroReserva;
     }
 
-    public void setNumeroReserva(int numeroReserva) {
+    public void setNumeroReserva(String numeroReserva) {
         this.numeroReserva = numeroReserva;
     }
 
@@ -77,11 +77,11 @@ public class Reserva {
         this.area = area;
     }
 
-    public String getZona() {
+    public int getZona() {
         return zona;
     }
 
-    public void setZona(String zona) {
+    public void setZona(int zona) {
         this.zona = zona;
     }
 

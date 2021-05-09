@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
+import proyectoSANA.model.Municipio;
 import proyectoSANA.model.Reserva;
 
 import javax.sql.DataSource;
@@ -29,7 +30,7 @@ public class ReservaDao {
     }
 
     /* Esborra la reserva de la base de dades */
-    public void deleteReserva(int numeroReserva) {
+    public void deleteReserva(String numeroReserva) {
         jdbcTemplate.update("DELETE FROM Reserva WHERE numeroReserva = ?",
                 numeroReserva);
     }
@@ -48,7 +49,7 @@ public class ReservaDao {
     }
 
     /* Obté la reserv amb el dni i  fecha donats. Torna null si no existeix. */
-    public Reserva getReserva(int numeroReserva) {
+    public Reserva getReserva(String numeroReserva) {
         try {
             return jdbcTemplate.queryForObject(
                     "SELECT * FROM Reserva WHERE numeroReserva = ?",
