@@ -41,6 +41,10 @@ public class ReservaController {
     @RequestMapping(value="/add", method= RequestMethod.POST)
     public String processAddSubmit(@ModelAttribute("reserva") Reserva reserva,
                                    BindingResult bindingResult) {
+
+        ReservaValidator reservaValidator = new ReservaValidator();
+        reservaValidator.validate(reserva, bindingResult);
+
         if (bindingResult.hasErrors())
             return "reserva/add";
         reservaDao.addReserva(reserva);
@@ -57,6 +61,10 @@ public class ReservaController {
     public String processUpdateSubmit(
             @ModelAttribute("reserva") Reserva reserva,
             BindingResult bindingResult) {
+
+        ReservaValidator reservaValidator = new ReservaValidator();
+        reservaValidator.validate(reserva, bindingResult);
+
         if (bindingResult.hasErrors())
             return "reserva/update";
         reservaDao.updateReserva(reserva);
