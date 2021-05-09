@@ -1,10 +1,52 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Crear nueva reserva</title>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"/>
 </head>
 <body>
-
+<h2>Nueva Reserva</h2>
+<form action="#" th:action="@{/reserva/add}"
+      th:object="${reserva}" method="post">
+    <table>
+        <tr>
+            <td><label>Identificador</label></td>
+            <td><input type="text" th:field="*{identificador}" /></td>
+        </tr>
+        <tr>
+            <td><label>Nombre</label></td>
+            <td><input type="date" th:field="*{nombre}" /></td>
+        </tr>
+        <tr>
+            <td><label>Descripcion</label></td>
+            <td><input type="number" th:field="*{descripcion}" /></td>
+        </tr>
+        <tr>
+            <td><label>Tipo</label></td>
+            <td><input type="text" th:field="*{tipo}" /></td>
+        </tr>
+        <tr>
+            <td><label>Area</label></td>
+            <td><input type="number" th:field="*{area}" /></td>
+        </tr>
+        <tr>
+            <td><label>Numero</label></td>
+            <td><input type="text" th:field="*{numero}" /></td>
+        </tr>
+        <tr>
+            <td><label>FechaInicio</label></td>
+            <td><input type="text" th:field="*{fechaInicio}" /></td>
+        </tr>
+        <tr>
+            <td><label>FechaFin</label></td>
+            <td><input type="text" th:field="*{fechaFin}" /></td>
+        </tr>
+        <tr>
+            <td colspan="2"><input type="submit" value="Añadir servicio" /></td>
+        </tr>
+    </table>
+</form>
 </body>
 </html>
