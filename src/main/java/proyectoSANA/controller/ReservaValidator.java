@@ -21,7 +21,7 @@ public class ReservaValidator implements Validator{
     public void validate(Object obj, Errors errors) {
         Reserva reserva = (Reserva) obj;
 
-        if (reserva.getNumeroReserva()==0)
+        if (reserva.getNumeroReserva().trim().equals(""))
             errors.rejectValue("numeroReserva", "obligatorio",
                     "Este campo es obligatorio.");
 
@@ -42,11 +42,11 @@ public class ReservaValidator implements Validator{
             errors.rejectValue("area", "obligatorio",
                     "Este campo es obligatorio.");
 
-        if (reserva.getZona().trim().equals(""))
+        if (reserva.getZona()==0)
             errors.rejectValue("zona", "obligatorio",
                     "Este campo es obligatorio.");
 
-        if (reserva.getHorarioReserva()==null)
+        if (reserva.getHorarioReserva().trim().equals(""))
             errors.rejectValue("horarioReserva", "obligatorio",
                     "Este campo es obligatorio.");
     }

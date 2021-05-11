@@ -51,8 +51,8 @@ public class ReservaController {
         return "redirect:list";
     }
 
-    @RequestMapping(value="/update/{nombre}", method = RequestMethod.GET)
-    public String editReserva(Model model, @PathVariable int numeroReserva) {
+    @RequestMapping(value="/update/{numeroReserva}", method = RequestMethod.GET)
+    public String editReserva(Model model, @PathVariable String numeroReserva) {
         model.addAttribute("reserva", reservaDao.getReserva(numeroReserva));
         return "reserva/update";
     }
@@ -71,8 +71,8 @@ public class ReservaController {
         return "redirect:list";
     }
 
-    @RequestMapping(value="/delete/{nombre}")
-    public String processDelete(@PathVariable int numeroReserva) {
+    @RequestMapping(value="/delete/{numeroReserva}")
+    public String processDelete(@PathVariable String numeroReserva) {
         reservaDao.deleteReserva(numeroReserva);
         return "redirect:../list";
     }

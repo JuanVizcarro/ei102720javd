@@ -1,27 +1,31 @@
 package proyectoSANA.model;
 
-import java.sql.Time;
-import java.util.Date;
+import org.springframework.format.annotation.DateTimeFormat;
+
+import java.time.LocalDate;
+import java.time.LocalTime;
 
 public class Reserva {
-    private int numeroReserva;
+    private String numeroReserva;
     private String persona;
-    private Date fecha;
+    @DateTimeFormat(iso=DateTimeFormat.ISO.DATE)
+    private LocalDate fecha;
     private int numeroPersonas;
-    private Time horaInicio;
-    private Time horaFin;
+    @DateTimeFormat(pattern = "HH:mm")
+    private LocalTime horaInicio;
+    private LocalTime horaFin;
     private int limiteReserva;
     private String area;
-    private String zona;
-    private Date horarioReserva;
+    private int zona;
+    private String horarioReserva;
 
     public Reserva() {}
 
-    public int getNumeroReserva() {
+    public String getNumeroReserva() {
         return numeroReserva;
     }
 
-    public void setNumeroReserva(int numeroReserva) {
+    public void setNumeroReserva(String numeroReserva) {
         this.numeroReserva = numeroReserva;
     }
 
@@ -33,11 +37,11 @@ public class Reserva {
         this.persona = persona;
     }
 
-    public Date getFecha() {
+    public LocalDate getFecha() {
         return fecha;
     }
 
-    public void setFecha(Date fecha) {
+    public void setFecha(LocalDate fecha) {
         this.fecha = fecha;
     }
 
@@ -48,6 +52,14 @@ public class Reserva {
     public void setNumeroPersonas(int numeroPersonas) {
         this.numeroPersonas = numeroPersonas;
     }
+
+    public LocalTime getHoraInicio() { return horaInicio; }
+
+    public void setHoraInicio(LocalTime horaInicio) { this.horaInicio = horaInicio; }
+
+    public LocalTime getHoraFin() { return horaFin; }
+
+    public void setHoraFin(LocalTime horaFin) { this.horaFin = horaFin; }
 
     public int getLimiteReserva() {
         return limiteReserva;
@@ -65,19 +77,19 @@ public class Reserva {
         this.area = area;
     }
 
-    public String getZona() {
+    public int getZona() {
         return zona;
     }
 
-    public void setZona(String zona) {
+    public void setZona(int zona) {
         this.zona = zona;
     }
 
-    public Date getHorarioReserva() {
+    public String getHorarioReserva() {
         return horarioReserva;
     }
 
-    public void setHorarioReserva(Date horarioReserva) {
+    public void setHorarioReserva(String horarioReserva) {
         this.horarioReserva = horarioReserva;
     }
 

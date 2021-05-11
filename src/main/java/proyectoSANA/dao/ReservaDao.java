@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
+import proyectoSANA.model.Municipio;
 import proyectoSANA.model.Reserva;
 
 import javax.sql.DataSource;
@@ -24,12 +25,12 @@ public class ReservaDao {
 
     /* Afegeix la reserva a la base de dades */
     public void addReserva(Reserva reserva) {
-        jdbcTemplate.update("INSERT INTO Reserva VALUES(?, ?, ?, ?, ?, ?, ?, ?)",
-                reserva.getNumeroReserva(), reserva.getPersona(), reserva.getFecha(), reserva.getNumeroPersonas(), reserva.getLimiteReserva(), reserva.getArea(), reserva.getZona(), reserva.getHorarioReserva());
+        jdbcTemplate.update("INSERT INTO Reserva VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
+                reserva.getNumeroReserva(), reserva.getPersona(), reserva.getFecha(), reserva.getNumeroPersonas(),reserva.getHoraInicio(), reserva.getHoraFin(), reserva.getLimiteReserva(), reserva.getArea(), reserva.getZona(), reserva.getHorarioReserva());
     }
 
     /* Esborra la reserva de la base de dades */
-    public void deleteReserva(int numeroReserva) {
+    public void deleteReserva(String numeroReserva) {
         jdbcTemplate.update("DELETE FROM Reserva WHERE numeroReserva = ?",
                 numeroReserva);
     }
@@ -43,12 +44,12 @@ public class ReservaDao {
     /* Actualitza els atributs del nadador
        (excepte el nom, que és la clau primària) */
     public void updateReserva(Reserva reserva) {
-        jdbcTemplate.update("UPDATE Reserva SET persona = ?, fecha = ?, numeroPersonas = ?, limiteReserva = ?, area = ?, zona = ?, horarioReserva = ? WHERE numeroReserva = ?",
-                reserva.getPersona(), reserva.getFecha(), reserva.getNumeroPersonas(), reserva.getLimiteReserva(), reserva.getArea(), reserva.getZona(), reserva.getHorarioReserva(), reserva.getNumeroReserva());
+        jdbcTemplate.update("UPDATE Reserva SET persona = ?, fecha = ?, numeroPersonas = ?, horaInicio = ?, horaFin = ?, limiteReserva = ?, area = ?, zona = ?, horarioReserva = ? WHERE numeroReserva = ?",
+                reserva.getPersona(), reserva.getFecha(), reserva.getNumeroPersonas(), reserva.getHoraInicio(), reserva.getHoraFin(), reserva.getLimiteReserva(), reserva.getArea(), reserva.getZona(), reserva.getHorarioReserva(), reserva.getNumeroReserva());
     }
 
     /* Obté la reserv amb el dni i  fecha donats. Torna null si no existeix. */
-    public Reserva getReserva(int numeroReserva) {
+    public Reserva getReserva(String numeroReserva) {
         try {
             return jdbcTemplate.queryForObject(
                     "SELECT * FROM Reserva WHERE numeroReserva = ?",
