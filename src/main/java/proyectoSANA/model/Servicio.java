@@ -6,6 +6,7 @@ import java.sql.Time;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.Date;
 
 public class Servicio {
@@ -16,8 +17,8 @@ public class Servicio {
     private String area;
     private int numero;
     @DateTimeFormat(iso=DateTimeFormat.ISO.DATE)
-    private LocalDate fechaInicio;
-    private LocalDate fechaFin;
+    private LocalDate fechaInicio = LocalDate.now();
+    private LocalDate fechaFin = LocalDate.now();
 
     public Servicio(){}
 

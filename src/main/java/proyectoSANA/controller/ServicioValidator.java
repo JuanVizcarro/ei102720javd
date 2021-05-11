@@ -34,14 +34,6 @@ public class ServicioValidator implements Validator{
             errors.rejectValue("numero", "obligatorio",
                     "Este campo es obligatorio.");
 
-        if (servicio.getFechaInicio() == null)
-            errors.rejectValue("fechaInicio", "obligatorio",
-                    "Este campo es obligatorio.");
-
-        if (servicio.getFechaFin() == null)
-            errors.rejectValue("fechaInicio", "obligatorio",
-                    "Este campo es obligatorio.");
-
         if (servicio.getFechaInicio().compareTo(servicio.getFechaFin()) == 1)
             errors.rejectValue("fechaInicio", "obligatorio",
                     "Fecha de inicio debe ser menor que la fecha fin.");

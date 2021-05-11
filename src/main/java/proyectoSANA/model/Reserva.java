@@ -9,11 +9,11 @@ public class Reserva {
     private String numeroReserva;
     private String persona;
     @DateTimeFormat(iso=DateTimeFormat.ISO.DATE)
-    private LocalDate fecha;
+    private LocalDate fecha = LocalDate.now();
     private int numeroPersonas;
     @DateTimeFormat(pattern = "HH:mm")
-    private LocalTime horaInicio;
-    private LocalTime horaFin;
+    private LocalTime horaInicio = LocalTime.now();
+    private LocalTime horaFin = LocalTime.now();
     private int limiteReserva;
     private String area;
     private int zona;
