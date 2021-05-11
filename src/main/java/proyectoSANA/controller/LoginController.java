@@ -66,6 +66,11 @@ public class LoginController {
         // Autenticats correctament.
         // Guardem les dades de l'usuari autenticat a la sessió
         session.setAttribute("user", user);
+        if (session.getAttribute("nexturl")!= null){
+            String url=(String) session.getAttribute("nexturl");
+            session.removeAttribute("nexturl");
+            return "redirect:/" + url;
+        }
 
         // Torna a la pàgina principal
         return "redirect:/";

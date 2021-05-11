@@ -22,6 +22,7 @@ public class UserController {
 
     @RequestMapping("/list")
     public String listSocis(HttpSession session, Model model) {
+        session.setAttribute("nexturl", "/user/list");
         if (session.getAttribute("user") == null)
         {
             model.addAttribute("user", new UserDetails());
