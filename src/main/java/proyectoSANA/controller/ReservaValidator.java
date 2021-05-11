@@ -20,6 +20,7 @@ public class ReservaValidator implements Validator{
     @Override
     public void validate(Object obj, Errors errors) {
         Reserva reserva = (Reserva) obj;
+        LocalDate now = LocalDate.now();
 
         if (reserva.getNumeroReserva().trim().equals(""))
             errors.rejectValue("numeroReserva", "obligatorio",
@@ -29,14 +30,29 @@ public class ReservaValidator implements Validator{
             errors.rejectValue("persona", "obligatorio",
                     "Este campo es obligatorio.");
 
-        //Date now = LocalDate.now();
-        /*if (reserva.getFecha() < now)
+        if (String.reserva.getFecha())
             errors.rejectValue("fecha", "obligatorio",
                     "Este campo es obligatorio.");
-*/
+
+        if (reserva.getFecha().compareTo(now) == -1)
+            errors.rejectValue("fecha", "obligatorio",
+                    "La fecha debe ser posterior a la de hoy.");
+
         if (reserva.getNumeroPersonas()==0)
             errors.rejectValue("numeroPersonas", "obligatorio",
                     "Este campo es obligatorio.");
+
+        /*if (reserva.getHoraInicio().compareTo(null) == 0)
+            errors.rejectValue("horaFin", "obligatorio",
+                    "Este campo es obligatorio.");
+
+        if (reserva.getHoraFin().compareTo(null) == 0)
+            errors.rejectValue("horaFin", "obligatorio",
+                    "Este campo es obligatorio.");*/
+
+        if (reserva.getHoraInicio().compareTo(reserva.getHoraFin()) == 1)
+            errors.rejectValue("horaInicio", "obligatorio",
+                    "La hora de salida debe ser más tarde de la de llegada.");
 
         if (reserva.getArea().trim().equals(""))
             errors.rejectValue("area", "obligatorio",
