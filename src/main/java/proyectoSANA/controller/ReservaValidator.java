@@ -30,9 +30,6 @@ public class ReservaValidator implements Validator{
             errors.rejectValue("persona", "obligatorio",
                     "Este campo es obligatorio.");
 
-        if (String.reserva.getFecha())
-            errors.rejectValue("fecha", "obligatorio",
-                    "Este campo es obligatorio.");
 
         if (reserva.getFecha().compareTo(now) == -1)
             errors.rejectValue("fecha", "obligatorio",
