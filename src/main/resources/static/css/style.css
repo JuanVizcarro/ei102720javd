@@ -1,17 +1,17 @@
 @charset "ISO-8859-1";
-/* Estil aplicat al cos de la pàgina */
+/* Estil aplicat al cos de la pï¿½gina */
 body {
    font-family: Helvetica, Arial, sans-serif; 
    background-color: white;
 }
 
-/* Capçalera de nivell 1 */
+/* Capï¿½alera de nivell 1 */
 h1 {
    font-size: x-large; 
    color: orange;
 }
 
-/* Capçalera de nivell 2 */
+/* Capï¿½alera de nivell 2 */
 h2 {
    font-size: large; 
    color: blue;
@@ -26,4 +26,10 @@ h2 {
 .needcorrection {
      color: red;
      background-color:yellow;
+}
+
+.loggeduser {
+	color: gray;
+	text-align: right;
+margin-right: 10pt;
 }
