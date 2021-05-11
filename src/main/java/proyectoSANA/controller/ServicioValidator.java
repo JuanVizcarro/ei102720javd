@@ -34,24 +34,21 @@ public class ServicioValidator implements Validator{
             errors.rejectValue("numero", "obligatorio",
                     "Este campo es obligatorio.");
 
-        if (servicio.getFechaInicio() == null) // fecha ini debe ser menor que fecha fin
+        if (servicio.getFechaInicio() == null)
             errors.rejectValue("fechaInicio", "obligatorio",
                     "Este campo es obligatorio.");
 
-        if (servicio.getFechaFin() == null) // fecha fin debe ser mayor que fecha ini
+        if (servicio.getFechaFin() == null)
             errors.rejectValue("fechaInicio", "obligatorio",
                     "Este campo es obligatorio.");
+
+        if (servicio.getFechaInicio().compareTo(servicio.getFechaFin()) == 1)
+            errors.rejectValue("fechaInicio", "obligatorio",
+                    "Fecha de inicio debe ser menor que la fecha fin.");
+
+        if (servicio.getFechaFin().compareTo(servicio.getFechaInicio()) == -1)
+            errors.rejectValue("fechaFin", "obligatorio",
+                    "Fecha fin debe ser posterior a la fecha de inicio.");
 
     }
 }
-
-   /* identificador		VARCHAR(10)	NOT NULL,
-    nombre		VARCHAR(10)	NOT NULL,
-    descripcion		VARCHAR(100)	,
-    tipo			VARCHAR(50)	NOT NULL,
-    area			VARCHAR(50)	NOT NULL,
-    numero		NUMERIC(5)		NOT NULL,
-    fechaInicio		DATE			NOT NULL,
-    fechaFin		DATE			NOT NULL,
-
-    */
