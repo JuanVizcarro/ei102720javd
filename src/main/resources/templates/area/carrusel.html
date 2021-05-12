@@ -14,17 +14,17 @@
 
     <div id="miCarrusel" class="carousel slide" data-ride="carousel">
         <ol class="carousel-indicators">
-            <li th:each="imatge,iterstat: ${imatges}"
+            <li th:each="imagen,iterstat: ${imagenes}"
                 data-target="#miCarrusel"
                 th:attr="data-slide-to=${iterstat.index}"
                 th:class="${iterstat.index}== 0  ? 'active':''"
                 th:attr="data-slide-to=${iterstat.index}"></li>
         </ol>
         <div class="carousel-inner">
-            <div th:each="imatge,iterstat: ${imatges}"
+            <div th:each="imagen,iterstat: ${imagenes}"
                  th:class=
                          "${iterstat.index}==0 ? 'carousel-item active':'carousel-item'">
-                <img th:src="@{${imatge}}" class="d-block w-100">
+                <img th:src="@{${'assets/img/areasFoto/'+imagen}}" class="d-block w-100">
             </div>
         </div>
         <a class="carousel-control-prev" href="#miCarrusel"

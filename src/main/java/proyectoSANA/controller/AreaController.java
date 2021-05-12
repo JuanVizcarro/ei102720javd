@@ -41,9 +41,9 @@ public class AreaController {
         return "area/list";
     }
 
-    @RequestMapping
+    @RequestMapping("/carrusel")
     public String carrusel(Model model) {
-
+        model.addAttribute("imagenes", imagenes);
         return "area/carrusel";
     }
 
