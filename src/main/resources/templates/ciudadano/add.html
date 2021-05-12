@@ -34,38 +34,62 @@
                     <h3>Registrar Usuario</h3>
                 </div>
     <table>
-        <tr>
-            <td><label>Nombre</label></td>
-            <td><input type="text" th:field="*{nombre}" /></td>
+            <form>
+            <div class="input-group form-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="fas fa-user"></i></span>
+                </div>
+            <input type="text" placeholder="Nom d'Usuari" th:field="*{nombre}" />
             <td th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}"></td>
-        </tr>
-        <tr>
-            <td><label>DNI</label></td>
-            <td><input type="text" th:field="*{DNI}" /></td>
+            </div>
+
+
+            <div class="input-group form-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="fas fa-address-card"></i></span>
+                </div>
+            <input type="text"placeholder="DNI" th:field="*{DNI}" />
             <td th:if="${#fields.hasErrors('DNI')}" th:errors="*{DNI}"></td>
-        </tr>
-        <tr>
-            <td><label>E-mail</label></td>
-            <td><input type="text" th:field="*{email}" /></td>
+            </div>
+
+            <div class="input-group form-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+                </div>
+            <input type="text"placeholder="E-mail" th:field="*{email}" />
             <td th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></td>
-        </tr>
-        <tr>
-            <td><label>Edad</label></td>
-            <td><input type="text" th:field="*{edad}" /></td>
+            </div>
+
+            <div class="input-group form-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="fas fa-birthday-cake"></i></span>
+                </div>
+            <input type="text"placeholder="Edat" th:field="*{edad}" />
             <td th:if="${#fields.hasErrors('edad')}" th:errors="*{edad}"></td>
-        </tr>
-        <tr>
-            <td><label>Dirección</label></td>
-            <td><input type="text" th:field="*{direccion}" /></td>
-        </tr>
-        <tr>
-            <td><label>Municipio</label></td>
-            <td><input type="text" th:field="*{municipio}" /></td>
-        </tr>
-        <tr>
-            <td><label>Pais</label></td>
-            <td><input type="text" th:field="*{pais}" /></td>
-        </tr>
+            </div>
+
+            <div class="input-group form-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="fas fa-address-book"></i></span>
+                </div>
+            <input type="text"placeholder="Direccion" th:field="*{direccion}" />
+            </div>
+
+            <div class="input-group form-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="fas fa-house-user"></i></span>
+                </div>
+            <input type="text" placeholder="Municipio"th:field="*{municipio}" />
+                </div>
+
+            <div class="input-group form-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="fas fa-flag-usa"></i></span>
+                </div>
+            <input type="text" placeholder="Pais"th:field="*{pais}" />
+
+            </div>
+        </form>
     </table>
 
     <div class="wthree-text">

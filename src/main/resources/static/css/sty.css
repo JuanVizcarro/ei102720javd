@@ -17,10 +17,10 @@ align-content: center;
 }
 
 .card{
-height: 390px;
+height: 520px;
 margin-top: auto;
 margin-bottom: auto;
-width: 400px;
+width: 430px;
 background-color: rgba(0,0,0,0.5) !important;
 }
 
@@ -96,5 +96,9 @@ color: white;
 
 span{
 color: white;
+align-content: center;
+}
+
+div{
 align-content: center;
 }
