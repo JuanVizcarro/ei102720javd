@@ -18,13 +18,13 @@
                 data-target="#miCarrusel"
                 th:attr="data-slide-to=${iterstat.index}"
                 th:class="${iterstat.index}== 0  ? 'active':''"
-                th:attr="data-slide-to=${iterstat.index}"></li>
+                th:attr="data-slide-to=0"></li>
         </ol>
         <div class="carousel-inner">
             <div th:each="imagen,iterstat: ${imagenes}"
                  th:class=
                          "${iterstat.index}==0 ? 'carousel-item active':'carousel-item'">
-                <img th:src="@{${'assets/img/areasFoto/'+imagen}}" class="d-block w-100">
+                <img th:src="@{${imagen}}" class="d-block w-100">
             </div>
         </div>
         <a class="carousel-control-prev" href="#miCarrusel"
