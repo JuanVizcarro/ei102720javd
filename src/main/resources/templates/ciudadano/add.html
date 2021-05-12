@@ -1,52 +1,91 @@
+
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
-    <title>Crear nuevo ciudadano</title>
-    <meta charset="UTF-8" />
-    <link rel="stylesheet"
-          href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"/>
+    <title>Registro Nuevo Ciudadano</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+    <!-- Custom Theme files -->
+    <meta charset="UTF-8"/>
+    <link rel="stylesheet" type="text/css" href="/css/styl.css"
+          th:href="@{/css/styl.css}"/>
+    <!-- //Custom Theme files -->
+    <!-- web font -->
+    <link href="//fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i" rel="stylesheet">
+    <!-- //web font -->
 </head>
 <body>
-<h2>Nuevo Ciudadano</h2>
-<form action="#" th:action="@{/ciudadano/add}"
-      th:object="${ciudadano}" method="post">
-    <table>
-        <tr>
-            <td><label>Nombre</label></td>
-            <td><input type="text" th:field="*{nombre}" /></td>
-            <td th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}"></td>
-        </tr>
-        <tr>
-            <td><label>DNI</label></td>
-            <td><input type="text" th:field="*{DNI}" /></td>
-            <td th:if="${#fields.hasErrors('DNI')}" th:errors="*{DNI}"></td>
-        </tr>
-        <tr>
-            <td><label>E-mail</label></td>
-            <td><input type="text" th:field="*{email}" /></td>
-            <td th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></td>
-        </tr>
-        <tr>
-            <td><label>Edad</label></td>
-            <td><input type="text" th:field="*{edad}" /></td>
-            <td th:if="${#fields.hasErrors('edad')}" th:errors="*{edad}"></td>
-        </tr>
-        <tr>
-            <td><label>Dirección</label></td>
-            <td><input type="text" th:field="*{direccion}" /></td>
-        </tr>
-        <tr>
-            <td><label>Municipio</label></td>
-            <td><input type="text" th:field="*{municipio}" /></td>
-        </tr>
-        <tr>
-            <td><label>Pais</label></td>
-            <td><input type="text" th:field="*{pais}" /></td>
-        </tr>
-        <tr>
-            <td colspan="2"><input type="submit" value="Añadir ciudadano" /></td>
-        </tr>
-    </table>
-</form>
+<!-- main -->
+<div class="main-w3layouts wrapper">
+    <h1>Nuevo Registro</h1>
+    <div class="main-agileinfo">
+        <div class="agileits-top">
+            <form action="#" th:action="@{/ciudadano/add}"
+                  th:object="${ciudadano}" method="post">
+                <table>
+                    <tr>
+                        <td><label>Nombre</label></td>
+                        <td><input type="text" th:field="*{nombre}" /></td>
+                        <td th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}"></td>
+                    </tr>
+                    <tr>
+                        <td><label>DNI</label></td>
+                        <td><input type="text" th:field="*{DNI}" /></td>
+                        <td th:if="${#fields.hasErrors('DNI')}" th:errors="*{DNI}"></td>
+                    </tr>
+                    <tr>
+                        <td><label>E-mail</label></td>
+                        <td><input type="text" th:field="*{email}" /></td>
+                        <td th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></td>
+                    </tr>
+                    <tr>
+                        <td><label>Edad</label></td>
+                        <td><input type="text" th:field="*{edad}" /></td>
+                        <td th:if="${#fields.hasErrors('edad')}" th:errors="*{edad}"></td>
+                    </tr>
+                    <tr>
+                        <td><label>Dirección</label></td>
+                        <td><input type="text" th:field="*{direccion}" /></td>
+                    </tr>
+                    <tr>
+                        <td><label>Municipio</label></td>
+                        <td><input type="text" th:field="*{municipio}" /></td>
+                    </tr>
+                    <tr>
+                        <td><label>Pais</label></td>
+                        <td><input type="text" th:field="*{pais}" /></td>
+                    </tr>
+                </table>
+
+                <div class="wthree-text">
+                    <label class="anim">
+                        <input type="checkbox" class="checkbox" required="">
+                        <span>Acepto los terminos y las condiciones</span>
+                    </label>
+                    <div class="clear"> </div>
+                </div>
+                <input type="submit" value="REGISTRARSE">
+            </form>
+        </div>
+    </div>
+    <!-- copyright -->
+    <div class="colorlibcopy-agile">
+        <p>© 2021 Proyecto SANA. All rights reserved </p>
+    </div>
+    <!-- //copyright -->
+    <ul class="colorlib-bubbles">
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+</div>
 </body>
 </html>
