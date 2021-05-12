@@ -11,10 +11,13 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import proyectoSANA.dao.AreaDao;
 import proyectoSANA.model.Area;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Controller
 @RequestMapping("/area")
 public class AreaController {
-
+    private List<String> imagenes = new ArrayList<String>();
     private AreaDao areaDao;
 
     @Autowired
@@ -31,7 +34,17 @@ public class AreaController {
     @RequestMapping("/list")
     public String listArea(Model model) {
         model.addAttribute("areas", areaDao.getAreas());
+        List<Area> areas = areaDao.getAreas();
+        for (Area area:areas){
+            imagenes.add(area.getImagen());
+        }
         return "area/list";
+    }
+
+    @RequestMapping
+    public String carrusel(Model model) {
+
+        return "area/carrusel";
     }
 
     @RequestMapping(value="/add", method= RequestMethod.POST)
