@@ -59,4 +59,5 @@ public class AreaDao {
             return new ArrayList<Area>();
         }
     }
+
 }
