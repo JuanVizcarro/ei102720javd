@@ -34,15 +34,15 @@ public class AreaController {
     @RequestMapping("/list")
     public String listArea(Model model) {
         model.addAttribute("areas", areaDao.getAreas());
-        List<Area> areas = areaDao.getAreas();
-        for (Area area:areas){
-            imagenes.add(area.getImagen());
-        }
         return "area/list";
     }
 
     @RequestMapping("/carrusel")
     public String carrusel(Model model) {
+        List<Area> areas = areaDao.getAreas();
+        for (Area area:areas){
+            imagenes.add(area.getImagen());
+        }
         model.addAttribute("imagenes", imagenes);
         return "area/carrusel";
     }
