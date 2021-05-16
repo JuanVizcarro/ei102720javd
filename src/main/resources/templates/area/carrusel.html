@@ -26,7 +26,7 @@
                         <div th:each="imatge,iterstat: ${imagenes}"
                              th:class=
                                      "${iterstat.index}==0 ? 'carousel-item active':'carousel-item'">
-                            <h3 class="first-txt" th:text="${imatge}">me molesta</h3>
+                            <h3 class="first-txt" th:text="${imatge}"></h3>
                             <img th:src="@{${'/css/assets/img/areasFoto/' + imatge}}" class="d-block w-100">
                         </div>
                     </div>
