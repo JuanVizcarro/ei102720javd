@@ -26,8 +26,16 @@ background: linear-gradient(to top, #28A745 80%, #FFFFFF 20%);
 background-attachment: fixed;
 background-repeat: no-repeat;
 }
+
 .first-txt {
             position: absolute;
             top: 17px;
             left: 20px;
+            background-color: rgba(255, 255, 255, 0.3);
+            padding:5px;
         }
+h3 {
+color: white;
+font-family: Segoe UI;
+font-size: 25px;
+}
