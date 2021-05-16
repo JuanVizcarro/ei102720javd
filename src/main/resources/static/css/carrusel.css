@@ -15,10 +15,14 @@ h1 {
 text-align: center;
 }
 
+.titulo {
+font-family: Segoe UI;
+}
+
 body {
 margin-top: 10px;
 padding-bottom: 10%;
 background: linear-gradient(to top, #28A745 80%, #FFFFFF 20%);
- background-attachment: fixed;
+background-attachment: fixed;
 background-repeat: no-repeat;
 }
