@@ -26,3 +26,9 @@ background: linear-gradient(to top, #28A745 80%, #FFFFFF 20%);
 background-attachment: fixed;
 background-repeat: no-repeat;
 }
+
+.first-txt {
+            position: absolute;
+            top: 17px;
+            left: 20px;
+        }

@@ -23,9 +23,13 @@
                             th:class="${iterstat.index}== 0  ? 'active':''"></li>
                     </ol>
                     <div class="carousel-inner">
+
                         <div th:each="imatge,iterstat: ${imagenes}"
                              th:class=
                                      "${iterstat.index}==0 ? 'carousel-item active':'carousel-item'">
+                            <h3 class="first-txt">
+                                GeeksforGeeks
+                            </h3>
                             <img th:src="@{${'/css/assets/img/areasFoto/' + imatge}}" class="d-block w-100">
                         </div>
                     </div>
