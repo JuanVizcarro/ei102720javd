@@ -1,7 +1,8 @@
 package proyectoSANA.model;
 
 public class Ciudadano {
-    private String nombre;
+    private String usuario;
+    private String contraseña;
     private String DNI;
     private String email;
     private int edad;
@@ -13,9 +14,7 @@ public class Ciudadano {
 
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
+
 
     public void setDNI(String DNI) {
         this.DNI = DNI;
@@ -37,8 +36,20 @@ public class Ciudadano {
         this.pais = pais;
     }
 
-    public String getNombre() {
-        return nombre;
+    public String getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(String usuario) {
+        this.usuario = usuario;
+    }
+
+    public String getContraseña() {
+        return contraseña;
+    }
+
+    public void setContraseña(String contraseña) {
+        this.contraseña = contraseña;
     }
 
     public String getDNI() {
@@ -71,7 +82,8 @@ public class Ciudadano {
     @Override
     public String toString() {
         return "Ciudadano{" +
-                "nombre='" + nombre + '\'' +
+                "usuario='" + usuario + '\'' +
+                ", contraseña=" + contraseña +
                 ", DNI=" + DNI +
                 ", email=" + email +
                 ", edad= " + edad +

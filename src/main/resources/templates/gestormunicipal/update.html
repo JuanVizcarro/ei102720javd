@@ -12,8 +12,12 @@
       th:object="${gestormunicipal}" method="post">
     <table>
         <tr>
-            <td><label>Nombre</label></td>
-            <td><input type="text" th:field="*{nombre}" /></td>
+            <td><label>Usuario</label></td>
+            <td><input type="text" th:field="*{usuario}" /></td>
+        </tr>
+        <tr>
+            <td><label>Contraseña</label></td>
+            <td><input type="text" th:field="*{contraseña}" /></td>
         </tr>
         <tr>
             <td><label>DNI</label></td>

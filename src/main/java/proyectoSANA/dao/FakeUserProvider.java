@@ -5,6 +5,7 @@ import java.util.Map;
 import org.jasypt.util.password.BasicPasswordEncryptor;
 import org.springframework.stereotype.Repository;
 import proyectoSANA.model.UserDetails;
+import proyectoSANA.model.Ciudadano;
 
 @Repository
 public class FakeUserProvider implements UserDao {
@@ -21,6 +22,13 @@ public class FakeUserProvider implements UserDao {
         userBob.setUsername("bob");
         userBob.setPassword(passwordEncryptor.encryptPassword("bob"));
         knownUsers.put("bob", userBob);
+
+
+        UserDetails user = new UserDetails();
+        user.setUsername(user.getUsername());
+        user.setPassword(passwordEncryptor.encryptPassword(user.getPassword()));
+        knownUsers.put(user.getPassword(), user);
+
     }
 
     @Override

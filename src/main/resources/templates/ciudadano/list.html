@@ -10,7 +10,7 @@
 <table class="table table-striped">
     <thead>
     <tr>
-        <th scope="col">Nombre</th>
+        <th scope="col">Usuario</th>
         <th scope="col">DNI</th>
         <th scope="col">E-mail</th>
         <th scope="col">Edad</th>
@@ -23,16 +23,16 @@
     </thead>
     <tbody>
     <tr th:each="ciudadano: ${ciudadanos}">
-        <td th:text="${ciudadano.nombre}"></td>
+        <td th:text="${ciudadano.usuario}"></td>
         <td th:text="${ciudadano.DNI}"></td>
         <td th:text="${ciudadano.email}"></td>
         <td th:text="${ciudadano.edad}"></td>
         <td th:text="${ciudadano.direccion}"></td>
         <td th:text="${ciudadano.municipio}"></td>
         <td th:text="${ciudadano.pais}"></td>
-        <td><a class="btn btn-warning" th:href="@{/ciudadano/update/{dni}(dni=${ciudadano.DNI})}" role="button">Edita</a>
+        <td><a class="btn btn-warning" th:href="@{/ciudadano/update/{usuario}(usuario=${ciudadano.usuario})}" role="button">Edita</a>
         </td>
-        <td><a class="btn btn-danger" th:href="@{/ciudadano/delete/{dni}(dni=${ciudadano.DNI})}" role="button">Borra</a>
+        <td><a class="btn btn-danger" th:href="@{/ciudadano/delete/{usuario}(usuario=${ciudadano.usuario})}" role="button">Borra</a>
         </td>
     </tr>
     </tbody>

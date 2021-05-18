@@ -52,9 +52,9 @@ public class GestorMunicipalController {
         return "redirect:list";
     }
 
-    @RequestMapping(value="/update/{dni}", method = RequestMethod.GET)
-    public String editGestorMunicipal(Model model, @PathVariable String dni) {
-        model.addAttribute("gestormunicipal", gestorMunicipalDao.getGM(dni));
+    @RequestMapping(value="/update/{usuario}", method = RequestMethod.GET)
+    public String editGestorMunicipal(Model model, @PathVariable String usuario) {
+        model.addAttribute("gestormunicipal", gestorMunicipalDao.getGM(usuario));
         return "gestormunicipal/update";
     }
 
@@ -68,9 +68,9 @@ public class GestorMunicipalController {
         return "redirect:list";
     }
 
-    @RequestMapping(value="/delete/{dni}")
-    public String processDelete(@PathVariable String dni) {
-        gestorMunicipalDao.deleteGestorMunicipal(dni);
+    @RequestMapping(value="/delete/{usuario}")
+    public String processDelete(@PathVariable String usuario) {
+        gestorMunicipalDao.deleteGestorMunicipal(usuario);
         return "redirect:../list";
     }
 

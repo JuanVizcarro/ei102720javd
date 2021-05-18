@@ -25,36 +25,36 @@ public class GestorMunicipalDao {
 
     /* Afegeix el ciudadano a la base de dades */
     public void addGestorMunicipal(GestorMunicipal gestorMunicipal) {
-        jdbcTemplate.update("INSERT INTO GestorMunicipal VALUES(?, ?, ?, ?, ?)",
-                 gestorMunicipal.getDNI(), gestorMunicipal.getNombre(),gestorMunicipal.getPueblo(),gestorMunicipal.getFechaInicio(),gestorMunicipal.getFechaFin());
+        jdbcTemplate.update("INSERT INTO GestorMunicipal VALUES(?, ?, ?, ?, ?, ?)",
+                 gestorMunicipal.getDNI(), gestorMunicipal.getUsuario(),gestorMunicipal.getContraseña(),gestorMunicipal.getPueblo(),gestorMunicipal.getFechaInicio(),gestorMunicipal.getFechaFin());
     }
 
     /* Esborra el ciudadano de la base de dades */
-    public void deleteGestorMunicipal(String dni) {
-        jdbcTemplate.update("DELETE FROM GestorMunicipal WHERE DNI = ?",
-                dni);
+    public void deleteGestorMunicipal(String usuario) {
+        jdbcTemplate.update("DELETE FROM GestorMunicipal WHERE usuario = ?",
+                usuario);
     }
 
     /* Esborra el ciudadano de la base de dades */
     public void deleteGestorMunicipal(GestorMunicipal gestorMunicipal) {
-        jdbcTemplate.update("DELETE FROM GestorMunicipal WHERE DNI = ?",
-                gestorMunicipal.getDNI());
+        jdbcTemplate.update("DELETE FROM GestorMunicipal WHERE usuario = ?",
+                gestorMunicipal.getUsuario());
     }
 
     /* Actualitza els atributs del nadador
        (excepte el nom, que és la clau primària) */
     public void updateGestorMun(GestorMunicipal gestorMunicipal) {
-        jdbcTemplate.update("UPDATE GestorMunicipal SET nombre = ?, pueblo = ?, fechaInicio = ?, fechaFin = ? WHERE DNI = ?",
-                gestorMunicipal.getNombre(),gestorMunicipal.getPueblo(),gestorMunicipal.getFechaInicio(),gestorMunicipal.getFechaFin(),gestorMunicipal.getDNI());
+        jdbcTemplate.update("UPDATE GestorMunicipal SET DNI = ?, contraseña = ?, pueblo = ?, fechaInicio = ?, fechaFin = ? WHERE usuario = ?",
+                gestorMunicipal.getDNI(),gestorMunicipal.getContraseña(),gestorMunicipal.getPueblo(),gestorMunicipal.getFechaInicio(),gestorMunicipal.getFechaFin(),gestorMunicipal.getUsuario());
     }
 
     /* Obté el municipi amb el dni donat. Torna null si no existeix. */
-    public GestorMunicipal getGM(String dni) {
+    public GestorMunicipal getGM(String usuario) {
         try {
             return jdbcTemplate.queryForObject(
-                    "SELECT * FROM GestorMunicipal WHERE DNI = ?",
+                    "SELECT * FROM GestorMunicipal WHERE usuario = ?",
                     new GestorMunicpalRowMapper(),
-                    dni);
+                    usuario);
         }
         catch(EmptyResultDataAccessException e) {
             return null;
