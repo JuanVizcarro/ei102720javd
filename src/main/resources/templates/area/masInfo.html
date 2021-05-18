@@ -1,10 +1,86 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link rel="stylesheet" href="/css/masInfo.css">
 </head>
 <body>
-
+<form action="#" th:action="@{/area/masInfo}"
+      th:object="${area}">
+    <div class="u-clearfix u-sheet u-valign-middle-lg u-valign-middle-md u-valign-middle-sm u-valign-middle-xs u-sheet-1">
+        <div class="u-list u-list-1">
+            <div class="u-repeater u-repeater-1">
+                <div class="u-align-left u-container-style u-list-item u-repeater-item">
+                    <div class="u-container-layout u-similar-container u-valign-middle u-container-layout-1">
+                        <h6 class="u-text u-text-1">Nombre del area</h6>
+                        <p class="u-text u-text-2" text="${*.Nombre}"></p>
+                    </div>
+                </div>
+                <div class="u-align-left u-container-style u-list-item u-repeater-item">
+                    <div class="u-container-layout u-similar-container u-valign-middle u-container-layout-1">
+                        <h6 class="u-text u-text-1">Nombre del municipio</h6>
+                        <p class="u-text u-text-2" text="${*.Municipio}"></p>
+                    </div>
+                </div>
+                <div class="u-align-left u-container-style u-list-item u-repeater-item">
+                    <div class="u-container-layout u-similar-container u-valign-middle u-container-layout-1">
+                        <h6 class="u-text u-text-1">Tipo de acceso</h6>
+                        <p class="u-text u-text-2" text="${*.TipoAcceso}"></p>
+                    </div>
+                </div>
+                <div class="u-align-left u-container-style u-list-item u-repeater-item">
+                    <div class="u-container-layout u-similar-container u-valign-middle u-container-layout-1">
+                        <h6 class="u-text u-text-1">Descripción del area</h6>
+                        <p class="u-text u-text-2" text="${*.Descripcion}"></p>
+                    </div>
+                </div>
+                <div class="u-align-left u-container-style u-list-item u-repeater-item">
+                    <div class="u-container-layout u-similar-container u-valign-middle u-container-layout-1">
+                        <h6 class="u-text u-text-1">Nº de zonas del area</h6>
+                        <p class="u-text u-text-2" text="${*.numeroDeZonas}"></p>
+                    </div>
+                </div>
+                <div class="u-align-left u-container-style u-list-item u-repeater-item">
+                    <div class="u-container-layout u-similar-container u-valign-middle u-container-layout-1">
+                        <h6 class="u-text u-text-1">Ubicación del area</h6>
+                        <p class="u-text u-text-2" text="${*.ubicacionGeografica}"></p>
+                    </div>
+                </div>
+                <div class="u-align-left u-container-style u-list-item u-repeater-item">
+                    <div class="u-container-layout u-similar-container u-valign-middle u-container-layout-1">
+                        <h6 class="u-text u-text-1">Tipo de area</h6>
+                        <p class="u-text u-text-2" text="${*.tipoArea}"></p>
+                    </div>
+                </div>
+                <div class="u-align-left u-container-style u-list-item u-repeater-item">
+                    <div class="u-container-layout u-similar-container u-valign-middle u-container-layout-1">
+                        <h6 class="u-text u-text-1">Características físicas del area</h6>
+                        <p class="u-text u-text-2" text="${*.caracteristicaFisica}"></p>
+                    </div>
+                </div>
+                <div class="u-align-left u-container-style u-list-item u-repeater-item">
+                    <div class="u-container-layout u-similar-container u-valign-middle u-container-layout-1">
+                        <h6 class="u-text u-text-1">Orientación del area</h6>
+                        <p class="u-text u-text-2" text="${*.orientacion}"></p>
+                    </div>
+                </div>
+                <div class="u-align-left u-container-style u-list-item u-repeater-item">
+                    <div class="u-container-layout u-similar-container u-valign-middle u-container-layout-1">
+                        <h6 class="u-text u-text-1">Intalaciones</h6>
+                        <p class="u-text u-text-2" text="${*.instalacion}"></p>
+                    </div>
+                </div>
+                <div class="u-align-left u-container-style u-list-item u-repeater-item">
+                    <div class="u-container-layout u-similar-container u-valign-middle u-container-layout-1">
+                        <h6 class="u-text u-text-1">Comentarios de otros usuarios</h6>
+                        <p class="u-text u-text-2" text="${*.comentario}"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div alt="" class="u-image u-image-circle u-image-1" data-image-width="810" data-image-height="1080"></div>
+    </div>
+</form>
 </body>
 </html>

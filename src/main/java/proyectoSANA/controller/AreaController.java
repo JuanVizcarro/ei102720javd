@@ -83,4 +83,10 @@ public class AreaController {
         areaDao.deleteArea(nombre);
         return "redirect:../list";
     }
+
+    @RequestMapping(value="/update/{nombre}", method = RequestMethod.GET)
+    public String masInfoArea(Model model, @PathVariable String nombre) {
+        model.addAttribute("area", areaDao.getArea(nombre));
+        return "area/masInfo";
+    }
 }
