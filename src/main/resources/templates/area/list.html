@@ -45,18 +45,20 @@
     </thead>
     <tbody>
     <tr th:each="area: ${areas}">
-        <td th:text="${area.Nombre}"></td>
-        <td th:text="${area.Municipio}"></td>
-        <td th:text="${area.TipoAcceso}"></td>
-        <td th:text="${area.Descripcion}"></td>
-        <td th:text="${area.NumeroDeZonas}"></td>
-        <td th:text="${area.UbicacionGeografica}"></td>
+        <td th:text="${area.nombre}"></td>
+        <td th:text="${area.municipio}"></td>
+        <td th:text="${area.tipoAcceso}"></td>
+        <td th:text="${area.descripcion}"></td>
+        <td th:text="${area.numeroDeZonas}"></td>
+        <td th:text="${area.ubicacionGeografica}"></td>
         <td th:text="${area.tipoArea}"></td>
         <td th:text="${area.caracteristicaFisica}"></td>
-        <td th:text="${area.Orientacion}"></td>
+        <td th:text="${area.orientacion}"></td>
         <td th:text="${area.instalacion}"></td>
         <td th:text="${area.comentario}"></td>
         <td th:text="${area.imagen}"></td>
+        <td><a class="btn btn-warning" th:href="@{/servicio/add/}" role="button">Añadir Servicio</a>
+        </td>
         <td><a class="btn btn-warning" th:href="@{/area/update/{nombre}(nombre=${area.nombre})}" role="button">Edita</a>
         </td>
         <td><a class="btn btn-danger" th:href="@{/area/delete/{nombre}(nombre=${area.nombre})}" role="button">Borra</a>

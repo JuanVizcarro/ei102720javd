@@ -11,7 +11,7 @@ import java.sql.SQLException;
 public final class CiudadanoRowMapper  implements RowMapper<Ciudadano> {
     public Ciudadano mapRow(ResultSet rs, int rowNum) throws SQLException {
         Ciudadano ciudadano = new Ciudadano();
-        ciudadano.setContraseña(rs.getString("usuario"));
+        ciudadano.setUsuario(rs.getString("usuario"));
         ciudadano.setContraseña(rs.getString("contraseña"));
         ciudadano.setDNI(rs.getString("DNI"));
         ciudadano.setEmail(rs.getString("email"));
