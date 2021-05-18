@@ -5,7 +5,8 @@ import java.util.Date;
 public class GestorMunicipal {
 
     private String DNI;
-    private String nombre;
+    private String usuario;
+    private String contraseña;
     private String pueblo;
     private Date fechaInicio;
     private Date fechaFin;
@@ -22,12 +23,20 @@ public class GestorMunicipal {
         this.DNI = DNI;
     }
 
-    public String getNombre() {
-        return nombre;
+    public String getUsuario() {
+        return usuario;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public void setUsuario(String usuario) {
+        this.usuario = usuario;
+    }
+
+    public String getContraseña() {
+        return contraseña;
+    }
+
+    public void setContraseña(String contraseña) {
+        this.contraseña = contraseña;
     }
 
     public String getPueblo() {
@@ -58,7 +67,8 @@ public class GestorMunicipal {
     public String toString() {
         return "GestorMunicipal{" +
                 "DNI='" + DNI + '\'' +
-                ", nombre=" + nombre +
+                ", usuario=" + usuario +
+                ", contraseña=" + contraseña +
                 ", pueblo=" + pueblo +
                 ", fechaInicio=" + fechaInicio +
                 ", fechaFin=" + fechaFin +

@@ -51,9 +51,9 @@ public class CiudadanoController {
         return "redirect:list";
     }
 
-    @RequestMapping(value="/update/{dni}", method = RequestMethod.GET)
-    public String editCiudadano(Model model, @PathVariable String dni) {
-        model.addAttribute("ciudadano", ciudadanoDao.getCiudadano(dni));
+    @RequestMapping(value="/update/{usuario}", method = RequestMethod.GET)
+    public String editCiudadano(Model model, @PathVariable String usuario) {
+        model.addAttribute("ciudadano", ciudadanoDao.getCiudadano(usuario));
         return "ciudadano/update";
     }
 
@@ -69,9 +69,9 @@ public class CiudadanoController {
         return "redirect:list";
     }
 
-    @RequestMapping(value="/delete/{dni}")
-    public String processDelete(@PathVariable String dni) {
-        ciudadanoDao.deleteCiudadano(dni);
+    @RequestMapping(value="/delete/{usuario}")
+    public String processDelete(@PathVariable String usuario) {
+        ciudadanoDao.deleteCiudadano(usuario);
         return "redirect:../list";
     }
 

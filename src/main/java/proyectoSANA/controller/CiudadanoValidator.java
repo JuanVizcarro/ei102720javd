@@ -19,8 +19,8 @@ public class CiudadanoValidator implements Validator {
     @Override
     public void validate(Object obj, Errors errors) {
         Ciudadano ciudadano = (Ciudadano)obj;
-        if (ciudadano.getNombre().trim().equals(""))
-            errors.rejectValue("nombre", "obligatori",
+        if (ciudadano.getUsuario().trim().equals(""))
+            errors.rejectValue("usuario", "obligatori",
                     "Es necesario introducir un valor");
         if (ciudadano.getDNI().trim().equals(""))
             errors.rejectValue("DNI", "obligatori",

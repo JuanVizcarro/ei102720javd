@@ -24,36 +24,36 @@ public class CiudadanoDao {
 
     /* Afegeix el ciudadano a la base de dades */
     public void addCiudadano(Ciudadano ciudadano) {
-        jdbcTemplate.update("INSERT INTO Ciudadano VALUES(?, ?, ?, ?, ?, ?, ?)",
-                ciudadano.getNombre(), ciudadano.getDNI(), ciudadano.getEmail(),ciudadano.getEdad() , ciudadano.getDireccion(), ciudadano.getMunicipio(), ciudadano.getPais());
+        jdbcTemplate.update("INSERT INTO Ciudadano VALUES(?, ?, ?, ?, ?, ?, ?, ?)",
+                ciudadano.getUsuario(),ciudadano.getContraseña(), ciudadano.getDNI(), ciudadano.getEmail(),ciudadano.getEdad() , ciudadano.getDireccion(), ciudadano.getMunicipio(), ciudadano.getPais());
     }
 
     /* Esborra el ciudadano de la base de dades */
-    public void deleteCiudadano(String dni) {
-        jdbcTemplate.update("DELETE FROM Ciudadano WHERE DNI = ?",
-                dni);
+    public void deleteCiudadano(String usuario) {
+        jdbcTemplate.update("DELETE FROM Ciudadano WHERE usuario = ?",
+                usuario);
     }
 
     /* Esborra el ciudadano de la base de dades */
     public void deleteCiudadano(Ciudadano ciudadano) {
-        jdbcTemplate.update("DELETE FROM Ciudadano WHERE DNI = ?",
-                ciudadano.getDNI());
+        jdbcTemplate.update("DELETE FROM Ciudadano WHERE usuario = ?",
+                ciudadano.getUsuario());
     }
 
     /* Actualitza els atributs del nadador
        (excepte el nom, que és la clau primària) */
     public void updateCiudadano(Ciudadano ciudadano) {
-        jdbcTemplate.update("UPDATE Ciudadano SET nombre = ?, email = ?, edad= ?, direccion = ?, municipio = ?,pais = ? WHERE DNI = ?",
-                ciudadano.getNombre(), ciudadano.getEmail(), ciudadano.getEdad(), ciudadano.getDireccion(), ciudadano.getMunicipio(), ciudadano.getPais(), ciudadano.getDNI());
+        jdbcTemplate.update("UPDATE Ciudadano SET DNI = ?, contraseña= ?, email = ?, edad= ?, direccion = ?, municipio = ?,pais = ? WHERE usuario = ?",
+                ciudadano.getDNI(),ciudadano.getContraseña(), ciudadano.getEmail(), ciudadano.getEdad(), ciudadano.getDireccion(), ciudadano.getMunicipio(), ciudadano.getPais(), ciudadano.getUsuario());
     }
 
     /* Obté el municipi amb el dni donat. Torna null si no existeix. */
-    public Ciudadano getCiudadano(String dniCiudadano) {
+    public Ciudadano getCiudadano(String usuario) {
         try {
             return jdbcTemplate.queryForObject(
-                    "SELECT * FROM Ciudadano WHERE DNI = ?",
+                    "SELECT * FROM Ciudadano WHERE usuario = ?",
                     new CiudadanoRowMapper(),
-                    dniCiudadano);
+                    usuario);
         }
         catch(EmptyResultDataAccessException e) {
             return null;
