@@ -37,7 +37,7 @@ public class AreaController {
         return "area/list";
     }
 
-    @RequestMapping(value="/carrusel")
+    @RequestMapping("/carrusel")
     public String carrusel(Model model) {
         List<Area> areas = areaDao.getAreas();
         model.addAttribute("area", areas);
