@@ -40,7 +40,7 @@ public class AreaController {
     @RequestMapping("/carrusel")
     public String carrusel(Model model) {
         List<Area> areas = areaDao.getAreas();
-        model.addAttribute("areas", areas);
+        model.addAttribute("area", areas);
         for (Area area:areas){
             imagenes.add(area.getImagen());
         }
