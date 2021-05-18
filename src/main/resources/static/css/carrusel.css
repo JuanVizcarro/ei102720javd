@@ -27,6 +27,21 @@ background-attachment: fixed;
 background-repeat: no-repeat;
 }
 
+h3 {
+color: white;
+font-family: Segoe UI;
+font-size: 25px;
+}
+
+.carousel-caption {
+position: relative;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+}
+
 .first-txt {
             position: absolute;
             top: 17px;
@@ -34,8 +49,3 @@ background-repeat: no-repeat;
             background-color: rgba(255, 255, 255, 0.3);
             padding:5px;
         }
-h3 {
-color: white;
-font-family: Segoe UI;
-font-size: 25px;
-}
