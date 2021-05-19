@@ -3,13 +3,30 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 import org.jasypt.util.password.BasicPasswordEncryptor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+import proyectoSANA.model.GestorMunicipal;
 import proyectoSANA.model.UserDetails;
 import proyectoSANA.model.Ciudadano;
+
+
+
 
 @Repository
 public class FakeUserProvider implements UserDao {
     final Map<String, UserDetails> knownUsers = new HashMap<String, UserDetails>();
+    @Autowired
+    private CiudadanoDao ciudadanoDao;
+    @Autowired
+    public void setCiudadanoDao(CiudadanoDao ciudadanoDao) {
+        this.ciudadanoDao = ciudadanoDao;
+    }
+    @Autowired
+    private GestorMunicipalDao gestorMunicipalDao;
+    @Autowired
+    public void setGestorMunicipalDao(GestorMunicipalDao gestorMunicipalDao) {
+        this.gestorMunicipalDao = gestorMunicipalDao;
+    }
 
     public FakeUserProvider() {
         BasicPasswordEncryptor passwordEncryptor = new BasicPasswordEncryptor();
@@ -33,9 +50,14 @@ public class FakeUserProvider implements UserDao {
 
     @Override
     public UserDetails loadUserByUsername(String username, String password) {
+
         UserDetails user = knownUsers.get(username.trim());
-        if (user == null)
-            return null; // Usuari no trobat
+        if (user == null) {
+            ciudadanoDao.getCiudadano(username);
+        } else {
+            gestorMunicipalDao.getGM(username);
+        }
+        // Usuari no trobat
         // Contrasenya
         BasicPasswordEncryptor passwordEncryptor = new BasicPasswordEncryptor();
         if (passwordEncryptor.checkPassword(password, user.getPassword())) {
