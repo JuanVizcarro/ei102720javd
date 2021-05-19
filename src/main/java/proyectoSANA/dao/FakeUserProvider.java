@@ -60,7 +60,9 @@ public class FakeUserProvider implements UserDao {
         // Usuari no trobat
         // Contrasenya
         BasicPasswordEncryptor passwordEncryptor = new BasicPasswordEncryptor();
-        if (passwordEncryptor.checkPassword(password, user.getPassword())) {
+        if (password == null) {
+            ciudadanoDao.getContraseña(password);
+            //passwordEncryptor.checkPassword(password, user.getPassword())
             // Es deuria esborrar de manera segura el camp password abans de tornar-lo
             return user;
         }
