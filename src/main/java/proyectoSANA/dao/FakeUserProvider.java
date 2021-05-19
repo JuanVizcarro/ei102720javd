@@ -53,15 +53,24 @@ public class FakeUserProvider implements UserDao {
 
         UserDetails user = knownUsers.get(username.trim());
         if (user == null) {
-            ciudadanoDao.getCiudadano(username);
-        } else {
-            gestorMunicipalDao.getGM(username);
+            Ciudadano ciu = ciudadanoDao.getCiudadano(username);
+            if (ciu==null){
+                GestorMunicipal gestorMunicipal = gestorMunicipalDao.getGM(username);
+                if (gestorMunicipal == null){
+                    return null;
+                }
+            }
         }
         // Usuari no trobat
         // Contrasenya
         BasicPasswordEncryptor passwordEncryptor = new BasicPasswordEncryptor();
-        if (password == null) {
-            ciudadanoDao.getContraseña(password);
+            Ciudadano ciu = ciudadanoDao.getContraseña(password);
+            if (ciu == null){
+                GestorMunicipal gestorMunicipal = gestorMunicipalDao.getContra(password);
+                if (gestorMunicipal==null){
+                    return null;
+                }
+
             //passwordEncryptor.checkPassword(password, user.getPassword())
             // Es deuria esborrar de manera segura el camp password abans de tornar-lo
             return user;

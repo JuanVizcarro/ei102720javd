@@ -61,6 +61,18 @@ public class GestorMunicipalDao {
         }
     }
 
+    public GestorMunicipal getContra(String contraseña) {
+        try {
+            return jdbcTemplate.queryForObject(
+                    "SELECT * FROM GestorMunicipal WHERE contraseña = ?",
+                    new GestorMunicpalRowMapper(),
+                    contraseña);
+        }
+        catch(EmptyResultDataAccessException e) {
+            return null;
+        }
+    }
+
     /* Obté tots els municipis. Torna una llista buida si no n'hi ha cap. */
     public List<GestorMunicipal> getGM() {
         try {
