@@ -48,7 +48,8 @@ public class CiudadanoController {
         if (bindingResult.hasErrors())
             return "ciudadano/add";
         ciudadanoDao.addCiudadano(ciudadano);
-        return "redirect:list";
+        return "redirect:/";
+        // mirar esta linea de arriba
     }
 
     @RequestMapping(value="/update/{usuario}", method = RequestMethod.GET)

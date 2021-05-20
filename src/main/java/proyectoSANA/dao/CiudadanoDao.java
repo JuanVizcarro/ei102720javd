@@ -59,6 +59,17 @@ public class CiudadanoDao {
             return null;
         }
     }
+    public Ciudadano getContraseña(String contra) {
+        try {
+            return jdbcTemplate.queryForObject(
+                    "SELECT * FROM Ciudadano WHERE contraseña = ?",
+                    new CiudadanoRowMapper(),
+                    contra);
+        }
+        catch(EmptyResultDataAccessException e) {
+            return null;
+        }
+    }
 
     /* Obté tots els municipis. Torna una llista buida si no n'hi ha cap. */
     public List<Ciudadano> getCiudadanos() {
