@@ -90,4 +90,10 @@ public class AreaController {
         model.addAttribute("area", areaDao.getArea(nombre));
         return "area/masInfo";
     }
-}
+
+    @RequestMapping("/panel")
+    public String panel(Model model) {
+        return "area/panel";
+    }
+
+    }
