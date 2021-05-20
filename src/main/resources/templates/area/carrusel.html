@@ -27,10 +27,11 @@
                         <div th:each="imatge,iterstat: ${imagenes}"
                              th:class=
                                      "${iterstat.index}==0 ? 'carousel-item active':'carousel-item'">
-                            <div class="carrusel-caption" style="">
-                                <button type="button" class="btn btn-success" href="http://localhost:8080/{imatge}">Mas</button>
+                            <div class="carrusel-caption" style="" align="center">
+                                <td><a th:href="@{/area/masInfo/{imatge}(imatge=${imatge})}">Mas info</a>
+                                </td>
                             </div>
-                            <h3 class="first-txt" th:text="${imatge}"></h3>
+
                             <img th:src="@{${'/css/assets/img/areasFoto/' + imatge}}" class="d-block w-100">
                         </div>
                     </div>

@@ -9,79 +9,79 @@
 </head>
 <body>
 <form action="#" th:action="@{/area/masInfo}"
-      th:object="${area}">
+      th:object="${area}" method="get">
     <div class="u-clearfix u-sheet u-valign-middle-lg u-valign-middle-md u-valign-middle-sm u-valign-middle-xs u-sheet-1">
         <div class="u-list u-list-1">
             <div class="u-repeater u-repeater-1">
                 <div class="u-align-left u-container-style u-list-item u-repeater-item">
                     <div class="u-container-layout u-similar-container u-valign-middle u-container-layout-1">
                         <h6 class="u-text u-text-1">Nombre del area</h6>
-                        <p class="u-text u-text-2" text="${*.Nombre}"></p>
+                        <p type="text" th:text="*{nombre}" />
                     </div>
                 </div>
                 <div class="u-align-left u-container-style u-list-item u-repeater-item">
                     <div class="u-container-layout u-similar-container u-valign-middle u-container-layout-1">
                         <h6 class="u-text u-text-1">Nombre del municipio</h6>
-                        <p class="u-text u-text-2" text="${*.Municipio}"></p>
+                        <p type="text" th:text="*{municipio}" />
                     </div>
                 </div>
                 <div class="u-align-left u-container-style u-list-item u-repeater-item">
                     <div class="u-container-layout u-similar-container u-valign-middle u-container-layout-1">
                         <h6 class="u-text u-text-1">Tipo de acceso</h6>
-                        <p class="u-text u-text-2" text="${*.TipoAcceso}"></p>
+                        <p type="text" th:text="*{tipoAcceso}" />
                     </div>
                 </div>
                 <div class="u-align-left u-container-style u-list-item u-repeater-item">
                     <div class="u-container-layout u-similar-container u-valign-middle u-container-layout-1">
                         <h6 class="u-text u-text-1">Descripción del area</h6>
-                        <p class="u-text u-text-2" text="${*.Descripcion}"></p>
+                        <p type="text" th:text="*{descripcion}" />
                     </div>
                 </div>
                 <div class="u-align-left u-container-style u-list-item u-repeater-item">
                     <div class="u-container-layout u-similar-container u-valign-middle u-container-layout-1">
                         <h6 class="u-text u-text-1">Nº de zonas del area</h6>
-                        <p class="u-text u-text-2" text="${*.numeroDeZonas}"></p>
+                        <p type="text" th:text="*{numeroDeZonas}" />
                     </div>
                 </div>
                 <div class="u-align-left u-container-style u-list-item u-repeater-item">
                     <div class="u-container-layout u-similar-container u-valign-middle u-container-layout-1">
                         <h6 class="u-text u-text-1">Ubicación del area</h6>
-                        <p class="u-text u-text-2" text="${*.ubicacionGeografica}"></p>
+                        <p type="text" th:text="*{ubicacionGeografica}" />
                     </div>
                 </div>
                 <div class="u-align-left u-container-style u-list-item u-repeater-item">
                     <div class="u-container-layout u-similar-container u-valign-middle u-container-layout-1">
                         <h6 class="u-text u-text-1">Tipo de area</h6>
-                        <p class="u-text u-text-2" text="${*.tipoArea}"></p>
+                        <p type="text" th:text="*{tipoArea}" />
                     </div>
                 </div>
                 <div class="u-align-left u-container-style u-list-item u-repeater-item">
                     <div class="u-container-layout u-similar-container u-valign-middle u-container-layout-1">
                         <h6 class="u-text u-text-1">Características físicas del area</h6>
-                        <p class="u-text u-text-2" text="${*.caracteristicaFisica}"></p>
+                        <p type="text" th:text="*{caracteristicaFisica}" />
                     </div>
                 </div>
                 <div class="u-align-left u-container-style u-list-item u-repeater-item">
                     <div class="u-container-layout u-similar-container u-valign-middle u-container-layout-1">
                         <h6 class="u-text u-text-1">Orientación del area</h6>
-                        <p class="u-text u-text-2" text="${*.orientacion}"></p>
+                        <p type="text" th:text="*{orientacion}" />
                     </div>
                 </div>
                 <div class="u-align-left u-container-style u-list-item u-repeater-item">
                     <div class="u-container-layout u-similar-container u-valign-middle u-container-layout-1">
                         <h6 class="u-text u-text-1">Intalaciones</h6>
-                        <p class="u-text u-text-2" text="${*.instalacion}"></p>
+                        <p type="text" th:text="*{instalacion}" />
                     </div>
                 </div>
                 <div class="u-align-left u-container-style u-list-item u-repeater-item">
                     <div class="u-container-layout u-similar-container u-valign-middle u-container-layout-1">
                         <h6 class="u-text u-text-1">Comentarios de otros usuarios</h6>
-                        <p class="u-text u-text-2" text="${*.comentario}"></p>
+                        <p type="text" th:text="*{comentario}" />
                     </div>
                 </div>
             </div>
         </div>
-        <div alt="" class="u-image u-image-circle u-image-1" data-image-width="810" data-image-height="1080"></div>
+        <img th:src="@{/css/assets/img/areasFoto/{imatge}(imatge=*{imagen})}" class="d-block w-100">
     </div>
 </form>
 </body>

@@ -36,6 +36,7 @@ font-size: 25px;
 .carousel-caption {
 position: absolute;
 text-align: center;
+justify-content: center;
 
 }
 
