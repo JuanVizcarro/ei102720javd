@@ -33,24 +33,27 @@ public class FakeUserProvider implements UserDao {
         UserDetails userAlice = new UserDetails();
         userAlice.setUsername("alice");
         userAlice.setPassword(passwordEncryptor.encryptPassword("alice"));
+        userAlice.setTipo("medioambiente");
         knownUsers.put("alice", userAlice);
 
         UserDetails userBob = new UserDetails();
         userBob.setUsername("bob");
         userBob.setPassword(passwordEncryptor.encryptPassword("bob"));
+        userBob.setTipo("medioambiente");
         knownUsers.put("bob", userBob);
 
 
         UserDetails user = new UserDetails();
         user.setUsername(user.getUsername());
-        user.setPassword(passwordEncryptor.encryptPassword(user.getPassword()));
+        //user.setPassword(passwordEncryptor.encryptPassword(user.getPassword()));
         knownUsers.put(user.getPassword(), user);
 
     }
 
     @Override
     public UserDetails loadUserByUsername(String username, String password) {
-
+        UserDetails ciudadano = knownUsers.get(ciudadanoDao.getCiudadano(username));
+        UserDetails gestormun = knownUsers.get(gestorMunicipalDao.getGM(username));
         UserDetails user = knownUsers.get(username.trim());
         if (user == null) {
             Ciudadano ciu = ciudadanoDao.getCiudadano(username);
@@ -76,7 +79,7 @@ public class FakeUserProvider implements UserDao {
             return user;
         }
         else {
-            return null; // bad login!
+            return user; // bad login!
         }
     }
 
