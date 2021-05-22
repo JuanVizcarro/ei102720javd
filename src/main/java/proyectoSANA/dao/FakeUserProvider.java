@@ -67,7 +67,7 @@ public class FakeUserProvider implements UserDao {
                 }
             }
         }
-        // Usuari no trobat
+        // Usuari no trobatt
         // Contrasenya
         BasicPasswordEncryptor passwordEncryptor = new BasicPasswordEncryptor();
             Ciudadano ciu = ciudadanoDao.getContraseña(password);
