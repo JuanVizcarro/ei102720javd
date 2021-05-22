@@ -19,7 +19,7 @@
             <ul class="navbar-nav ml-auto my-2 my-lg-0">
 
                 <li class="nav-item"><a class="nav-link js-scroll-trigger" href="../../area/list">Servicios</a></li>
-                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#portfolio">Populares</a></li>
+                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="../carrusel">Populares</a></li>
                 <li class="nav-item"><a class="nav-link js-scroll-trigger" href="../../ciudadano/add">Registrarse</a></li>
                 <li class="nav-item"><a class="nav-link js-scroll-trigger" href="../../user/list">Autenticate</a></li>
                 <li class="nav-item"><a class="nav-link js-scroll-trigger" href="../../ciudadano/list">Autenticate</a></li>
@@ -31,7 +31,8 @@
 <form action="#" th:action="@{/area/masInfo}"
       th:object="${area}" method="get">
     <div class="u-clearfix u-sheet u-valign-middle-lg u-valign-middle-md u-valign-middle-sm u-valign-middle-xs u-sheet-1" style="padding:3%;">
-        <img th:src="@{/css/assets/img/areasFoto/{imatge}(imatge=*{imagen})}" style="float:right;">
+        <img th:src="@{/css/assets/img/areasFoto/{imatge}(imatge=*{imagen})}" style="float:right; border-radius:50%; max-width:60%;
+    height:auto; margin-top:4%;" >
         <div class="u-list u-list-1">
             <div class="u-repeater u-repeater-1">
                 <div class="u-align-left u-container-style u-list-item u-repeater-item">
