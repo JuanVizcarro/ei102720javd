@@ -50,6 +50,12 @@ public class FakeUserProvider implements UserDao {
         knownUsers.put("bob", userBob);
 
 
+        UserDetails userAntonio = new UserDetails();
+        userAntonio.setUsername("antonio");
+        userAntonio.setPassword(passwordEncryptor.encryptPassword("antonio"));
+        userAntonio.setTipo("medioambiente");
+        knownUsers.put("antonio", userAntonio);
+
         UserDetails user = new UserDetails();
         user.setUsername(user.getUsername());
         //user.setPassword(passwordEncryptor.encryptPassword(user.getPassword()));
@@ -58,7 +64,7 @@ public class FakeUserProvider implements UserDao {
     }
 
     @Override
-    public UserDetails loadUserByUsername(String username, String password) {
+    public UserDetails loadUserByUsername(String username, String password, String tipo) {
         UserDetails ciudadano = knownUsers.get(ciudadanoDao.getCiudadano(username));
         UserDetails gestormun = knownUsers.get(gestorMunicipalDao.getGM(username));
         UserDetails gestorMedioambiental = knownUsers.get(gestorMedioambientalDao.getGM(username));
@@ -89,6 +95,16 @@ public class FakeUserProvider implements UserDao {
         else {
             return user; // bad login!
         }
+    }
+
+    @Override
+    public String getTipo() {
+        return null;
+    }
+
+    @Override
+    public String setTipo() {
+        return null;
     }
 
     @Override
