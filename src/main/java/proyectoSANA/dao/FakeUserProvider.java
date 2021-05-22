@@ -67,14 +67,14 @@ public class FakeUserProvider implements UserDao {
     public UserDetails loadUserByUsername(String username, String password, String tipo) {
         UserDetails ciudadano = knownUsers.get(ciudadanoDao.getCiudadano(username));
         UserDetails gestormun = knownUsers.get(gestorMunicipalDao.getGM(username));
-        UserDetails gestorMedioambiental = knownUsers.get(gestorMedioambientalDao.getGM(username));
+        UserDetails gestormed = knownUsers.get(gestorMedioambientalDao.getGM(username));
         UserDetails user = knownUsers.get(username.trim());
         if (user == null) {
             Ciudadano ciu = ciudadanoDao.getCiudadano(username);
             if (ciu==null){
                 GestorMunicipal gestorMunicipal = gestorMunicipalDao.getGM(username);
                 if (gestorMunicipal == null){
-                    return null;
+                    GestorMedioambiental gestorMedioambiental = gestorMedioambientalDao.getGM(username)
                 }
             }
         }
@@ -85,7 +85,7 @@ public class FakeUserProvider implements UserDao {
             if (ciu == null){
                 GestorMunicipal gestorMunicipal = gestorMunicipalDao.getContra(password);
                 if (gestorMunicipal==null){
-                    GestorMedioambiental gestorMedioambiental1 = gestorMedioambientalDao.getContra(password);
+                    return null;
                 }
 
             //passwordEncryptor.checkPassword(password, user.getPassword())
@@ -95,16 +95,6 @@ public class FakeUserProvider implements UserDao {
         else {
             return user; // bad login!
         }
-    }
-
-    @Override
-    public String getTipo() {
-        return null;
-    }
-
-    @Override
-    public String setTipo() {
-        return null;
     }
 
     @Override
