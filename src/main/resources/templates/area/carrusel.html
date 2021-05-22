@@ -11,7 +11,7 @@
     <link rel="stylesheet" type="text/css" href="/css/styles.css"
           th:href="@{/css/styles.css}"/>
 </head>
-<body id="page-top">
+<body id="page-top" style="padding:2%;">
 
 <a class="btn btn-success" href="http://localhost:8080/" role="button">Añadir area</a>
     <div class ="container">
@@ -31,11 +31,11 @@
                              th:class=
                                      "${iterstat.index}==0 ? 'carousel-item active':'carousel-item'">
                             <div class="carrusel-caption" style="" align="center" >
-                                <td><a class="btn btn-success" th:href="@{/area/masInfo/{imatge}(imatge=${imatge})}">Mas info</a>
+                                <td><a class="btn btn-light" role="button" th:href="@{/area/masInfo/{imatge}(imatge=${imatge})}">Mas info</a>
                                 </td>
                             </div>
 
-                            <img th:src="@{${'/css/assets/img/areasFoto/' + imatge}}" class="d-block w-100">
+                            <img th:src="@{${'/css/assets/img/areasFoto/' + imatge}}" class="d-block w-100" style="border-radius:60px;">
                         </div>
                     </div>
                     <a class="carousel-control-prev" href="#miCarrusel"
