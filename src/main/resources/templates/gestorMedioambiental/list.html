@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Gestionar Gestores Medioambientales</title>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" />
+</head>
+<body>
+<h1>Lista de Gestores Medioambientales</h1>
+<table class="table table-striped">
+    <thead>
+    <tr>
+        <th scope="col">DNI</th>
+        <th scope="col">Usuario</th>
+        <th scope="col"></th>
+        <th scope="col"></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="gestormedioambiental: ${gestoresmedioambientales}">
+        <td th:text="${gestormedioambiental.usuario}"></td>
+        <td th:text="${gestormedioambiental.DNI}"></td>
+
+        <td><a class="btn btn-warning" th:href="@{/gestormedioambiental/update/{usuario}(usuario=${gestormedioambiental.usuario})}" role="button">Edita</a>
+        </td>
+        <td><a class="btn btn-danger" th:href="@{/gestormedioambiental/delete/{usuario}(usuario=${gestormedioambiental.usuario})}" role="button">Borra</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+<a class="btn btn-success" href="add" role="button">Añadir Gestor Medioambiental</a>
+</body>
+</html>

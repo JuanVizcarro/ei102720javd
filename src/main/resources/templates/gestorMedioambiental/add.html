@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Crear nuevo Gestor Medioambiental</title>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"/>
+</head>
+<body>
+<h2>Nuevo Gestor Medioambiental</h2>
+<form action="#" th:action="@{/gestormedioambiental/add}"
+      th:object="${gestormedioambiental}" method="post">
+    <table>
+        <tr>
+            <td><label>DNI</label></td>
+            <td><input type="text" th:field="*{DNI}" /></td>
+        </tr>
+        <tr>
+            <td><label>Usuario</label></td>
+            <td><input type="text" th:field="*{usuario}" /></td>
+        </tr>
+        <tr>
+            <td><label>Contraseña</label></td>
+            <td><input type="text" th:field="*{contraseña}" /></td>
+        </tr>
+        <tr>
+            <td colspan="2"><input type="submit" value="Añadir Gestor Medioambiental" /></td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>

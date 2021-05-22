@@ -6,6 +6,7 @@ import org.jasypt.util.password.BasicPasswordEncryptor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import proyectoSANA.model.GestorMunicipal;
+import proyectoSANA.model.GestorMedioambiental;
 import proyectoSANA.model.UserDetails;
 import proyectoSANA.model.Ciudadano;
 
@@ -26,6 +27,12 @@ public class FakeUserProvider implements UserDao {
     @Autowired
     public void setGestorMunicipalDao(GestorMunicipalDao gestorMunicipalDao) {
         this.gestorMunicipalDao = gestorMunicipalDao;
+    }
+    @Autowired
+    private GestorMedioambientalDao gestorMedioambientalDao;
+    @Autowired
+    public void setGestorMedioambientalDao(GestorMedioambientalDao gestorMedioambientalDao) {
+        this.gestorMedioambientalDao = gestorMedioambientalDao;
     }
 
     public FakeUserProvider() {
@@ -54,6 +61,7 @@ public class FakeUserProvider implements UserDao {
     public UserDetails loadUserByUsername(String username, String password) {
         UserDetails ciudadano = knownUsers.get(ciudadanoDao.getCiudadano(username));
         UserDetails gestormun = knownUsers.get(gestorMunicipalDao.getGM(username));
+        UserDetails gestorMedioambiental = knownUsers.get(gestorMedioambientalDao.getGM(username));
         UserDetails user = knownUsers.get(username.trim());
         if (user == null) {
             Ciudadano ciu = ciudadanoDao.getCiudadano(username);
