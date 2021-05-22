@@ -85,7 +85,7 @@ public class FakeUserProvider implements UserDao {
             if (ciu == null){
                 GestorMunicipal gestorMunicipal = gestorMunicipalDao.getContra(password);
                 if (gestorMunicipal==null){
-                    return null;
+                    GestorMedioambiental gestorMedioambiental1 = gestorMedioambientalDao.getContra(password);
                 }
 
             //passwordEncryptor.checkPassword(password, user.getPassword())
