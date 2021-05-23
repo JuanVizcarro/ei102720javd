@@ -8,7 +8,9 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import proyectoSANA.dao.AreaDao;
 import proyectoSANA.dao.ReservaDao;
+import proyectoSANA.model.Area;
 import proyectoSANA.model.Reserva;
 
 import java.util.Date;
@@ -17,6 +19,13 @@ import java.util.Date;
 @RequestMapping("/reserva")
 public class ReservaController {
     private ReservaDao reservaDao;
+    private AreaDao areaDao;
+    String nombre;
+
+    @Autowired
+    public void setAreaDao(AreaDao areaDao) {
+        this.areaDao = areaDao;
+    }
 
     @Autowired
     public void setReservaDao(ReservaDao reservaDao) {
@@ -25,9 +34,11 @@ public class ReservaController {
 
     // Operacions: Crear, llistar, actualitzar, esborrar
     // ...
-    @RequestMapping(value="/add")
-    public String addReserva(Model model) {
+    @RequestMapping(value="/add/{area}", method= RequestMethod.GET)
+    public String addReserva(Model model, @PathVariable String area) {
         model.addAttribute("reserva", new Reserva());
+        model.addAttribute("area", areaDao.getArea(area));
+        nombre = area;
         return "reserva/add";
     }
 
@@ -41,7 +52,7 @@ public class ReservaController {
     @RequestMapping(value="/add", method= RequestMethod.POST)
     public String processAddSubmit(@ModelAttribute("reserva") Reserva reserva,
                                    BindingResult bindingResult) {
-
+        reserva.setArea(nombre);
         ReservaValidator reservaValidator = new ReservaValidator();
         reservaValidator.validate(reserva, bindingResult);
 
