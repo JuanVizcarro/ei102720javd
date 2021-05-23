@@ -76,6 +76,7 @@ public class LoginController {
         if(user.getTipo().equals("ciudadano")){
             UserDetails userCiudadano = new UserDetails();
             session.setAttribute("ciudadano", userCiudadano);
+
         }
         if (session.getAttribute("nexturl")!= null){
             String url=(String) session.getAttribute("nexturl");
