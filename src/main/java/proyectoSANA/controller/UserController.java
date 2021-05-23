@@ -28,6 +28,17 @@ public class UserController {
             model.addAttribute("user", new UserDetails());
             return "login";
         }
+         if (session.getAttribute("ciudadano") == null)
+        {
+            model.addAttribute("ciudadano", new UserDetails());
+            return "ciudadano/list";
+        }
+        if (session.getAttribute("ciudadano") == null)
+        {
+            model.addAttribute("municipal", new UserDetails());
+            return "gestormunicipal/list";
+        }
+
         model.addAttribute("users", userDao.listAllUsers());
         return "user/list";
     }
