@@ -17,19 +17,17 @@ public class FakeUserProvider implements UserDao {
     final Map<String, UserDetails> knownUsers = new HashMap<String, UserDetails>();
     @Autowired
     private CiudadanoDao ciudadanoDao;
-
     @Autowired
     public void setCiudadanoDao(CiudadanoDao ciudadanoDao) {
         this.ciudadanoDao = ciudadanoDao;
     }
-
     @Autowired
     private GestorMunicipalDao gestorMunicipalDao;
-
     @Autowired
     public void setGestorMunicipalDao(GestorMunicipalDao gestorMunicipalDao) {
         this.gestorMunicipalDao = gestorMunicipalDao;
     }
+
 
     public FakeUserProvider() {
         BasicPasswordEncryptor passwordEncryptor = new BasicPasswordEncryptor();
@@ -46,6 +44,7 @@ public class FakeUserProvider implements UserDao {
         knownUsers.put("bob", userBob);
 
 
+
         UserDetails user = new UserDetails();
         user.setUsername(user.getUsername());
         //user.setPassword(passwordEncryptor.encryptPassword(user.getPassword()));
@@ -58,32 +57,45 @@ public class FakeUserProvider implements UserDao {
         UserDetails ciudadano = knownUsers.get(ciudadanoDao.getCiudadano(username));
         UserDetails gestormun = knownUsers.get(gestorMunicipalDao.getGM(username));
         UserDetails user = knownUsers.get(username.trim());
-        if (user == null) {
-            Ciudadano ciu = ciudadanoDao.getCiudadano(username);
-            if (ciu==null){
-                GestorMunicipal gestorMunicipal = gestorMunicipalDao.getGM(username);
-                if (gestorMunicipal == null){
-                    return null;
-                }
+        if (user != null) {
+            user.setPassword(password);
+            user.setTipo("medioambiente");
+            if (user.getPassword().equals(password)){
+                return user;
+            }else{
+                return null;// bad login!
             }
         }
-        // Usuari no trobatt
-        // Contrasenya
-        BasicPasswordEncryptor passwordEncryptor = new BasicPasswordEncryptor();
-            Ciudadano ciu = ciudadanoDao.getContraseña(password);
-            if (ciu == null){
-                GestorMunicipal gestorMunicipal = gestorMunicipalDao.getContra(password);
-                if (gestorMunicipal==null){
-                    return null;
-                }
+        Ciudadano ciu = ciudadanoDao.getCiudadano(username);
+        if (ciu==null) {
+            ciudadano.setPassword(password);
+            ciudadano.setTipo("ciudadano");
+            if (ciudadano.getPassword().equals(password)){
+                return ciudadano;
+            }else{
+                return null;// bad login!
+            }
+        }
+        GestorMunicipal gestorMunicipal = gestorMunicipalDao.getGM(username);
+        if (gestorMunicipal == null) {
+            gestormun.setPassword(password);
+            gestormun.setTipo("municipal");
+            if (gestormun.getPassword().equals(password)){
+                return gestormun;
+            }else{
+                return null;// bad login!
+            }
+        }
+        // Usuari no trobat
+        return null;
 
-            //passwordEncryptor.checkPassword(password, user.getPassword())
-            // Es deuria esborrar de manera segura el camp password abans de tornar-lo
-            return user;
-        }
-        else {
-            return user; // bad login!
-        }
+    }
+    public String getTipo(String username){
+        return knownUsers.get(username).getTipo();
+    }
+
+    public boolean setTipo(String username, String tipo){
+       return knownUsers.get(username).setTipo(tipo);
     }
 
     @Override

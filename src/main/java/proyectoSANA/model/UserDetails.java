@@ -9,23 +9,26 @@ public class UserDetails {
         return username;
     }
 
-    public void setUsername(String username) {
+    public boolean setUsername(String username) {
         this.username = username;
+        return true;
     }
     public String getPassword() {
         return password;
     }
 
-    public void setPassword(String password) {
+    public boolean setPassword(String password) {
         this.password = password;
+        return true;
     }
 
     public String getTipo() {
         return tipo;
     }
 
-    public void setTipo(String tipo) {
+    public boolean setTipo(String tipo) {
         this.tipo = tipo;
+        return true;
     }
 }
 
