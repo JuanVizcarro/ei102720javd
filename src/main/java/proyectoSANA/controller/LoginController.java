@@ -66,16 +66,13 @@ public class LoginController {
         // Autenticats correctament.
         // Guardem les dades de l'usuari autenticat a la sessió
         if(user.getTipo().equals("medioambiente")){
-            UserDetails userGestorMedioambiental = new UserDetails();
-            session.setAttribute("medioambiente", userGestorMedioambiental);
+            session.setAttribute("medioambiente", user);
         }
         if(user.getTipo().equals("municipal")){
-            UserDetails userGestorMeunicipal = new UserDetails();
-            session.setAttribute("municipal", userGestorMeunicipal);
+            session.setAttribute("municipal", user);
         }
         if(user.getTipo().equals("ciudadano")){
-            UserDetails userCiudadano = new UserDetails();
-            session.setAttribute("ciudadano", userCiudadano);
+            session.setAttribute("ciudadano", user);
 
         }
         if (session.getAttribute("nexturl")!= null){
