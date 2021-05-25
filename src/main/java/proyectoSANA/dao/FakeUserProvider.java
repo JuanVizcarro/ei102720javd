@@ -57,7 +57,7 @@ public class FakeUserProvider implements UserDao {
         UserDetails ciudadano = knownUsers.get(ciudadanoDao.getCiudadano(username));
         UserDetails gestormun = knownUsers.get(gestorMunicipalDao.getGM(username));
         UserDetails user = knownUsers.get(username.trim());
-        if (user != null) {
+        if (user == null) {
             user.setPassword(password);
             user.setTipo("medioambiente");
             if (user.getPassword().equals(password)){
