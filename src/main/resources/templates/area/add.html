@@ -1,75 +1,148 @@
-<!DOCTYPE html>
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <html xmlns:th="http://www.thymeleaf.org">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<!DOCTYPE html>
+<html>
 <head>
-    <title>Crear nueva Area</title>
-    <meta charset="UTF-8" />
-    <link rel="stylesheet"
-          href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"/>
+    <title>Nueva Area</title>
+    <!--Made with love by Mutiullah Samim -->
+
+    <!--Bootsrap 4 CDN-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+    <!--Fontawesome CDN-->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+
+    <!--Custom styles-->
+    <link rel="stylesheet" type="text/css" href="/css/sty.css"
+          th:href="@{/css/sty.css}"/>
 </head>
 <body>
-<h2>Nueva Area</h2>
+<a class="btn btn-success" href="/area/carrusel" role="button">Atrás</a>
 <form action="#" th:action="@{/area/add}"
       th:object="${area}" method="post">
-    <table>
-        <tr>
-            <td><label>Nombre</label></td>
-            <td><input type="text" th:field="*{nombre}" /></td>
-            <td th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}"></td>
-        </tr>
-        <tr>
-            <td><label>Municipio</label></td>
-            <td><input type="text" th:field="*{municipio}" /></td>
-            <td th:if="${#fields.hasErrors('municipio')}" th:errors="*{municipio}"></td>
-        </tr>
-        <tr>
-            <td><label>NumeroZonas</label></td>
-            <td><input type="number" th:field="*{numeroDeZonas}" /></td>
-            <td th:if="${#fields.hasErrors('numeroDeZonas')}" th:errors="*{numeroDeZonas}"></td>
-        </tr>
-        <tr>
-            <td><label>TipoAcceso</label></td>
-            <td><input type="text" th:field="*{tipoAcceso}" /></td>
-            <td th:if="${#fields.hasErrors('tipoAcceso')}" th:errors="*{tipoAcceso}"></td>
-        </tr>
-        <tr>
-            <td><label>Descripcion</label></td>
-            <td><input type="text" th:field="*{descripcion}" /></td>
-            <td th:if="${#fields.hasErrors('descripcion')}" th:errors="*{descripcion}"></td>
-        </tr>
-        <tr>
-            <td><label>UbicacionGeografica</label></td>
-            <td><input type="text" th:field="*{ubicacionGeografica}" /></td>
-            <td th:if="${#fields.hasErrors('ubicacionGeografica')}" th:errors="*{ubicacionGeografica}"></td>
-        </tr>
-        <tr>
-            <td><label>Tipo de área</label></td>
-            <td><input type="text" th:field="*{tipoArea}" /></td>
-            <td th:if="${#fields.hasErrors('tipoArea')}" th:errors="*{tipoArea}"></td>
-        </tr>
-        <tr>
-            <td><label>Característica física</label></td>
-            <td><input type="text" th:field="*{caracteristicaFisica}" /></td>
-        </tr>
-        <tr>
-            <td><label>Orientacion</label></td>
-            <td><input type="text" th:field="*{orientacion}" /></td>
-        </tr>
-        <tr>
-            <td><label>instalacion</label></td>
-            <td><input type="text" th:field="*{instalacion}" /></td>
-        </tr>
-        <tr>
-            <td><label>comentarios</label></td>
-            <td><input type="text" th:field="*{comentario}" /></td>
-        </tr>
-        <tr>
-            <td><label>Imagen</label></td>
-            <td><input type="text" th:field="*{imagen}" /></td>
-        </tr>
-        <tr>
-            <td colspan="2"><input type="submit" value="Añadir Area" /></td>
-        </tr>
-    </table>
+    <div class="container">
+        <div class="d-flex justify-content-center h-100">
+            <div class="card">
+                <div class="card-header">
+                    <h3>Nueva Area</h3>
+                </div>
+                <table>
+                    <form>
+                        <div class="input-group form-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="fas fa-user"></i></span>
+                            </div>
+                            <input type="text" placeholder="Nombre"  th:field="*{nombre}" />
+                            <td th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}"></td>
+                        </div>
+
+                        <div class="input-group form-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="fas fa-key"></i></span>
+                            </div>
+                            <input type="text" placeholder="Municipio" th:field="*{municipio}" />
+                            <td th:if="${#fields.hasErrors('municipio')}" th:errors="*{municipio}"></td>
+                        </div>
+
+
+                        <div class="input-group form-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="fas fa-address-card"></i></span>
+                            </div>
+                            <input type="number" placeholder="Nº Zonas"  th:field="*{numeroDeZonas}" />
+                            <td th:if="${#fields.hasErrors('numeroDeZonas')}" th:errors="*{numeroDeZonas}"></td>
+                        </div>
+
+                        <div class="input-group form-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+                            </div>
+                            <input type="text" placeholder="Tipo Accesso" th:field="*{tipoAcceso}" />
+                            <td th:if="${#fields.hasErrors('tipoAcceso')}" th:errors="*{tipoAcceso}"></td>
+                        </div>
+
+                        <div class="input-group form-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="fas fa-birthday-cake"></i></span>
+                            </div>
+                            <input type="text" placeholder="Descripcion" th:field="*{descripcion}" />
+                            <td th:if="${#fields.hasErrors('descripcion')}" th:errors="*{descripcion}"></td>
+                        </div>
+
+                        <div class="input-group form-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="fas fa-address-book"></i></span>
+                            </div>
+                            <input type="text" placeholder="Ubicacion" th:field="*{ubicacionGeografica}" />
+                            <td th:if="${#fields.hasErrors('ubicacionGeografica')}" th:errors="*{ubicacionGeografica}"></td>
+                        </div>
+
+                        <div class="input-group form-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="fas fa-warehouse"></i></span>
+                            </div>
+                            <input type="text" placeholder="Tipo Area" th:field="*{tipoArea}" /></td>
+                            <td th:if="${#fields.hasErrors('tipoArea')}" th:errors="*{tipoArea}"></td>
+                        </div>
+
+                        <div class="input-group form-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="fas fa-flag"></i></span>
+                            </div>
+                            <input type="text" placeholder="Caracteristica Fisica" th:field="*{caracteristicaFisica}" />
+                        </div>
+
+                        <div class="input-group form-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="fas fa-flag"></i></span>
+                            </div>
+                            <input type="text" placeholder="Orientacion" th:field="*{orientacion}" />
+                        </div>
+
+                        <div class="input-group form-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="fas fa-flag"></i></span>
+                            </div>
+                            <input type="text" placeholder="Instalaciones" th:field="*{instalacion}" />
+                        </div>
+
+                        <div class="input-group form-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="fas fa-flag"></i></span>
+                            </div>
+                            <input type="text" placeholder="Comentarios" th:field="*{comentario}" />
+                        </div>
+
+                        <div class="input-group form-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="fas fa-flag"></i></span>
+                            </div>
+                            <input type="text" placeholder="Imagen" th:field="*{imagen}" />
+                        </div>
+
+                    </form>
+                </table>
+
+
+                <div class="form-group">
+                    <input type="submit" value="Añadir Area" class="btn float-left login_btn">
+                </div>
+
+            </div>
+        </div>
+    </div>
+    </div>
+</form>
+
+
+</div>
+</div>
+</div>
+</div>
 </form>
 </body>
 </html>
