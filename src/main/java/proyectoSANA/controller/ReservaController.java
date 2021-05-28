@@ -1,6 +1,7 @@
 package proyectoSANA.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.support.incrementer.SybaseAnywhereMaxValueIncrementer;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -12,7 +13,9 @@ import proyectoSANA.dao.AreaDao;
 import proyectoSANA.dao.ReservaDao;
 import proyectoSANA.model.Area;
 import proyectoSANA.model.Reserva;
+import proyectoSANA.model.UserDetails;
 
+import javax.servlet.http.HttpSession;
 import java.util.Date;
 
 @Controller
@@ -35,10 +38,17 @@ public class ReservaController {
     // Operacions: Crear, llistar, actualitzar, esborrar
     // ...
     @RequestMapping(value="/add/{area}", method= RequestMethod.GET)
-    public String addReserva(Model model, @PathVariable String area) {
+    public String addReserva(Model model, @PathVariable String area, HttpSession sesion) {
+        sesion.setAttribute("nexturl","/reserva/add");
+        UserDetails user = (UserDetails) model.getAttribute("user");
         model.addAttribute("reserva", new Reserva());
         model.addAttribute("area", areaDao.getArea(area));
         nombre = area;
+        if (model.getAttribute("user") == null)
+        {
+            model.addAttribute("user", new UserDetails());
+            return "login";
+        }
         return "reserva/add";
     }
 
@@ -53,6 +63,7 @@ public class ReservaController {
     public String processAddSubmit(@ModelAttribute("reserva") Reserva reserva,
                                    BindingResult bindingResult) {
         reserva.setArea(nombre);
+        System.out.println(nombre);
         ReservaValidator reservaValidator = new ReservaValidator();
         reservaValidator.validate(reserva, bindingResult);
 

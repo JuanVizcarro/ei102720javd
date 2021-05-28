@@ -53,43 +53,37 @@ public class FakeUserProvider implements UserDao {
     }
 
     @Override
-    public UserDetails loadUserByUsername(String username, String password, String tipo) {
-        UserDetails ciudadano = knownUsers.get(ciudadanoDao.getCiudadano(username));
-        UserDetails gestormun = knownUsers.get(gestorMunicipalDao.getGM(username));
+    public UserDetails loadUserByUsername(String username, String password) {
+        UserDetails ciudadano = new UserDetails();
+        UserDetails gestormun = new UserDetails();
+        BasicPasswordEncryptor passwordEncryptor = new BasicPasswordEncryptor();
         UserDetails user = knownUsers.get(username.trim());
-        if (user == null) {
-            user.setPassword(password);
-            user.setTipo("medioambiente");
-            if (user.getPassword().equals(password)){
-                return user;
-            }else{
-                return null;// bad login!
+        if (user == null) {         //entra si no es medioambiente
+            Ciudadano ciu = ciudadanoDao.getCiudadano(username);
+            if (ciu == null) {      //entra si no es ciudadano
+                GestorMunicipal gm = gestorMunicipalDao.getGM(username);
+                if (gm != null) {   //entra si es municipal
+                    gestormun.setUsername(username);
+                    gestormun.setTipo("municipal");
+                    if (passwordEncryptor.checkPassword(password, gm.getContraseña())) {
+                        gestormun.setPassword(password);
+                        return gestormun;
+                    }
+                    System.out.println("USUARIO INCORRECTO");       //no es ninguno
+                    return null;
+                }
             }
-        }
-        Ciudadano ciu = ciudadanoDao.getCiudadano(username);
-        if (ciu==null) {
-            ciudadano.setPassword(password);
+            ciudadano.setUsername(username);
             ciudadano.setTipo("ciudadano");
-            if (ciudadano.getPassword().equals(password)){
+            if (passwordEncryptor.checkPassword(password, ciu.getContraseña())) {
+                ciudadano.setPassword(password);
                 return ciudadano;
-            }else{
-                return null;// bad login!
             }
+            return null;
         }
-        GestorMunicipal gestorMunicipal = gestorMunicipalDao.getGM(username);
-        if (gestorMunicipal == null) {
-            gestormun.setPassword(password);
-            gestormun.setTipo("municipal");
-            if (gestormun.getPassword().equals(password)){
-                return gestormun;
-            }else{
-                return null;// bad login!
-            }
-        }
-        // Usuari no trobat
-        return null;
-
+        return user;
     }
+
     public String getTipo(String username){
         return knownUsers.get(username).getTipo();
     }

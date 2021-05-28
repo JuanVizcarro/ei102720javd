@@ -58,7 +58,7 @@ public class LoginController {
         }
         // Comprova que el login siga correcte
         // intentant carregar les dades de l'usuari
-        user = userDao.loadUserByUsername(user.getUsername(), user.getPassword(), user.getTipo());
+        user = userDao.loadUserByUsername(user.getUsername(), user.getPassword());
         if (user == null) {
             bindingResult.rejectValue("password", "badpw", "Contrasenya incorrecta");
             return "login";
@@ -66,14 +66,15 @@ public class LoginController {
         // Autenticats correctament.
         // Guardem les dades de l'usuari autenticat a la sessió
         if(user.getTipo().equals("medioambiente")){
-            session.setAttribute("medioambiente", user);
+            session.setAttribute("medioambiente", new UserDetails());
+            return "login";
         }
         if(user.getTipo().equals("municipal")){
-            session.setAttribute("municipal", user);
+            session.setAttribute("municipal",  new UserDetails());
+            return "login";
         }
         if(user.getTipo().equals("ciudadano")){
-            session.setAttribute("ciudadano", user);
-
+            session.setAttribute("ciudadano",  new UserDetails());
         }
         if (session.getAttribute("nexturl")!= null){
             String url=(String) session.getAttribute("nexturl");

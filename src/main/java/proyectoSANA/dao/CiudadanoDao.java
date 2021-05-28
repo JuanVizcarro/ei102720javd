@@ -1,5 +1,6 @@
 package proyectoSANA.dao;
 
+import org.jasypt.util.password.BasicPasswordEncryptor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -24,6 +25,8 @@ public class CiudadanoDao {
 
     /* Afegeix el ciudadano a la base de dades */
     public void addCiudadano(Ciudadano ciudadano) {
+        BasicPasswordEncryptor passwordEncryptor = new BasicPasswordEncryptor();
+        ciudadano.setContraseña(passwordEncryptor.encryptPassword(ciudadano.getContraseña()));
         jdbcTemplate.update("INSERT INTO Ciudadano VALUES(?, ?, ?, ?, ?, ?, ?, ?)",
                 ciudadano.getUsuario(),ciudadano.getContraseña(), ciudadano.getDNI(), ciudadano.getEmail(),ciudadano.getEdad() , ciudadano.getDireccion(), ciudadano.getMunicipio(), ciudadano.getPais());
     }

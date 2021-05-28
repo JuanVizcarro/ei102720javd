@@ -24,7 +24,8 @@
         <td th:text="${municipio.cp}"></td>
         <td><a class="btn btn-warning" th:href="@{/municipio/update/{nombre}(nombre=${municipio.nombre})}" role="button">Edita</a>
         </td>
-        <td><a class="btn btn-danger" th:href="@{/municipio/delete/{nombre}(nombre=${municipio.nombre})}" role="button">Borra</a>
+        <td><a th:onclick="confirm('Estás seguro de cagarla tan fuerte?';" th:href="@{/municipio/delete/{nombre}(nombre=${municipio.nombre})}">
+            Esborra</a>
         </td>
     </tr>
     </tbody>
