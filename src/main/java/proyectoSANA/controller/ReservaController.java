@@ -75,7 +75,6 @@ public class ReservaController {
             }
         }
         model.addAttribute("zonaList", zonaList);
-        System.out.println(zonaList.toString());
         return "reserva/add";
     }
 
