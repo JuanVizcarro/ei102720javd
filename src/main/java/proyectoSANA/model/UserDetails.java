@@ -5,6 +5,16 @@ public class UserDetails {
     String password;
     String tipo;
 
+    public String getDni() {
+        return dni;
+    }
+
+    public void setDni(String dni) {
+        this.dni = dni;
+    }
+
+    String dni;
+
     public String getUsername() {
         return username;
     }

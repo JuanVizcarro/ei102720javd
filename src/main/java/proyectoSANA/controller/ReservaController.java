@@ -11,19 +11,30 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import proyectoSANA.dao.AreaDao;
 import proyectoSANA.dao.ReservaDao;
+import proyectoSANA.dao.ZonaDao;
 import proyectoSANA.model.Area;
 import proyectoSANA.model.Reserva;
 import proyectoSANA.model.UserDetails;
+import proyectoSANA.model.Zona;
 
 import javax.servlet.http.HttpSession;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
+import java.util.List;
 
 @Controller
 @RequestMapping("/reserva")
 public class ReservaController {
     private ReservaDao reservaDao;
     private AreaDao areaDao;
+    private ZonaDao zonaDao;
     String nombre;
+
+    @Autowired
+    public void setZonaDao(ZonaDao zonaDao) {
+        this.zonaDao = zonaDao;
+    }
 
     @Autowired
     public void setAreaDao(AreaDao areaDao) {
@@ -39,16 +50,32 @@ public class ReservaController {
     // ...
     @RequestMapping(value="/add/{area}", method= RequestMethod.GET)
     public String addReserva(Model model, @PathVariable String area, HttpSession sesion) {
-        sesion.setAttribute("nexturl","/reserva/add");
-        UserDetails user = (UserDetails) model.getAttribute("user");
-        model.addAttribute("reserva", new Reserva());
+        sesion.setAttribute("nexturl","/reserva/add/"+area);
+        Reserva res = new Reserva();
         model.addAttribute("area", areaDao.getArea(area));
         nombre = area;
-        if (model.getAttribute("user") == null)
+        if (sesion.getAttribute("ciudadano") == null)
         {
             model.addAttribute("user", new UserDetails());
-            return "login";
+            return "redirect:/login";
         }
+        UserDetails us = (UserDetails) sesion.getAttribute("ciudadano");
+        res.setPersona(us.getDni());
+        double i = Math.random()*999999999;
+        int in= (int) i;
+        String st = in + "654328";
+        res.setNumeroReserva(st);
+        model.addAttribute("reserva", res);
+        List zonas = zonaDao.getZonas();
+        List zonaList = new ArrayList();
+        for (int j = 0; j < zonas.size(); j++) {
+            Zona z = (Zona) zonas.get(j);
+            if (z.getArea().equals(area)){
+                zonaList.add(z.getNumero());
+            }
+        }
+        model.addAttribute("zonaList", zonaList);
+        System.out.println(zonaList.toString());
         return "reserva/add";
     }
 
@@ -61,9 +88,8 @@ public class ReservaController {
 
     @RequestMapping(value="/add", method= RequestMethod.POST)
     public String processAddSubmit(@ModelAttribute("reserva") Reserva reserva,
-                                   BindingResult bindingResult) {
+                                   BindingResult bindingResult, HttpSession sesion) {
         reserva.setArea(nombre);
-        System.out.println(nombre);
         ReservaValidator reservaValidator = new ReservaValidator();
         reservaValidator.validate(reserva, bindingResult);
 

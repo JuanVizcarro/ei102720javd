@@ -38,6 +38,10 @@ public class ReservaValidator implements Validator{
             errors.rejectValue("numeroPersonas", "obligatorio",
                     "Este campo es obligatorio.");
 
+        if (reserva.getNumeroPersonas()<=reserva.getLimiteReserva())
+            errors.rejectValue("numeroPersonas", "obligatorio",
+                    "El número de personas no puede exceder el límite (10).");
+
         if (reserva.getHoraInicio().compareTo(reserva.getHoraFin()) == 1)
             errors.rejectValue("horaInicio", "obligatorio",
                     "La hora de llegada debe ser más pronto de la de salida.");

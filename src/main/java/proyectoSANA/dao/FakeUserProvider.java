@@ -77,6 +77,7 @@ public class FakeUserProvider implements UserDao {
             ciudadano.setTipo("ciudadano");
             if (passwordEncryptor.checkPassword(password, ciu.getContraseña())) {
                 ciudadano.setPassword(password);
+                ciudadano.setDni(ciu.getDNI());
                 return ciudadano;
             }
             return null;

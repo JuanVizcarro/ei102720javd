@@ -66,20 +66,21 @@ public class LoginController {
         // Autenticats correctament.
         // Guardem les dades de l'usuari autenticat a la sessió
         if(user.getTipo().equals("medioambiente")){
-            session.setAttribute("medioambiente", new UserDetails());
+            session.setAttribute("medioambiente", user);
             return "login";
         }
         if(user.getTipo().equals("municipal")){
-            session.setAttribute("municipal",  new UserDetails());
+            session.setAttribute("municipal", user);
             return "login";
         }
         if(user.getTipo().equals("ciudadano")){
-            session.setAttribute("ciudadano",  new UserDetails());
+            session.setAttribute("ciudadano",  user);
         }
         if (session.getAttribute("nexturl")!= null){
             String url=(String) session.getAttribute("nexturl");
             session.removeAttribute("nexturl");
-            return "redirect:/" + url;
+            System.out.println("Redirect:" + url);
+            return "redirect:" + url;
         }
 
         // Torna a la pàgina principal

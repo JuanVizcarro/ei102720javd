@@ -1,5 +1,7 @@
 package proyectoSANA.model;
 
+import java.util.List;
+
 public class Area {
 
     private String municipio;
@@ -14,6 +16,16 @@ public class Area {
     private String instalacion;
     private String comentario;
     private String imagen;
+
+    public List getZonaList() {
+        return zonaList;
+    }
+
+    public void setZonaList(List zonaList) {
+        this.zonaList = zonaList;
+    }
+
+    private List zonaList;
 
     public Area(){
 

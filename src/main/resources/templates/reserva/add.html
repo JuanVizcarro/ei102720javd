@@ -38,7 +38,7 @@
               <div class="input-group-prepend">
                 <span class="input-group-text"><i class="fas fa-user"></i></span>
               </div>
-              <input type="text" placeholder="Numero Reserva" th:field="*{numeroReserva}" />
+              <input type="text" placeholder="Numero Reserva" th:field="*{numeroReserva}" readonly/>
               <td th:if="${#fields.hasErrors('numeroReserva')}" th:errors="*{numeroReserva}"></td>
             </div>
 
@@ -46,7 +46,7 @@
               <div class="input-group-prepend">
                 <span class="input-group-text"><i class="fas fa-key"></i></span>
               </div>
-              <input type="text" placeholder="DNI" th:field="*{persona}" />
+              <input type="text" placeholder="DNI" th:field="*{persona}" readonly/>
               <td th:if="${#fields.hasErrors('persona')}" th:errors="*{persona}"></td>
             </div>
 
@@ -87,7 +87,7 @@
               <div class="input-group-prepend">
                 <span class="input-group-text"><i class="fas fa-warehouse"></i></span>
               </div>
-              <input type="number" placeholder="Limite Reserva" th:field="*{limiteReserva}" />
+              <input type="number" placeholder="Limite Reserva" th:field="*{limiteReserva}" readonly/>
               <td th:if="${#fields.hasErrors('limiteReserva')}" th:errors="*{limiteReserva}"></td>
             </div>
 
@@ -106,17 +106,14 @@
               <div class="input-group-prepend">
                 <span class="input-group-text"><i class="fas fa-warehouse"></i></span>
               </div>
-              <input type="number" placeholder="Zona" th:field="*{zona}" />
-              <td th:if="${#fields.hasErrors('zona')}" th:errors="*{zona}"></td>
+              <select class="form_control" type="text" th:field="*{zona}">
+                <!--option value="No seleccionat">Selecciona el zona</option-->
+                <option th:each="zonavalue : ${zonaList}"
+                        th:value="${zonavalue}"
+                        th:text="${zonavalue}"></option>
+              </select>
             </div>
 
-            <div class="input-group form-group">
-              <div class="input-group-prepend">
-                <span class="input-group-text"><i class="fas fa-warehouse"></i></span>
-              </div>
-              <input type="text" placeholder="Horario Reserva" th:field="*{horarioReserva}" />
-              <td th:if="${#fields.hasErrors('horarioReserva')}" th:errors="*{horarioReserva}"></td>
-            </div>
           </form>
         </table>
 

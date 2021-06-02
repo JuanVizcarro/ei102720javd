@@ -8,10 +8,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import proyectoSANA.dao.CiudadanoDao;
-import proyectoSANA.dao.GestorMunicipalDao;
-import proyectoSANA.dao.MunicipioDao;
-import proyectoSANA.dao.ZonaDao;
+import proyectoSANA.dao.*;
 import proyectoSANA.model.*;
 
 @Controller
@@ -20,6 +17,8 @@ import proyectoSANA.model.*;
 public class ZonaController {
 
     private ZonaDao zonaDao;
+    private AreaDao areaDao;
+    private Area area;
 
     @Autowired
     public void setZonaDao(ZonaDao zonaDao) {
@@ -48,6 +47,10 @@ public class ZonaController {
         if (bindingResult.hasErrors())
             return "zona/add";
         zonaDao.addZona(zona);
+//        System.out.println(areaDao.getArea(zona.getArea()).toString());
+//        area = areaDao.getArea(zona.getArea());
+//        area.getZonaList().add(zona.getNumero());
+//        System.out.println(area.getZonaList().toString());
         return "redirect:list";
     }
 

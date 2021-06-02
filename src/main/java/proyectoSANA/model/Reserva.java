@@ -14,7 +14,7 @@ public class Reserva {
     @DateTimeFormat(pattern = "HH:mm")
     private LocalTime horaInicio = LocalTime.now();
     private LocalTime horaFin = LocalTime.now();
-    private int limiteReserva;
+    private int limiteReserva = 10;
     private String area;
     private int zona;
     private String horarioReserva;
