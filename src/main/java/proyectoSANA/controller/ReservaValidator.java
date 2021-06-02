@@ -58,8 +58,8 @@ public class ReservaValidator implements Validator{
             errors.rejectValue("zona", "obligatorio",
                     "Este campo es obligatorio.");
 
-        if (reserva.getHorarioReserva().trim().equals(""))
-            errors.rejectValue("horarioReserva", "obligatorio",
-                    "Este campo es obligatorio.");
+        //if (reserva.getHorarioReserva().trim().equals(""))
+        //    errors.rejectValue("horarioReserva", "obligatorio",
+         //           "Este campo es obligatorio.");
     }
 }

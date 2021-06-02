@@ -67,7 +67,6 @@ public class LoginController {
         // Guardem les dades de l'usuari autenticat a la sessió
         if(user.getTipo().equals("medioambiente")){
             session.setAttribute("medioambiente", user);
-            return "login";
         }
         if(user.getTipo().equals("municipal")){
             session.setAttribute("municipal", user);
