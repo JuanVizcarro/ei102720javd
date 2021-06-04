@@ -26,10 +26,6 @@ public class ServicioValidator implements Validator{
             errors.rejectValue("tipo", "obligatorio",
                     "Este campo es obligatorio.");
 
-        if (servicio.getArea().trim().equals(""))
-            errors.rejectValue("area", "obligatorio",
-                    "Este campo es obligatorio.");
-
         if (servicio.getNumero() == 0)
             errors.rejectValue("numero", "obligatorio",
                     "Este campo es obligatorio.");

@@ -2,12 +2,16 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<html xmlns:th="http://www.thymeleaf.org">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <!------ Include the above in your HEAD tag ---------->
 
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Nueva Area</title>
+    <title>Nueva Reserva</title>
     <!--Made with love by Mutiullah Samim -->
 
     <!--Bootsrap 4 CDN-->
@@ -20,15 +24,16 @@
     <link rel="stylesheet" type="text/css" href="/css/sty.css"
           th:href="@{/css/sty.css}"/>
 </head>
+
 <body>
-<a class="btn btn-success" href="../" role="button">Atrás</a>
-<form action="#" th:action="@{/area/add}"
+<form action="#" th:action="@{/area/addServicio}"
       th:object="${area}" method="post">
+
     <div class="container">
         <div class="d-flex justify-content-center h-100">
             <div class="card">
                 <div class="card-header">
-                    <h3>Nueva Area</h3>
+                    <h3>Nueva Reserva</h3>
                 </div>
                 <table>
                     <form>
@@ -36,16 +41,14 @@
                             <div class="input-group-prepend">
                                 <span class="input-group-text"><i class="fas fa-user"></i></span>
                             </div>
-                            <input type="text" placeholder="Nombre"  th:field="*{nombre}" />
-                            <td th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}"></td>
+                            <input type="text" placeholder="Numero Reserva" th:field="*{municipio}" readonly/>
                         </div>
 
                         <div class="input-group form-group">
                             <div class="input-group-prepend">
                                 <span class="input-group-text"><i class="fas fa-key"></i></span>
                             </div>
-                            <input type="text" placeholder="Municipio" th:field="*{municipio}" />
-                            <td th:if="${#fields.hasErrors('municipio')}" th:errors="*{municipio}"></td>
+                            <input type="text" placeholder="DNI" th:field="*{tipoAcceso}" readonly/>
                         </div>
 
 
@@ -53,79 +56,83 @@
                             <div class="input-group-prepend">
                                 <span class="input-group-text"><i class="fas fa-address-card"></i></span>
                             </div>
-                            <input type="number" placeholder="Nº Zonas"  th:field="*{numeroDeZonas}" />
-                            <td th:if="${#fields.hasErrors('numeroDeZonas')}" th:errors="*{numeroDeZonas}"></td>
+                            <input type="text" placeholder="Fechas" th:field="*{descripcion}" readonly/>
                         </div>
 
                         <div class="input-group form-group">
                             <div class="input-group-prepend">
                                 <span class="input-group-text"><i class="fas fa-envelope"></i></span>
                             </div>
-                            <input type="text" placeholder="Tipo Accesso" th:field="*{tipoAcceso}" />
-                            <td th:if="${#fields.hasErrors('tipoAcceso')}" th:errors="*{tipoAcceso}"></td>
+                            <input type="text" placeholder="Nº Personas" th:field="*{numeroDeZonas}" readonly/>
                         </div>
 
                         <div class="input-group form-group">
                             <div class="input-group-prepend">
                                 <span class="input-group-text"><i class="fas fa-birthday-cake"></i></span>
                             </div>
-                            <input type="text" placeholder="Descripcion" th:field="*{descripcion}" />
-                            <td th:if="${#fields.hasErrors('descripcion')}" th:errors="*{descripcion}"></td>
+                            <input type="text" placeholder="Hora de Llegada" th:field="*{nombre}" readonly/>
                         </div>
 
                         <div class="input-group form-group">
                             <div class="input-group-prepend">
                                 <span class="input-group-text"><i class="fas fa-address-book"></i></span>
                             </div>
-                            <input type="text" placeholder="Ubicacion" th:field="*{ubicacionGeografica}" />
-                            <td th:if="${#fields.hasErrors('ubicacionGeografica')}" th:errors="*{ubicacionGeografica}"></td>
+                            <input type="text" placeholder="Hora de Salida" th:field="*{ubicacionGeografica}" readonly/>
                         </div>
 
                         <div class="input-group form-group">
                             <div class="input-group-prepend">
                                 <span class="input-group-text"><i class="fas fa-warehouse"></i></span>
                             </div>
-                            <input type="text" placeholder="Tipo Area" th:field="*{tipoArea}" /></td>
-                            <td th:if="${#fields.hasErrors('tipoArea')}" th:errors="*{tipoArea}"></td>
-                        </div>
-
-
-                        <div class="input-group form-group">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text"><i class="fas fa-flag"></i></span>
-                            </div>
-                            <input type="text" placeholder="Orientacion" th:field="*{orientacion}" />
+                            <input type="text" placeholder="Tipo de area" th:field="*{tipoArea}" readonly/>
                         </div>
 
                         <div class="input-group form-group">
                             <div class="input-group-prepend">
-                                <span class="input-group-text"><i class="fas fa-flag"></i></span>
+                                <span class="input-group-text"><i class="fas fa-warehouse"></i></span>
                             </div>
-                            <input type="text" placeholder="Instalaciones" th:field="*{instalacion}" />
+                            <select class="form_control" type="text" th:field="*{caracteristicaFisica}">
+                                <!--option value="No seleccionat">Selecciona el zona</option-->
+                                <option th:each="servicio : ${servicios}"
+                                        th:value="${servicio}"
+                                        th:text="${servicio}"></option>
+                            </select>
                         </div>
 
                         <div class="input-group form-group">
                             <div class="input-group-prepend">
                                 <span class="input-group-text"><i class="fas fa-flag"></i></span>
                             </div>
-                            <input type="text" placeholder="Comentarios" th:field="*{comentario}" />
+                            <input type="text" placeholder="Area" th:field="*{orientacion}" readonly/>
                         </div>
 
                         <div class="input-group form-group">
                             <div class="input-group-prepend">
                                 <span class="input-group-text"><i class="fas fa-flag"></i></span>
                             </div>
-                            <input type="text" placeholder="Imagen" th:field="*{imagen}" />
+                            <input type="text" placeholder="Area" th:field="*{instalacion}" readonly/>
+                        </div>
+
+                        <div class="input-group form-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="fas fa-flag"></i></span>
+                            </div>
+                            <input type="text" placeholder="Area" th:field="*{comentario}" readonly/>
+                        </div>
+
+                        <div class="input-group form-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="fas fa-flag"></i></span>
+                            </div>
+                            <input type="text" placeholder="Imagen" th:field="*{imagen}" readonly/>
                         </div>
 
                     </form>
                 </table>
 
-
                 <div class="form-group">
-                    <input type="submit" value="Añadir Area" class="btn float-left login_btn">
+                    <input type="submit" value="Añadir" class="btn float-left login_btn">
                 </div>
-
             </div>
         </div>
     </div>
@@ -139,4 +146,15 @@
 </div>
 </form>
 </body>
+
+</html>
+
+
+</div>
+</div>
+</div>
+</div>
+</form>
+</body>
+
 </html>

@@ -14,7 +14,6 @@ public class Servicio {
     private String nombre;
     private String descripcion;
     private String tipo;
-    private String area;
     private int numero;
     @DateTimeFormat(iso=DateTimeFormat.ISO.DATE)
     private LocalDate fechaInicio = LocalDate.now();
@@ -48,14 +47,6 @@ public class Servicio {
 
     public void setTipo(String tipo) {
         this.tipo = tipo;
-    }
-
-    public String getArea() {
-        return area;
-    }
-
-    public void setArea(String area) {
-        this.area = area;
     }
 
     public int getNumero() {
@@ -94,7 +85,6 @@ public class Servicio {
                 "Nombre: " + nombre + ", " +
                 "Descripcion: " + descripcion + ", " +
                 "Tipo: " + tipo + ", " +
-                "Area: " + area + ", " +
                 "Numero: " + numero + ", " +
                 "FechaInicio: " + fechaInicio + ", " +
                 "FechaFin: " + fechaFin + ", " +

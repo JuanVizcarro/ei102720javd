@@ -34,7 +34,7 @@
         <th scope="col">NumeroDeZonas</th>
         <th scope="col">UbicacionGeografica</th>
         <th scope="col">Tipo de área</th>
-        <th scope="col">Característica física</th>
+        <th scope="col">Servicios</th>
         <th scope="col">Orientacion</th>
         <th scope="col">Instalacion</th>
         <th scope="col">Comentario</th>
@@ -57,11 +57,11 @@
         <td th:text="${area.instalacion}"></td>
         <td th:text="${area.comentario}"></td>
         <td th:text="${area.imagen}"></td>
-        <td><a class="btn btn-warning" th:href="@{/servicio/add/}" role="button">Añadir Servicio</a>
+        <td><a class="btn btn-warning" th:href="@{/area/addServicio/{nombre}(nombre=${area.nombre})}" role="button">Añadir Servicio</a>
         </td>
         <td><a class="btn btn-warning" th:href="@{/area/update/{nombre}(nombre=${area.nombre})}" role="button">Edita</a>
         </td>
-        <td><a th:href="@{/nadador/delete/{nom}(nom=${area.nombre})}"
+        <td><a th:href="@{/area/delete/{nom}(nom=${area.nombre})}"
                th:onclick="return confirm('¿Estás segur@ de borrar el area '
 [[${area.nombre}]] + '?');">
             Esborra</a>

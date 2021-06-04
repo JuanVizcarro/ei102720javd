@@ -55,6 +55,7 @@ public class ServicioController {
 
     @RequestMapping(value="/update/{identificador}", method = RequestMethod.GET)
     public String editServicio(Model model, @PathVariable String identificador) {
+        System.out.println(identificador);
         model.addAttribute("servicio", servicioDao.getServicio(identificador));
         return "servicio/update";
     }

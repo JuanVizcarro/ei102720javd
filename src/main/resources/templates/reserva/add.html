@@ -91,16 +91,12 @@
               <td th:if="${#fields.hasErrors('limiteReserva')}" th:errors="*{limiteReserva}"></td>
             </div>
 
-            <form action="#" th:action="@{/reserva/add}"
-                  th:object="${area}" method="get">
-
             <div class="input-group form-group">
               <div class="input-group-prepend">
                 <span class="input-group-text"><i class="fas fa-flag"></i></span>
               </div>
-              <input type="text" th:value="*{nombre}" readonly/>
+              <input type="text" placeholder="Area" th:field="*{area}" readonly/>
             </div>
-            </form>
 
             <div class="input-group form-group">
               <div class="input-group-prepend">

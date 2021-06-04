@@ -70,7 +70,6 @@ public class LoginController {
         }
         if(user.getTipo().equals("municipal")){
             session.setAttribute("municipal", user);
-            return "login";
         }
         if(user.getTipo().equals("ciudadano")){
             session.setAttribute("ciudadano",  user);

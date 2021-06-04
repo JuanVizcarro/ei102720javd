@@ -23,7 +23,7 @@ public class AreaDao {
     public void addArea(Area area) {
         jdbcTemplate.update("INSERT INTO Area VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
                area.getMunicipio(),area.getTipoAcceso(),area.getDescripcion(),area.getNumeroDeZonas(),
-                area.getNombre(),area.getUbicacionGeografica(),area.getTipoArea(),area.getCaracteristicaFisica(),area.getOrientacion(),area.getInstalacion(),
+                area.getNombre(),area.getUbicacionGeografica(),area.getTipoArea(),"",area.getOrientacion(),area.getInstalacion(),
                 area.getComentario(),area.getImagen());
     }
     public void deleteArea(String nombre) {
@@ -34,10 +34,11 @@ public class AreaDao {
         jdbcTemplate.update("DELETE FROM Area WHERE nombre = ?",
                 area.getNombre());
     }
+
     public void updateArea(Area area) {
         jdbcTemplate.update("UPDATE Area SET tipoAcceso = ?, descripcion = ?, numeroDeZonas = ?, ubicacionGeografica = ?, tipoArea = ?, caracteristicaFisica = ?, orientacion = ?, instalacion = ?, comentario = ? , imagen = ? WHERE nombre = ?",
                 area.getTipoAcceso(),area.getDescripcion(),area.getNumeroDeZonas(),
-                area.getUbicacionGeografica(),area.getTipoArea(),area.getCaracteristicaFisica(),area.getOrientacion(),area.getInstalacion(),
+                area.getUbicacionGeografica(),area.getTipoArea(), area.getCaracteristicaFisica(),area.getOrientacion(),area.getInstalacion(),
                 area.getComentario(),area.getImagen(),area.getNombre());
     }
     public Area getArea(String nomArea) {

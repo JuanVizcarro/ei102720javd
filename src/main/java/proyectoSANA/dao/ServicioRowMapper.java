@@ -9,11 +9,10 @@ import java.time.LocalDate;
 public final class ServicioRowMapper implements RowMapper<Servicio> {
     public Servicio mapRow(ResultSet rs, int rowNum) throws SQLException {
         Servicio servicio = new Servicio();
-
+        servicio.setIdentificador(rs.getString("Identificador"));
         servicio.setNombre(rs.getString("Nombre"));
         servicio.setDescripcion(rs.getString("Descripcion"));
         servicio.setTipo(rs.getString("Tipo"));
-        servicio.setArea(rs.getString("Area"));
         servicio.setNumero(rs.getInt("Numero"));
         servicio.setFechaInicio(rs.getObject("FechaInicio", LocalDate.class));
         servicio.setFechaFin(rs.getObject("FechaFin", LocalDate.class));

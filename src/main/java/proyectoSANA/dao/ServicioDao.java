@@ -26,8 +26,8 @@ public class ServicioDao {
 
     /* Afegeix el municipio a la base de dades */
     public void addServicio(Servicio servicio) {
-        jdbcTemplate.update("INSERT INTO Servicio VALUES(?, ?, ?, ?, ?, ?, ?, ?)",
-                servicio.getIdentificador(), servicio.getNombre(), servicio.getDescripcion(), servicio.getTipo(), servicio.getArea(), servicio.getNumero(), servicio.getFechaInicio(), servicio.getFechaFin());
+        jdbcTemplate.update("INSERT INTO Servicio VALUES(?, ?, ?, ?, ?, ?, ?)",
+                servicio.getIdentificador(), servicio.getNombre(), servicio.getDescripcion(), servicio.getTipo(), servicio.getNumero(), servicio.getFechaInicio(), servicio.getFechaFin());
     }
 
     public void deleteServicio(String identificador) {
@@ -38,8 +38,8 @@ public class ServicioDao {
 
 
     public void updateServicio(Servicio servicio) {
-        jdbcTemplate.update("UPDATE Servicio SET nombre = ?, descripcion = ?, tipo = ?, area= ?, numero= ?, fechaInicio= ?, fechaFin= ? WHERE identificador = ?",
-                servicio.getNombre(), servicio.getDescripcion(),servicio.getTipo(),servicio.getArea(),servicio.getNumero(),servicio.getFechaInicio(), servicio.getFechaFin(),servicio.getIdentificador());
+        jdbcTemplate.update("UPDATE Servicio SET nombre = ?, descripcion = ?, tipo = ?, numero= ?, fechaInicio= ?, fechaFin= ? WHERE identificador = ?",
+                servicio.getNombre(), servicio.getDescripcion(),servicio.getTipo(),servicio.getNumero(),servicio.getFechaInicio(), servicio.getFechaFin(),servicio.getIdentificador());
     }
 
     public void deleteServicio(Servicio servicio) {

@@ -11,7 +11,7 @@ public class Area {
     private String nombre;
     private String ubicacionGeografica;
     private String tipoArea;
-    private String caracteristicaFisica;
+    private String caracteristicaFisica = "";
     private String orientacion;
     private String instalacion;
     private String comentario;

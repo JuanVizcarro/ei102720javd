@@ -9,8 +9,10 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import proyectoSANA.dao.AreaDao;
-import proyectoSANA.model.Area;
+import proyectoSANA.dao.ServicioDao;
+import proyectoSANA.model.*;
 
+import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -19,10 +21,16 @@ import java.util.List;
 public class AreaController {
     private List<String> imagenes = new ArrayList<String>();
     private AreaDao areaDao;
+    private ServicioDao servicioDao;
 
     @Autowired
     public void setAreaDao(AreaDao areaDao) {
         this.areaDao = areaDao;
+    }
+
+    @Autowired
+    public void setServicioDao(ServicioDao servicioDao) {
+        this.servicioDao = servicioDao;
     }
 
     @RequestMapping(value="/add")
@@ -94,6 +102,31 @@ public class AreaController {
     @RequestMapping("/panel")
     public String panel(Model model) {
         return "area/panel";
+    }
+
+    @RequestMapping(value="/addServicio/{nombre}", method= RequestMethod.GET)
+    public String addServicio(Model model, HttpSession sesion, @PathVariable String nombre) {
+        List<Servicio> servicios = servicioDao.getServicios();
+        List<String> serviciosList = new ArrayList();
+        for (int j = 0; j < servicios.size(); j++) {
+            Servicio z = (Servicio) servicios.get(j);
+            serviciosList.add(z.getNombre());
+        }
+        model.addAttribute("servicios", serviciosList);
+        model.addAttribute("area", areaDao.getArea(nombre));
+        String g = areaDao.getArea(nombre).getCaracteristicaFisica() + " ";
+        sesion.setAttribute("g", g);
+        return "area/addServicio";
+    }
+
+    @RequestMapping(value="/addServicio", method= RequestMethod.POST)
+    public String AddServicioSubmit(@ModelAttribute("area") Area area,  HttpSession sesion) {
+        String g = (String) sesion.getAttribute("g");
+        System.out.println(g);
+        area.setCaracteristicaFisica(g + area.getCaracteristicaFisica());
+        areaDao.updateArea(area);
+        sesion.removeAttribute("g");
+        return "redirect:list";
     }
 
     }

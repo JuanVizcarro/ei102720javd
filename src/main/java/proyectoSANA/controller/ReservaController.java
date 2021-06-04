@@ -53,7 +53,7 @@ public class ReservaController {
         sesion.setAttribute("nexturl","/reserva/add/"+area);
         Reserva res = new Reserva();
         model.addAttribute("area", areaDao.getArea(area));
-        nombre = area;
+        res.setArea(area);
         if (sesion.getAttribute("ciudadano") == null)
         {
             model.addAttribute("user", new UserDetails());
@@ -88,7 +88,6 @@ public class ReservaController {
     @RequestMapping(value="/add", method= RequestMethod.POST)
     public String processAddSubmit(@ModelAttribute("reserva") Reserva reserva,
                                    BindingResult bindingResult, HttpSession sesion) {
-        reserva.setArea(nombre);
         ReservaValidator reservaValidator = new ReservaValidator();
         reservaValidator.validate(reserva, bindingResult);
 

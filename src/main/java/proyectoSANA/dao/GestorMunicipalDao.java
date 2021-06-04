@@ -1,5 +1,6 @@
 package proyectoSANA.dao;
 
+import org.jasypt.util.password.BasicPasswordEncryptor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -25,6 +26,8 @@ public class GestorMunicipalDao {
 
     /* Afegeix el ciudadano a la base de dades */
     public void addGestorMunicipal(GestorMunicipal gestorMunicipal) {
+        BasicPasswordEncryptor passwordEncryptor = new BasicPasswordEncryptor();
+        gestorMunicipal.setContraseña(passwordEncryptor.encryptPassword(gestorMunicipal.getContraseña()));
         jdbcTemplate.update("INSERT INTO GestorMunicipal VALUES(?, ?, ?, ?, ?, ?)",
                  gestorMunicipal.getDNI(), gestorMunicipal.getUsuario(),gestorMunicipal.getContraseña(),gestorMunicipal.getPueblo(),gestorMunicipal.getFechaInicio(),gestorMunicipal.getFechaFin());
     }
