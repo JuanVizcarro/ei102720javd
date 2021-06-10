@@ -23,7 +23,7 @@
 <body>
 <form action="#" th:action="@{/ciudadano/add}"
       th:object="${ciudadano}" method="post">
-    <div class="container">
+    <div class="container" >
         <div class="d-flex justify-content-center h-100">
             <div class="card">
                 <div class="card-header">
@@ -81,14 +81,14 @@
 
             <div class="input-group form-group">
                 <div class="input-group-prepend">
-                    <span class="input-group-text"><i class="fas fa-warehouse"></i></span>
+                    <span class="input-group-text"><i class="fas fa-city"></i></span>
                 </div>
             <input type="text" placeholder="Municipio"th:field="*{municipio}" />
                 </div>
 
             <div class="input-group form-group">
                 <div class="input-group-prepend">
-                    <span class="input-group-text"><i class="fas fa-flag"></i></span>
+                    <span class="input-group-text"><i class="fas fa-globe-americas"></i></span>
                 </div>
             <input type="text" placeholder="Pais"th:field="*{pais}" />
 

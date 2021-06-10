@@ -36,7 +36,7 @@
           <form>
             <div class="input-group form-group">
               <div class="input-group-prepend">
-                <span class="input-group-text"><i class="fas fa-user"></i></span>
+                <span class="input-group-text"><i class="fas fa-barcode"></i></span>
               </div>
               <input type="text" placeholder="Numero Reserva" th:field="*{numeroReserva}" readonly/>
               <td th:if="${#fields.hasErrors('numeroReserva')}" th:errors="*{numeroReserva}"></td>
@@ -44,7 +44,7 @@
 
             <div class="input-group form-group">
               <div class="input-group-prepend">
-                <span class="input-group-text"><i class="fas fa-key"></i></span>
+                <span class="input-group-text"><i class="fas fa-id-card"></i></span>
               </div>
               <input type="text" placeholder="DNI" th:field="*{persona}" readonly/>
               <td th:if="${#fields.hasErrors('persona')}" th:errors="*{persona}"></td>
@@ -53,7 +53,7 @@
 
             <div class="input-group form-group">
               <div class="input-group-prepend">
-                <span class="input-group-text"><i class="fas fa-address-card"></i></span>
+                <span class="input-group-text"><i class="fas fa-calendar-alt"></i></span>
               </div>
               <input type="date" placeholder="Fechas" th:field="*{fecha}"/>
               <td th:if="${#fields.hasErrors('fecha')}" th:errors="*{fecha}"></td>
@@ -61,7 +61,7 @@
 
             <div class="input-group form-group">
               <div class="input-group-prepend">
-                <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+                <span class="input-group-text"><i class="fas fa-user-friends"></i></span>
               </div>
               <input type="number" placeholder="Nº Personas" th:field="*{numeroPersonas}" />
               <td th:if="${#fields.hasErrors('numeroPersonas')}" th:errors="*{numeroPersonas}"></td>
@@ -69,15 +69,16 @@
 
             <div class="input-group form-group">
               <div class="input-group-prepend">
-                <span class="input-group-text"><i class="fas fa-birthday-cake"></i></span>
+                <span class="input-group-text"><i class="fas fa-user-clock"></i></span>
               </div>
               <input type="time" placeholder="Hora de Llegada" th:field="*{horaInicio}" />
               <td th:if="${#fields.hasErrors('horaInicio')}" th:errors="*{horaInicio}"></td>
             </div>
 
+
             <div class="input-group form-group">
               <div class="input-group-prepend">
-                <span class="input-group-text"><i class="fas fa-address-book"></i></span>
+                <span class="input-group-text"><i class="fas fa-clock"></i></span>
               </div>
               <input type="time" placeholder="Hora de Salida" th:field="*{horaFin}" />
               <td th:if="${#fields.hasErrors('horaFin')}" th:errors="*{horaFin}"></td>
@@ -85,7 +86,7 @@
 
             <div class="input-group form-group">
               <div class="input-group-prepend">
-                <span class="input-group-text"><i class="fas fa-warehouse"></i></span>
+                <span class="input-group-text"><i class="fas fa-list-ol"></i></span>
               </div>
               <input type="number" placeholder="Limite Reserva" th:field="*{limiteReserva}" readonly/>
               <td th:if="${#fields.hasErrors('limiteReserva')}" th:errors="*{limiteReserva}"></td>
@@ -93,14 +94,14 @@
 
             <div class="input-group form-group">
               <div class="input-group-prepend">
-                <span class="input-group-text"><i class="fas fa-flag"></i></span>
+                <span class="input-group-text"><i class="fas fa-map-marked-alt"></i></span>
               </div>
               <input type="text" placeholder="Area" th:field="*{area}" readonly/>
             </div>
 
             <div class="input-group form-group">
               <div class="input-group-prepend">
-                <span class="input-group-text"><i class="fas fa-warehouse"></i></span>
+                <span class="input-group-text"><i class="fas fa-search-location"></i></span>
               </div>
               <select class="form_control" type="text" th:field="*{zona}">
                 <!--option value="No seleccionat">Selecciona el zona</option-->
