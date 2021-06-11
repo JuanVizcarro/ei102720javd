@@ -25,15 +25,14 @@
         <td>
             <a class="btn btn-warning" th:href="@{/municipio/update/{nombre}(nombre=${municipio.nombre})}" role="button">Edita</a>
         </td>
-        <td><a th:onclick="myFunction()" th:href="@{/municipio/delete/{nombre}(nombre=${municipio.nombre})}">
 
-            <script>
-                function myFunction() {
-                confirm("Press a button!");
-            }
-            </script>
-            Esborra</a>
+        <td><a th:href="@{/municipio/delete/{nombre}(nombre=${municipio.nombre})}"
+               th:onclick="return confirm('Estàs segur d\'esborrar el nom del municipi?');">
+
+        Esborra</a>
         </td>
+
+
     </tr>
     </tbody>
 </table>
