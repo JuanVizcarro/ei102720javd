@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Gestionar Reservas</title>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" />
+</head>
+<body>
+<h1>Lista de Reservas</h1>
+<table class="table table-striped">
+    <thead>
+    <tr>
+        <th scope="col">Número de reserva</th>
+        <th scope="col">Persona</th>
+        <th scope="col">Fecha</th>
+        <th scope="col">Numero Personas</th>
+        <th scope="col">Hora de llegada</th>
+        <th scope="col">Hora de salida</th>
+        <th scope="col">Limite Reserva</th>
+        <th scope="col">Area</th>
+        <th scope="col">Zona</th>
+        <th scope="col">Horario Reserva</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="reserva: ${reservas}">
+        <td th:text="${reserva.numeroReserva}"></td>
+        <td th:text="${reserva.persona}"></td>
+        <td th:text="${reserva.fecha}"></td>
+        <td th:text="${reserva.numeroPersonas}"></td>
+        <td th:text="${reserva.horaInicio}"></td>
+        <td th:text="${reserva.horaFin}"></td>
+        <td th:text="${reserva.limiteReserva}"></td>
+        <td th:text="${reserva.area}"></td>
+        <td th:text="${reserva.zona}"></td>
+        <td th:text="${reserva.horarioReserva}"></td>
+        <td><a class="btn btn-warning" th:href="@{/reserva/update/{numeroReserva}(numeroReserva=${reserva.numeroReserva})}" role="button">Edita</a>
+        </td>
+        <td><a class="btn btn-danger" th:href="@{/reserva/delete/{numeroReserva}(numeroReserva=${reserva.numeroReserva})}" role="button">Borra</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+<a class="btn btn-success" href="add" role="button">Añadir reserva</a>
+</body>
+</html>
