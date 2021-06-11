@@ -49,12 +49,12 @@ public class ReservaDao {
     }
 
     /* Obté la reserv amb el dni i  fecha donats. Torna null si no existeix. */
-    public Reserva getReserva(String numeroReserva) {
+    public Reserva getReserva(String persona) {
         try {
             return jdbcTemplate.queryForObject(
-                    "SELECT * FROM Reserva WHERE numeroReserva = ?",
+                    "SELECT * FROM Reserva WHERE persona = ?",
                     new ReservaRowMapper(),
-                    numeroReserva);
+                    persona);
         }
         catch(EmptyResultDataAccessException e) {
             return null;
