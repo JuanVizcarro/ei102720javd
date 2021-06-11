@@ -10,16 +10,22 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.boot.jdbc.DataSourceBuilder;
 import org.springframework.jdbc.core.JdbcTemplate;
+import proyectoSANA.controller.SanaException;
 
 @SpringBootApplication
 public class SANA_Application implements CommandLineRunner {
+
     private static final Logger log = Logger.getLogger(SANA_Application.class.getName());
 
     private JdbcTemplate jdbcTemplate;
 
     public static void main(String[] args) {
-        // Auto-configura l'aplicació
-        new SpringApplicationBuilder(SANA_Application.class).run(args);
+        try {
+            // Auto-configura l'aplicació
+            new SpringApplicationBuilder(SANA_Application.class).run(args);
+        } catch (SanaException e){
+            throw new SanaException();
+        }
     }
 
     // Funció principal
@@ -35,7 +41,6 @@ public class SANA_Application implements CommandLineRunner {
     public DataSource dataSource() {
         return DataSourceBuilder.create().build();
     }
-
 
 
 }

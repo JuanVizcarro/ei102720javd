@@ -1,5 +1,6 @@
 package proyectoSANA.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Area {
@@ -17,15 +18,15 @@ public class Area {
     private String comentario;
     private String imagen;
 
-    public List getZonaList() {
+    public String getZonaList() {
         return zonaList;
     }
 
-    public void setZonaList(List zonaList) {
+    public void setZonaList(String zonaList) {
         this.zonaList = zonaList;
     }
 
-    private List zonaList;
+    private String zonaList;
 
     public Area(){
 
@@ -90,6 +91,8 @@ public class Area {
     public void setComentario(String comentario){
         this.comentario = comentario;
     }
+
+
 
     @Override
     public String toString() {

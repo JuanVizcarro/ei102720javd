@@ -14,6 +14,7 @@ import java.util.List;
 public class ZonaDao {
 
     private JdbcTemplate jdbcTemplate;
+    private AreaDao areaDao;
 
     // Obté el jdbcTemplate a partir del Data Source
     @Autowired
@@ -25,6 +26,7 @@ public class ZonaDao {
     public void addZona(Zona zona) {
         jdbcTemplate.update("INSERT INTO Zona VALUES(?, ?)",
                 zona.getNumero(), zona.getArea());
+        areaDao.getArea(zona.getArea()).setZonaList(areaDao.getArea(zona.getArea()).getZonaList()+","+zona.getNumero());
     }
 
     public void deleteZona(int numero) {

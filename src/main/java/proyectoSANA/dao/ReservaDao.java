@@ -70,4 +70,18 @@ public class ReservaDao {
             return new ArrayList<>();
         }
     }
+
+    public int getOcupacion(String area) {
+        try {
+            return jdbcTemplate.queryForObject(
+                    "SELECT SUM(numeroPersonas) FROM Reserva WHERE area = ? GROUP BY area",
+                    Integer.class,
+                    area);
+        }
+        catch(EmptyResultDataAccessException e) {
+            System.out.println("sumar ocupación no funciona");
+            return -1;
+        }
+    }
+
 }

@@ -103,11 +103,13 @@
               <div class="input-group-prepend">
                 <span class="input-group-text"><i class="fas fa-search-location"></i></span>
               </div>
-              <select class="form_control" type="text" th:field="*{zona}">
+
                 <!--option value="No seleccionat">Selecciona el zona</option-->
-                <option th:each="zonavalue : ${zonaList}"
+
+              <select class="form_control" type="text" th:field="*{zona}">
+                <options th:each="zonavalue : ${zonaList}"
                         th:value="${zonavalue}"
-                        th:text="${zonavalue}"></option>
+                        th:text="${zonavalue}"></options>
               </select>
             </div>
 
