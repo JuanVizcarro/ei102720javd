@@ -74,7 +74,6 @@ public class LoginController {
         }
         if(user.getTipo().equals("ciudadano")){
             session.setAttribute("ciudadano",  user);
-            return "redirect:menu/manager";
         }
         if (session.getAttribute("nexturl")!= null){
             String url=(String) session.getAttribute("nexturl");

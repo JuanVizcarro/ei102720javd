@@ -3,14 +3,17 @@ package proyectoSANA.dao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.ResultSetExtractor;
 import org.springframework.stereotype.Repository;
 import proyectoSANA.model.Municipio;
 import proyectoSANA.model.Reserva;
 
 import javax.sql.DataSource;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
 @Repository // En Spring els DAOs van anotats amb @Repository
 public class ReservaDao {
@@ -71,12 +74,10 @@ public class ReservaDao {
         }
     }
 
-    public int getOcupacion(String area) {
+    public int getOcupacion(String area, LocalDate fecha) {
         try {
-            return jdbcTemplate.queryForObject(
-                    "SELECT SUM(numeroPersonas) FROM Reserva WHERE area = ? GROUP BY area",
-                    Integer.class,
-                    area);
+            String sql = "SELECT SUM(numeroPersonas) FROM Reserva WHERE area = \'"+ area + "\' and fecha =  \'" + fecha + "\' GROUP BY area, fecha";
+            return jdbcTemplate.queryForObject(sql,Integer.class);
         }
         catch(EmptyResultDataAccessException e) {
             System.out.println("sumar ocupación no funciona");

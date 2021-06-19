@@ -54,7 +54,6 @@ public class FakeUserProvider implements UserDao {
 
     @Override
     public UserDetails loadUserByUsername(String username, String password) {
-        System.out.println("llegue");
         UserDetails ciudadano = new UserDetails();
         UserDetails gestormun = new UserDetails();
         BasicPasswordEncryptor passwordEncryptor = new BasicPasswordEncryptor();

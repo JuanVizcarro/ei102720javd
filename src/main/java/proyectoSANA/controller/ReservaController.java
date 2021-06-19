@@ -94,7 +94,7 @@ public class ReservaController {
         if (bindingResult.hasErrors())
             return "reserva/add";
         reservaDao.addReserva(reserva);
-        return "redirect:list";
+        return "/reserva/confirmation";
     }
 
     @RequestMapping(value="/update/{numeroReserva}", method = RequestMethod.GET)
@@ -121,5 +121,20 @@ public class ReservaController {
     public String processDelete(@PathVariable String numeroReserva) {
         reservaDao.deleteReserva(numeroReserva);
         return "redirect:../list";
+    }
+
+    @RequestMapping(value="/misreservas")
+    public String misReservas(Model model, HttpSession sesion) {
+        List<Reserva> mis = new ArrayList<>();
+        List<Reserva> reservas = reservaDao.getReservas();
+        UserDetails us = (UserDetails) sesion.getAttribute("ciudadano");
+        String id = us.getDni();
+        for(Reserva res:reservas){
+            if(res.getPersona().equals(id)){
+                mis.add(res);
+            }
+        }
+        model.addAttribute("reservas", mis);
+        return "/reserva/misreservas";
     }
 }

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="/css/styles.css"
+          th:href="@{/css/styles.css}"/>
+</head>
+<body>
+<div th:object="${dato}">
+    <h6>La ocupación del area </h6>
+    <a th:text="${dato.area}"></a>
+    <h6> es de </h6>
+    <a th:text="${dato.normal}"></a>
+    <h6> personas para el día </h6>
+    <a th:text="${dato.fecha}"></a>
+</div>
+</body>
+</html>

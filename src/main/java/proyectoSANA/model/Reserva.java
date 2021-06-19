@@ -17,7 +17,7 @@ public class Reserva {
     private int limiteReserva = 10;
     private String area;
     private int zona;
-    private String horarioReserva = "inutil";
+    private String horarioReserva = "no sirve";
 
     public Reserva() {}
 

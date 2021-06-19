@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="/css/styles.css"
+          th:href="@{/css/styles.css}"/>
+</head>
+<body>
+<form action="#" th:action="@{/area/ocupacion}"
+      th:object="${x}" method="post">
+        <input type="date" placeholder="Fechas" th:field="*{fecha}"/>
+        <input type="submit" value="Buscar" />
+</form>
+</body>
+</html>

@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import proyectoSANA.dao.AreaDao;
+import proyectoSANA.dao.ReservaDao;
 import proyectoSANA.dao.ServicioDao;
 import proyectoSANA.model.*;
 
@@ -21,11 +22,17 @@ import java.util.List;
 public class AreaController {
     private List<String> imagenes = new ArrayList<String>();
     private AreaDao areaDao;
+    private ReservaDao reservaDao;
     private ServicioDao servicioDao;
 
     @Autowired
     public void setAreaDao(AreaDao areaDao) {
         this.areaDao = areaDao;
+    }
+
+    @Autowired
+    public void setRaservaDao(ReservaDao reservaDao) {
+        this.reservaDao = reservaDao;
     }
 
     @Autowired
@@ -122,11 +129,38 @@ public class AreaController {
     @RequestMapping(value="/addServicio", method= RequestMethod.POST)
     public String AddServicioSubmit(@ModelAttribute("area") Area area,  HttpSession sesion) {
         String g = (String) sesion.getAttribute("g");
-        System.out.println(g);
         area.setCaracteristicaFisica(g + area.getCaracteristicaFisica());
         areaDao.updateArea(area);
         sesion.removeAttribute("g");
         return "redirect:list";
+    }
+
+    @RequestMapping(value="/ocupacion/{nombre}", method = RequestMethod.GET)
+    public String OcupacionArea(Model model, @PathVariable String nombre, HttpSession sesion) {
+        nombre = nombre;
+        Ocupacion x = new Ocupacion();
+        model.addAttribute("x", x);
+        sesion.setAttribute("nombre",nombre);
+        return "area/ocupacion";
+    }
+
+    @RequestMapping(value="/ocupacion", method= RequestMethod.POST)
+    public String PostOcupacion(Model model, HttpSession sesion, @ModelAttribute("x") Ocupacion x) {
+        x = (Ocupacion) model.getAttribute("x");
+        sesion.setAttribute("fech",x);
+        return "redirect:/area/ocfin";
+    }
+
+    @RequestMapping("/ocfin")
+    public String OcFin(Model model, HttpSession sesion) {
+        String area = (String) sesion.getAttribute("nombre");
+        Ocupacion x = (Ocupacion) sesion.getAttribute("fech");
+        x.setArea(area);
+        x.setNormal(reservaDao.getOcupacion(area, x.getFecha()));
+        model.addAttribute("dato", x);
+        sesion.removeAttribute("fech");
+        sesion.removeAttribute("nombre");
+        return "area/ocfin";
     }
 
     }

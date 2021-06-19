@@ -99,19 +99,19 @@
               <input type="text" placeholder="Area" th:field="*{area}" readonly/>
             </div>
 
-            <div class="input-group form-group">
+            <!--<div class="input-group form-group">
               <div class="input-group-prepend">
                 <span class="input-group-text"><i class="fas fa-search-location"></i></span>
-              </div>
+              </div>-->
 
                 <!--option value="No seleccionat">Selecciona el zona</option-->
 
-              <select class="form_control" type="text" th:field="*{zona}">
-                <options th:each="zonavalue : ${zonaList}"
+              <!--<select class="form_control" type="checkbox" th:field="*{zona}" multiple>-->
+                <input type="checkbox" th:each="zonavalue : ${zonaList}" th:field="*{zona}"
                         th:value="${zonavalue}"
-                        th:text="${zonavalue}"></options>
-              </select>
-            </div>
+                        th:text="${zonavalue}">
+              <!--</select>-->
+            <!--</div>-->
 
           </form>
         </table>
@@ -125,12 +125,6 @@
   </div>
 </form>
 
-
-</div>
-</div>
-</div>
-</div>
-</form>
 </body>
 
 </html>
