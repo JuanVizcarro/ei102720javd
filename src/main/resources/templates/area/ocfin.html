@@ -2,19 +2,34 @@
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Ocupación</title>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" />
     <link rel="stylesheet" type="text/css" href="/css/styles.css"
           th:href="@{/css/styles.css}"/>
 </head>
-<body>
+
+<body style="margin-top:8%; padding-left:5%">
+    <nav class="navbar navbar-expand-lg navbar-light bg-success fixed-top py-3" id="mainNav">
+        <div class="container">
+            <a class="navbar-brand js-scroll-trigger" href="../../">Proyecto SANA</a>
+            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto my-2 my-lg-0">
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <a class="btn btn-success" style="margin-bottom: 3%;" href="../area/list" role="button">Atrás</a>
+    <img th:src="@{/css/assets/img/areasFoto/{imatge}(imatge=*{dato.area})}" style="float:right; border-radius:50%; max-width:60%;
+    height:auto; margin-top:4%;" >
 <div th:object="${dato}">
-    <h6>La ocupación del area </h6>
-    <a th:text="${dato.area}"></a>
-    <h6> es de </h6>
-    <a th:text="${dato.normal}"></a>
-    <h6> personas para el día </h6>
-    <a th:text="${dato.fecha}"></a>
+    <h6 class="u-text u-text-1" style="line-height:normal;font-weight:650;font-size: 18px;" th:text="'Nombre del area: ' + ${dato.area}"></h6>
+    <br>
+    <h6 class="u-text u-text-1" style="line-height:normal;font-weight:650;font-size: 18px;" th:text="'Número de personas: ' + ${dato.normal}"></h6>
+    <br>
+    <h6 class="u-text u-text-1" style="line-height:normal;font-weight:650;font-size: 18px;" th:text="'Día: ' + ${dato.fecha}"></h6>
+
 </div>
 </body>
 </html>
