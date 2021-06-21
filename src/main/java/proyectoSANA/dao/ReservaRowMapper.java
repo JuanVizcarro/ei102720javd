@@ -22,7 +22,7 @@ public class ReservaRowMapper implements RowMapper<Reserva> {
         reserva.setHoraFin(t != null ? t.toLocalTime() : null);
         reserva.setLimiteReserva(rs.getInt("limiteReserva"));
         reserva.setArea(rs.getString("area"));
-        reserva.setZona(rs.getInt("zona"));
+        reserva.setZona(rs.getString("zona"));
         reserva.setHorarioReserva(rs.getString("horarioReserva"));
 
         return reserva;

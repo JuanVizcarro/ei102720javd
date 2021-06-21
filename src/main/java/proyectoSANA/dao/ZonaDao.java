@@ -26,10 +26,11 @@ public class ZonaDao {
     public void addZona(Zona zona) {
         jdbcTemplate.update("INSERT INTO Zona VALUES(?, ?)",
                 zona.getNumero(), zona.getArea());
-        areaDao.getArea(zona.getArea()).setZonaList(areaDao.getArea(zona.getArea()).getZonaList()+","+zona.getNumero());
+//        areaDao.getArea(zona.getArea()).setZonaList(areaDao.getArea(zona.getArea()).getZonaList()+","+zona.getNumero());
+//        System.out.println(areaDao.getArea(zona.getArea()).getZonaList());
     }
 
-    public void deleteZona(int numero) {
+    public void deleteZona(String numero) {
         jdbcTemplate.update("DELETE FROM Zona WHERE numero = ?",
                 numero);
     }
@@ -40,7 +41,7 @@ public class ZonaDao {
                 zona.getNumero());
     }
 
-    public Zona getZona(int numeroZona) {
+    public Zona getZona(String numeroZona) {
         try {
             return jdbcTemplate.queryForObject(
                     "SELECT * FROM Zona WHERE numero =?",

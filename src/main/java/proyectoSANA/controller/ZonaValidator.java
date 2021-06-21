@@ -19,7 +19,7 @@ public class ZonaValidator implements Validator{
             errors.rejectValue("area", "obligatorio",
                     "Este campo es obligatorio.");
 
-        if (zona.getNumero() == 0)
+        if (zona.getNumero().trim().equals(""))
             errors.rejectValue("numero", "obligatorio",
                     "Este campo es obligatorio.");
     }

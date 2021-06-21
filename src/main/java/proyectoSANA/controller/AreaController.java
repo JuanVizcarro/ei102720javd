@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import proyectoSANA.dao.AreaDao;
 import proyectoSANA.dao.ReservaDao;
-import proyectoSANA.dao.ServicioDao;
+import proyectoSANA.dao.ServicioFijoDao;
 import proyectoSANA.model.*;
 
 import javax.servlet.http.HttpSession;
@@ -23,7 +23,7 @@ public class AreaController {
     private List<String> imagenes = new ArrayList<String>();
     private AreaDao areaDao;
     private ReservaDao reservaDao;
-    private ServicioDao servicioDao;
+    private ServicioFijoDao servicioFijoDao;
 
     @Autowired
     public void setAreaDao(AreaDao areaDao) {
@@ -36,8 +36,8 @@ public class AreaController {
     }
 
     @Autowired
-    public void setServicioDao(ServicioDao servicioDao) {
-        this.servicioDao = servicioDao;
+    public void setServicioFijoDao(ServicioFijoDao servicioDao) {
+        this.servicioFijoDao = servicioDao;
     }
 
     @RequestMapping(value="/add")
@@ -111,28 +111,28 @@ public class AreaController {
         return "area/panel";
     }
 
-    @RequestMapping(value="/addServicio/{nombre}", method= RequestMethod.GET)
-    public String addServicio(Model model, HttpSession sesion, @PathVariable String nombre) {
-        List<Servicio> servicios = servicioDao.getServicios();
+    @RequestMapping(value="/addServiciofijo/{nombre}", method= RequestMethod.GET)
+    public String addServiciofijo(Model model, HttpSession sesion, @PathVariable String nombre) {
+        List<ServicioFijo> serviciosFijos = servicioFijoDao.getServiciosFijos();
         List<String> serviciosList = new ArrayList();
-        for (int j = 0; j < servicios.size(); j++) {
-            Servicio z = (Servicio) servicios.get(j);
+        for (int j = 0; j < serviciosFijos.size(); j++) {
+            ServicioFijo z = (ServicioFijo) serviciosFijos.get(j);
             serviciosList.add(z.getNombre());
         }
-        model.addAttribute("servicios", serviciosList);
+        model.addAttribute("serviciosfijos", serviciosList);
         model.addAttribute("area", areaDao.getArea(nombre));
         String g = areaDao.getArea(nombre).getCaracteristicaFisica() + " ";
-        sesion.setAttribute("g", g);
-        return "area/addServicio";
+        //sesion.setAttribute("g", g);
+        return "area/addServiciofijo";
     }
 
-    @RequestMapping(value="/addServicio", method= RequestMethod.POST)
-    public String AddServicioSubmit(@ModelAttribute("area") Area area,  HttpSession sesion) {
-        String g = (String) sesion.getAttribute("g");
-        area.setCaracteristicaFisica(g + area.getCaracteristicaFisica());
+    @RequestMapping(value="/addServiciofijo", method= RequestMethod.POST)
+    public String AddServiciofijoSubmit(@ModelAttribute("area") Area area,  HttpSession sesion) {
+//        String g = (String) sesion.getAttribute("g");
+//        area.setCaracteristicaFisica(g + area.getCaracteristicaFisica());
         areaDao.updateArea(area);
-        sesion.removeAttribute("g");
-        return "redirect:list";
+//        sesion.removeAttribute("g");
+        return "redirect:/area/list";
     }
 
     @RequestMapping(value="/ocupacion/{nombre}", method = RequestMethod.GET)

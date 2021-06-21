@@ -18,7 +18,7 @@
     </tr>
     <tr>
       <td><label>Numero </label></td>
-      <td><input type="number" th:field="*{numero}" /></td>
+      <td><input type="text" th:field="*{numero}" /></td>
       <td th:if="${#fields.hasErrors('numero')}" th:errors="*{numero}"></td>
     </tr>
     <tr>

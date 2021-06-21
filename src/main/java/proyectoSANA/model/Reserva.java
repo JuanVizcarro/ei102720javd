@@ -16,7 +16,7 @@ public class Reserva {
     private LocalTime horaFin = LocalTime.now();
     private int limiteReserva = 10;
     private String area;
-    private int zona;
+    private String zona;
     private String horarioReserva = "no sirve";
 
     public Reserva() {}
@@ -77,11 +77,11 @@ public class Reserva {
         this.area = area;
     }
 
-    public int getZona() {
+    public String getZona() {
         return zona;
     }
 
-    public void setZona(int zona) {
+    public void setZona(String zona) {
         this.zona = zona;
     }
 

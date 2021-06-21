@@ -54,7 +54,7 @@ public class ReservaValidator implements Validator{
 //            errors.rejectValue("area", "obligatorio",
 //                    "Este campo es obligatorio.");
 
-        if (reserva.getZona()==0)
+        if (reserva.getZona().trim().equals(""))
             errors.rejectValue("zona", "obligatorio",
                     "Este campo es obligatorio.");
 

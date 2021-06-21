@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Añadir fechas servicio estacional</title>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="/css/styles.css"
+          th:href="@{/css/styles.css}"/>
+</head>
+<body style="margin-top:8%; padding-left:5%">
+<nav class="navbar navbar-expand-lg navbar-light bg-success fixed-top py-3" id="mainNav">
+    <div class="container">
+        <a class="navbar-brand js-scroll-trigger" href="../../">Proyecto SANA</a>
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto my-2 my-lg-0">
+            </ul>
+        </div>
+    </div>
+</nav>
+<a class="btn btn-success" style="margin-bottom: 3%;" href="../list" role="button">Atrás</a>
+
+
+<form action="#" th:action="@{/servicioestacional/addserv}"
+      th:object="${fechest}" method="post">
+    <h6 class="u-text u-text-1" style="line-height:normal;font-weight:650;">Nombre del area</h6>
+    <input type="text" placeholder="Nombre Area" th:field="*{area}" readonly/>
+    <h6 class="u-text u-text-1" style="line-height:normal;font-weight:650;">Selecciona el servicio a ofrecer</h6>
+    <select class="form_control" type="text" th:field="*{servicio}">
+        <!--option value="No seleccionat">Selecciona el gènere</option-->
+        <option th:each="servalue : ${serviciosestacoinales}"
+                th:value="${servalue}"
+                th:text="${servalue}"></option>
+    </select>
+    <h6 class="u-text u-text-1" style="line-height:normal;font-weight:650;">Selecciona el día de inicio</h6>
+    <input type="date" placeholder="FechaIni" th:field="*{fechainicio}"/>
+    <h6 class="u-text u-text-1" style="line-height:normal;font-weight:650;">Selecciona el día de finalización</h6>
+    <input type="date" placeholder="FechaFin" th:field="*{fechafin}"/>
+    <input type="submit" value="Añadir" />
+</form>
+</body>
+</html>

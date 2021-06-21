@@ -1,7 +1,7 @@
 package proyectoSANA.model;
 
 public class Zona {
-    private int numero;
+    private String numero;
     private String area;
 
     public String getArea() {
@@ -15,11 +15,11 @@ public class Zona {
     public Zona() {
     }
 
-    public int getNumero() {
+    public String getNumero() {
         return numero;
     }
 
-    public void setNumero(int numero) {
+    public void setNumero(String numero) {
         this.numero = numero;
     }
 

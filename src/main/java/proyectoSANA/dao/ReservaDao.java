@@ -51,7 +51,7 @@ public class ReservaDao {
                 reserva.getPersona(), reserva.getFecha(), reserva.getNumeroPersonas(), reserva.getHoraInicio(), reserva.getHoraFin(), reserva.getLimiteReserva(), reserva.getArea(), reserva.getZona(), reserva.getHorarioReserva(), reserva.getNumeroReserva());
     }
 
-    /* Obté la reserv amb el dni i  fecha donats. Torna null si no existeix. */
+    /* Obté la reserv amb el dni donat. Torna null si no existeix. */
     public Reserva getReserva(String persona) {
         try {
             return jdbcTemplate.queryForObject(

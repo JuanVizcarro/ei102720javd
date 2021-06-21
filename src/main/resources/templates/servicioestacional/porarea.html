@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Gestionar Reservas</title>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" />
+</head>
+<body>
+<h1>Lista de Servicios Estacionales</h1>
+<table class="table table-striped">
+    <thead>
+    <tr>
+        <th scope="col">Servicio</th>
+        <th scope="col">Area</th>
+        <th scope="col">Fecha Inicio</th>
+        <th scope="col">Fecha Fin</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="servicioes: ${fechas}">
+        <td th:text="${servicioes.servicio}"></td>
+        <td th:text="${servicioes.area}"></td>
+        <td th:text="${servicioes.fechainicio}"></td>
+        <td th:text="${servicioes.fechafin}"></td>
+        <td><a class="btn btn-danger" th:href="@{/servicioestacional/deleteserv/{servicio}/{area}/{fechaini}(servicio=${servicioes.servicio},area=${servicioes.area},fechaini=${servicioes.fechainicio})}" role="button">Borra</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+<a class="btn btn-success" href="../area/list" role="button">Volver a lista de areas</a>
+</body>
+</html>
