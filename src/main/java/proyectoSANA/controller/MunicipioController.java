@@ -10,6 +10,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import proyectoSANA.dao.MunicipioDao;
 import proyectoSANA.model.Municipio;
+import proyectoSANA.model.UserDetails;
+
+import javax.servlet.http.HttpSession;
 
 @Controller
 @RequestMapping("/municipio")
@@ -32,9 +35,12 @@ public class MunicipioController {
 
 
     @RequestMapping("/list")
-    public String listMunicipios(Model model) {
+    public String listMunicipios(Model model, HttpSession sesion) {
         model.addAttribute("municipios", municipioDao.getMunicipios());
-        return "municipio/list";
+        if (sesion.getAttribute("medioambiente") != null) {
+            return "municipio/list";
+        }
+        return "municipio/listciu";
     }
 
     @RequestMapping(value="/add", method= RequestMethod.POST)

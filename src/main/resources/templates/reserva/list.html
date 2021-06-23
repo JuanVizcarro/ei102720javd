@@ -34,13 +34,11 @@
     <td th:text="${reserva.area}"></td>
     <td th:text="${reserva.zona}"></td>
     <td th:text="${reserva.horarioReserva}"></td>
-    <td><a class="btn btn-warning" th:href="@{/reserva/update/{numeroReserva}(numeroReserva=${reserva.numeroReserva})}" role="button">Edita</a>
-    </td>
     <td><a class="btn btn-danger" th:href="@{/reserva/delete/{numeroReserva}(numeroReserva=${reserva.numeroReserva})}" role="button">Borra</a>
     </td>
   </tr>
   </tbody>
 </table>
-<a class="btn btn-success" href="add" role="button">Añadir reserva</a>
+<a class="btn btn-success" href="../menu/manager" role="button">Volver</a>
 </body>
 </html>

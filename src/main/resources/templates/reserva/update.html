@@ -53,7 +53,10 @@
     </tr>
     <tr>
       <td><label>Zona</label></td>
-      <td><input type="text" th:field="*{zona}" /></td>
+      <td><p th:each="zonavalue : ${zonaList}">
+        <input type="checkbox" th:field="*{zona}" th:value="${zonavalue}">
+        <label th:text="${zonavalue}"></label>
+      </p></td>
       <td th:if="${#fields.hasErrors('zona')}" th:errors="*{zona}"></td>
     </tr>
     <tr>

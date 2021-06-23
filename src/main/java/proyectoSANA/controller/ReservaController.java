@@ -17,6 +17,7 @@ import proyectoSANA.model.Reserva;
 import proyectoSANA.model.UserDetails;
 import proyectoSANA.model.Zona;
 
+import javax.jws.soap.SOAPBinding;
 import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -99,7 +100,17 @@ public class ReservaController {
 
     @RequestMapping(value="/update/{numeroReserva}", method = RequestMethod.GET)
     public String editReserva(Model model, @PathVariable String numeroReserva) {
-        model.addAttribute("reserva", reservaDao.getReserva(numeroReserva));
+        Reserva res = (Reserva) reservaDao.getReserva(numeroReserva);
+        model.addAttribute("reserva", res);
+        List zonas = zonaDao.getZonas();
+        List zonaList = new ArrayList();
+        for (int j = 0; j < zonas.size(); j++) {
+            Zona z = (Zona) zonas.get(j);
+            if (z.getArea().equals(res.getArea())){
+                zonaList.add(z.getNumero());
+            }
+        }
+        model.addAttribute("zonaList", zonaList);
         return "reserva/update";
     }
 
@@ -114,7 +125,7 @@ public class ReservaController {
         if (bindingResult.hasErrors())
             return "reserva/update";
         reservaDao.updateReserva(reserva);
-        return "redirect:list";
+        return "redirect:/reserva/misreservas";
     }
 
     @RequestMapping(value="/delete/{numeroReserva}")
@@ -123,8 +134,19 @@ public class ReservaController {
         return "redirect:../list";
     }
 
+    @RequestMapping(value="/deletemi/{numeroReserva}")
+    public String processDeletemi(@PathVariable String numeroReserva) {
+        reservaDao.deleteReserva(numeroReserva);
+        return "redirect:../misreservas";
+    }
+
     @RequestMapping(value="/misreservas")
     public String misReservas(Model model, HttpSession sesion) {
+        if (sesion.getAttribute("ciudadano") == null) {
+            sesion.setAttribute("nexturl","/reserva/misreservas/");
+            model.addAttribute("user", new UserDetails());
+            return "redirect:/login";
+        }
         List<Reserva> mis = new ArrayList<>();
         List<Reserva> reservas = reservaDao.getReservas();
         UserDetails us = (UserDetails) sesion.getAttribute("ciudadano");

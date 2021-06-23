@@ -70,7 +70,12 @@ public class LoginController {
         }
         if(user.getTipo().equals("municipal")){
             session.setAttribute("municipal", user);
-            return "redirect:menu/manager";
+            if (session.getAttribute("nexturl")!= null){
+                String url=(String) session.getAttribute("nexturl");
+                session.removeAttribute("nexturl");
+                return "redirect:" + url;
+            }
+            return "menu/manager";
         }
         if(user.getTipo().equals("ciudadano")){
             session.setAttribute("ciudadano",  user);
@@ -84,7 +89,10 @@ public class LoginController {
         // Torna a la pàgina principal
         return "redirect:/";
     }
-
+    @RequestMapping("/menu/manager")
+    public String manager(HttpSession session) {
+        return "menu/manager";
+    }
     @RequestMapping("/logout")
     public String logout(HttpSession session) {
         session.invalidate();

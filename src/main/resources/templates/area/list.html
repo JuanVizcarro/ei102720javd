@@ -11,14 +11,14 @@
 <h1>Lista de Areas</h1>
 <nav class="navbar navbar-expand-lg navbar-light bg-success fixed-top py-3" id="mainNav">
     <div class="container">
-        <a class="navbar-brand js-scroll-trigger" href="../">Proyecto SANA</a>
+        <a class="navbar-brand js-scroll-trigger" href="../menu/manager">Proyecto SANA</a>
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ml-auto my-2 my-lg-0">
 
-                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="../area/list">Servicios</a></li>
+                <!--<li class="nav-item"><a class="nav-link js-scroll-trigger" href="../area/list">Servicios</a></li>
                 <li class="nav-item"><a class="nav-link js-scroll-trigger" href="carrusel">Populares</a></li>
-                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="../ciudadano/list">Gestión de Ciudadanos</a></li>
+                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="../ciudadano/list">Gestión de Ciudadanos</a></li>-->
 
             </ul>
         </div>
@@ -57,18 +57,18 @@
         <td th:text="${area.instalacion}"></td>
         <td th:text="${area.comentario}"></td>
         <td th:text="${area.imagen}"></td>
-        <td><a class="btn btn-warning" th:href="@{/area/addServiciofijo/{nombre}(nombre=${area.nombre})}" role="button">Añadir/Modificar Servicios Fijos</a>
+        <td><a class="btn btn-warning" th:href="@{/area/addServiciofijo/{nombre}(nombre=${area.nombre})}" role="button">Actualizar Servicios Fijos</a>
         </td>
-        <td><a class="btn btn-warning" th:href="@{/servicioestacional/addserv/{nombre}(nombre=${area.nombre})}" role="button">Añadir Servicios Estacionales</a>
+        <td><a class="btn btn-warning" th:href="@{../servicioestacional/porarea/{nombre}(nombre=${area.nombre})}" role="button">Lista Servicios Estacionales</a>
         </td>
         <td><a class="btn btn-warning" th:href="@{/area/update/{nombre}(nombre=${area.nombre})}" role="button">Edita</a>
         </td>
         <td><a class="btn btn-warning" th:href="@{/area/ocupacion/{nombre}(nombre=${area.nombre})}" role="button">Ocupación</a>
         </td>
-        <td><a th:href="@{/area/delete/{nom}(nom=${area.nombre})}"
+        <td><a class="btn btn-danger" th:href="@{/area/delete/{nom}(nom=${area.nombre})}"
                th:onclick="return confirm('¿Estás segur@ de borrar el area '
 [[${area.nombre}]] + '?');">
-            Esborra</a>
+            Borrar</a>
         </td>
     </tr>
     </tbody>

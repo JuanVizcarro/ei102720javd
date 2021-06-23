@@ -43,8 +43,9 @@ public class FechaEstacionalController {
 
     // Operacions: Crear, llistar, actualitzar, esborrar
     // ...
-    @RequestMapping(value="/addserv/{nombre}",  method= RequestMethod.GET)
-    public String addFechaEstacional(Model model, HttpSession sesion, @PathVariable String nombre) {
+    @RequestMapping(value="/addserv",  method= RequestMethod.GET)
+    public String addFechaEstacional(Model model, HttpSession sesion) {
+        String nombre = (String) sesion.getAttribute("nombreArea");
         List<ServicioEstacional> serviciosEstacionales = servicioEstacionalDao.getServiciosEstacionales();
         List<String> serviciosList = new ArrayList();
         for (int j = 0; j < serviciosEstacionales.size(); j++) {
@@ -71,24 +72,28 @@ public class FechaEstacionalController {
 
     @RequestMapping(value="/addserv", method= RequestMethod.POST)
     public String processAddSubmit(@ModelAttribute("fechaestacional") FechaEstacional servicioEstacional,
-                                   BindingResult bindingResult) {
+                                   BindingResult bindingResult, HttpSession sesion) {
 
         fechaEstacionalDao.addServicio(servicioEstacional);
-        return "redirect:/servicioestacional/porarea";
+        String nombre = (String) sesion.getAttribute("nombreArea");
+        return "redirect:/servicioestacional/porarea/"+nombre;
     }
 
-    @RequestMapping(value="/porarea")
-    public String porArea(Model model, HttpSession sesion) {
+    @RequestMapping(value="/porarea/{nombre}", method = RequestMethod.GET)
+    public String porArea(Model model, HttpSession sesion, @PathVariable String nombre) {
         List<FechaEstacional> mis = new ArrayList<>();
-        String area = (String) sesion.getAttribute("areafechas");
         List<FechaEstacional> fechas = fechaEstacionalDao.getFechasEstacionales();
         for(FechaEstacional fecha:fechas){
-            if(fecha.getArea().equals(area)){
+            if(fecha.getArea().equals(nombre)){
                 mis.add(fecha);
             }
         }
         model.addAttribute("fechas", mis);
-        return "/servicioestacional/porarea";
+        if (sesion.getAttribute("nombreArea") != null) {
+            sesion.removeAttribute("nombreArea");
+        }
+        sesion.setAttribute("nombreArea", nombre);
+        return "servicioestacional/porarea";
     }
 
 //    @RequestMapping(value="/update/{nombre}", method = RequestMethod.GET)
@@ -123,6 +128,7 @@ public class FechaEstacionalController {
             }
         }
         model.addAttribute("fechas", mis);
-        return "redirect:/servicioestacional/porarea";
+        String nombre = (String) sesion.getAttribute("nombreArea");
+        return "redirect:/servicioestacional/porarea/"+nombre;
     }
 }

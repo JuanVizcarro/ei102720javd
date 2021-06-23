@@ -20,7 +20,6 @@ import java.util.List;
 @Controller
 @RequestMapping("/area")
 public class AreaController {
-    private List<String> imagenes = new ArrayList<String>();
     private AreaDao areaDao;
     private ReservaDao reservaDao;
     private ServicioFijoDao servicioFijoDao;
@@ -47,13 +46,18 @@ public class AreaController {
     }
 
     @RequestMapping("/list")
-    public String listArea(Model model) {
-        model.addAttribute("areas", areaDao.getAreas());
-        return "area/list";
+    public String listArea(Model model, HttpSession sesion) {
+        if (sesion.getAttribute("municipal") != null)
+        {
+            model.addAttribute("areas", areaDao.getAreas());
+            return "area/list";
+        }
+        return "redirect:/area/carrusel";
     }
 
     @RequestMapping("/carrusel")
     public String carrusel(Model model) {
+        List<String> imagenes = new ArrayList<String>();
         List<Area> areas = areaDao.getAreas();
         model.addAttribute("area", areas);
         for (Area area:areas){
