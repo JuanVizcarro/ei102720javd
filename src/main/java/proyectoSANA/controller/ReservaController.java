@@ -97,7 +97,14 @@ public class ReservaController {
         if (bindingResult.hasErrors())
             return "reserva/add";
         reservaDao.addReserva(reserva);
+        model.addAttribute("re", reserva);
         sesion.removeAttribute("zonaList");
+        return "/reserva/confirmation";
+    }
+
+    @RequestMapping(value="/confirmation")
+    public String confirmation(Model model, HttpSession sesion, @ModelAttribute("re") Reserva reserva) {
+
         return "/reserva/confirmation";
     }
 

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
@@ -7,7 +7,53 @@
 </head>
 <body>
 <h1 class="titulo" align="center">Su reserva ha sido tramitada con éxito</h1>
-<a class="btn btn-success" href="/area/carrusel" role="button">Volver a area</a>
-<a class="btn btn-success" href="/reserva/misreservas" role="button">Ver mis reservas</a>
+<form action="#" th:action="@{/reserva/confirmation}"
+      th:object="${re}">
+    <table align="center">
+        <tr>
+            <td><label>Pronto recibirá con un correo con la siguiente información sobre su reserva:</label></td>
+        </tr>
+        <tr>
+            <td><label>Número de reserva</label></td>
+            <td><p type="text" th:text="*{numeroReserva}"/></td>
+        </tr>
+        <tr>
+            <td><label>Persona</label></td>
+            <td><p type="text" th:text="*{persona}"/></td>
+        </tr>
+        <tr>
+            <td><label>Fecha</label></td>
+            <td><p type="date" th:text="*{fecha}"/></td>
+        </tr>
+        <tr>
+            <td><label>Numero Personas</label></td>
+            <td><p type="number" th:text="*{numeroPersonas}"/></td>
+        </tr>
+        <tr>
+            <td><label>Hora de llegada</label></td>
+            <td><p type="time" th:text="*{horaInicio}"/></td>
+        </tr>
+        <tr>
+            <td><label>Hora de salida</label></td>
+            <td><p type="time" th:text="*{horaFin}"/></td>
+        </tr>
+        <tr>
+            <td><label>Limite Reserva</label></td>
+            <td><p type="number" th:text="*{limiteReserva}"/></td>
+        </tr>
+        <tr>
+            <td><label>Area</label></td>
+            <td><p type="text" th:text="*{area}"/></td>
+        </tr>
+        <tr>
+            <td><label>Zona</label></td>
+            <td><p type="text" th:text="*{zona}"/></td>
+        </tr>
+    </table>
+    <div align="center">
+        <a class="btn btn-success" href="/area/carrusel" role="button">Volver a area</a>
+        <a class="btn btn-success" href="/reserva/misreservas" role="button">Ver mis reservas</a>
+    </div>
+</form>
 </body>
 </html>
