@@ -35,7 +35,7 @@
                 <div class="input-group-prepend">
                     <span class="input-group-text"><i class="fas fa-user"></i></span>
                 </div>
-            <input type="text" placeholder="Nom d'Usuari" th:field="*{usuario}" />
+            <input type="text" placeholder="Nombre de usuario" th:field="*{usuario}" />
             <td th:if="${#fields.hasErrors('usuario')}" th:errors="*{usuario}"></td>
             </div>
 
