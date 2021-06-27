@@ -41,6 +41,7 @@ public class FechaEstacional {
     private String area;
     @DateTimeFormat(iso=DateTimeFormat.ISO.DATE)
     private LocalDate fechainicio = LocalDate.now();
+    @DateTimeFormat(iso=DateTimeFormat.ISO.DATE)
     private LocalDate fechafin = LocalDate.now();
 
 

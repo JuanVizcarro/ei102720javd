@@ -110,6 +110,7 @@
                 <input type="checkbox" th:field="*{zona}" th:value="${zonavalue}">
                 <label th:text="${zonavalue}"></label>
               </p>
+              <td th:if="${#fields.hasErrors('zona')}" th:errors="*{zona}"></td>
             </div>
 
           </form>

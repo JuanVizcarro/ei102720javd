@@ -34,8 +34,11 @@
     </select>
     <h6 class="u-text u-text-1" style="line-height:normal;font-weight:650;">Selecciona el día de inicio</h6>
     <input type="date" placeholder="FechaIni" th:field="*{fechainicio}"/>
+    <td th:if="${#fields.hasErrors('fechainicio')}" th:errors="*{fechainicio}"></td>
     <h6 class="u-text u-text-1" style="line-height:normal;font-weight:650;">Selecciona el día de finalización</h6>
     <input type="date" placeholder="FechaFin" th:field="*{fechafin}"/>
+    <td th:if="${#fields.hasErrors('fechafin')}" th:errors="*{fechafin}"></td>
+    <h6></h6>
     <input type="submit" value="Añadir" />
 </form>
 </body>

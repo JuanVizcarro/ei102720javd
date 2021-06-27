@@ -55,7 +55,9 @@ public class FechaEstacionalController {
         FechaEstacional fechest = new FechaEstacional();
         fechest.setArea(nombre);
         model.addAttribute("fechest", fechest);
+        sesion.setAttribute("fechesta", fechest);
         model.addAttribute("serviciosestacoinales", serviciosList);
+        sesion.setAttribute("todosestacionales", serviciosList);
         if (sesion.getAttribute("areafechas") != null) {
             sesion.removeAttribute("areafechas");
         }
@@ -72,9 +74,16 @@ public class FechaEstacionalController {
 
     @RequestMapping(value="/addserv", method= RequestMethod.POST)
     public String processAddSubmit(@ModelAttribute("fechaestacional") FechaEstacional servicioEstacional,
-                                   BindingResult bindingResult, HttpSession sesion) {
-
+                                   BindingResult bindingResult, HttpSession sesion, Model model) {
+        FechaEstacionalValidator fechValidator = new FechaEstacionalValidator();
+        fechValidator.validate(servicioEstacional, bindingResult);
+        model.addAttribute("fechest", sesion.getAttribute("fechesta"));
+        model.addAttribute("serviciosestacoinales", sesion.getAttribute("todosestacionales"));
+        if (bindingResult.hasErrors())
+            return "servicioestacional/addserv";
         fechaEstacionalDao.addServicio(servicioEstacional);
+        sesion.removeAttribute("fechesta");
+        sesion.removeAttribute("todosestacionales");
         String nombre = (String) sesion.getAttribute("nombreArea");
         return "redirect:/servicioestacional/porarea/"+nombre;
     }

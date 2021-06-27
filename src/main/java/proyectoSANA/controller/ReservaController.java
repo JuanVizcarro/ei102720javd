@@ -76,6 +76,7 @@ public class ReservaController {
             }
         }
         model.addAttribute("zonaList", zonaList);
+        sesion.setAttribute("zonaLista", zonaList);
         return "reserva/add";
     }
 
@@ -88,13 +89,15 @@ public class ReservaController {
 
     @RequestMapping(value="/add", method= RequestMethod.POST)
     public String processAddSubmit(@ModelAttribute("reserva") Reserva reserva,
-                                   BindingResult bindingResult, HttpSession sesion) {
+                                   BindingResult bindingResult, HttpSession sesion, Model model) {
+        model.addAttribute("zonaList", sesion.getAttribute("zonaLista"));
         ReservaValidator reservaValidator = new ReservaValidator();
         reservaValidator.validate(reserva, bindingResult);
 
         if (bindingResult.hasErrors())
             return "reserva/add";
         reservaDao.addReserva(reserva);
+        sesion.removeAttribute("zonaList");
         return "/reserva/confirmation";
     }
 

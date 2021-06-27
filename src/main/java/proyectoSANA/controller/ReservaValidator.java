@@ -22,21 +22,13 @@ public class ReservaValidator implements Validator{
         Reserva reserva = (Reserva) obj;
         LocalDate now = LocalDate.now();
 
-        if (reserva.getNumeroReserva().trim().equals(""))
-            errors.rejectValue("numeroReserva", "obligatorio",
-                    "Este campo es obligatorio.");
-
-        if (reserva.getPersona().trim().equals(""))
-            errors.rejectValue("persona", "obligatorio",
-                    "Este campo es obligatorio.");
-
-        if (reserva.getFecha().compareTo(now) == -1)
+        if (reserva.getFecha().compareTo(now) <= -1)
             errors.rejectValue("fecha", "obligatorio",
                     "La fecha debe ser posterior a la de hoy.");
 
         if (reserva.getNumeroPersonas()==0)
             errors.rejectValue("numeroPersonas", "obligatorio",
-                    "Este campo es obligatorio.");
+                    "Introduce número de personas.");
 
         if (reserva.getNumeroPersonas()>reserva.getLimiteReserva())
             errors.rejectValue("numeroPersonas", "obligatorio",
@@ -54,9 +46,9 @@ public class ReservaValidator implements Validator{
 //            errors.rejectValue("area", "obligatorio",
 //                    "Este campo es obligatorio.");
 
-        if (reserva.getZona().trim().equals(""))
+        if (reserva.getZona() == null)
             errors.rejectValue("zona", "obligatorio",
-                    "Este campo es obligatorio.");
+                    "Selecciona alguna zona.");
 
         //if (reserva.getHorarioReserva().trim().equals(""))
         //    errors.rejectValue("horarioReserva", "obligatorio",

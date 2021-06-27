@@ -9,13 +9,16 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import proyectoSANA.dao.AreaDao;
+import proyectoSANA.dao.FechaEstacionalDao;
 import proyectoSANA.dao.ReservaDao;
 import proyectoSANA.dao.ServicioFijoDao;
 import proyectoSANA.model.*;
 
 import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Controller
 @RequestMapping("/area")
@@ -23,10 +26,16 @@ public class AreaController {
     private AreaDao areaDao;
     private ReservaDao reservaDao;
     private ServicioFijoDao servicioFijoDao;
+    private FechaEstacionalDao fechaEstacionalDao;
 
     @Autowired
     public void setAreaDao(AreaDao areaDao) {
         this.areaDao = areaDao;
+    }
+
+    @Autowired
+    public void setFechaDao(FechaEstacionalDao areaDao) {
+        this.fechaEstacionalDao = areaDao;
     }
 
     @Autowired
@@ -106,6 +115,22 @@ public class AreaController {
 
     @RequestMapping(value="/masInfo/{nombre}", method = RequestMethod.GET)
     public String masInfoArea(Model model, @PathVariable String nombre) {
+        Set<String> list = new HashSet<>();
+        List<FechaEstacional> mis = new ArrayList<>();
+        List<FechaEstacional> fechas = fechaEstacionalDao.getFechasEstacionales();
+        for(FechaEstacional fecha:fechas){
+            if(fecha.getArea().equals(nombre)){
+                mis.add(fecha);
+            }
+        }
+        for (FechaEstacional f : mis) {
+            list.add(f.getServicio());
+        }
+        String g = "";
+        for (String f : list){
+            g += f + " ";
+        }
+        model.addAttribute("FechaEstacionales", g);
         model.addAttribute("area", areaDao.getArea(nombre));
         return "area/masInfo";
     }
