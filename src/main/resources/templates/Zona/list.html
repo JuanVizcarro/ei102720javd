@@ -18,7 +18,7 @@
   <tr th:each="zona: ${zonas}">
     <td th:text="${zona.area}"></td>
     <td th:text="${zona.numero}"></td>
-    <td><a class="btn btn-danger" th:href="@{/zona/delete/{numero}(numero=${zona.numero})}" role="button">Borra</a>
+    <td><a class="btn btn-danger" th:href="@{/zona/delete/{numero}(numero=${zona.numero})}" role="button">Borrar</a>
     </td>
   </tr>
   </tbody>

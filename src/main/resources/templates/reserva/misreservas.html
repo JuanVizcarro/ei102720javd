@@ -36,7 +36,9 @@
         <td th:text="${reserva.horarioReserva}"></td>
         <td><a class="btn btn-warning" th:href="@{/reserva/update/{numeroReserva}(numeroReserva=${reserva.numeroReserva})}" role="button">Editar</a>
         </td>
-        <td><a class="btn btn-danger" th:href="@{/reserva/deletemi/{numeroReserva}(numeroReserva=${reserva.numeroReserva})}" role="button">Borrar</a>
+        <td><a class="btn btn-danger" th:href="@{/reserva/deletemi/{numeroReserva}(numeroReserva=${reserva.numeroReserva})}"
+               th:onclick="return confirm('¿Estás seguro/a de borrar la reserva '+[[${reserva.numeroReserva}]] + '?');"
+               role="button">Borrar</a>
         </td>
     </tr>
     </tbody>

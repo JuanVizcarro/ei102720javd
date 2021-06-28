@@ -30,9 +30,11 @@
         <td th:text="${ciudadano.direccion}"></td>
         <td th:text="${ciudadano.municipio}"></td>
         <td th:text="${ciudadano.pais}"></td>
-        <td><a class="btn btn-warning" th:href="@{/ciudadano/update/{usuario}(usuario=${ciudadano.usuario})}" role="button">Edita</a>
+        <td><a class="btn btn-warning" th:href="@{/ciudadano/update/{usuario}(usuario=${ciudadano.usuario})}" role="button">Editar</a>
         </td>
-        <td><a class="btn btn-danger" th:href="@{/ciudadano/delete/{usuario}(usuario=${ciudadano.usuario})}" role="button">Borra</a>
+        <td><a class="btn btn-danger" th:href="@{/ciudadano/delete/{usuario}(usuario=${ciudadano.usuario})}"
+               th:onclick="return confirm('¿Estás seguro/a de borrar el usuario '+[[${ciudadano.usuario}]] + '?');"
+               role="button">Borrar</a>
         </td>
     </tr>
     </tbody>
