@@ -20,10 +20,13 @@
     <tr th:each="servicioestacional: ${serviciosestacionales}">
         <td th:text="${servicioestacional.nombre}"></td>
         <td th:text="${servicioestacional.descripcion}"></td>
-        <td><a class="btn btn-warning" th:href="@{/servicioestacional/update/{nombre}(nombre=${servicioestacional.nombre})}" role="button">Edita</a>
+        <td><a class="btn btn-warning" th:href="@{/servicioestacional/update/{nombre}(nombre=${servicioestacional.nombre})}" role="button">Editar</a>
         </td>
-        <td><a class="btn btn-danger" th:href="@{/servicioestacional/delete/{nombre}(nombre=${servicioestacional.nombre})}" role="button">Borra</a>
+        <td><a class="btn btn-danger" th:href="@{/servicioestacional/delete/{nombre}(nombre=${servicioestacional.nombre})}"
+               th:onclick="return confirm('¿Estás seguro/a de borrar el servicio '+[[${servicioestacional.nombre}]] + '?');"
+               role="button">Borrar</a>
         </td>
+
     </tr>
     </tbody>
 </table>

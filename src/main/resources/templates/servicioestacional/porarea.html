@@ -22,7 +22,9 @@
         <td th:text="${servicioes.area}"></td>
         <td th:text="${servicioes.fechainicio}"></td>
         <td th:text="${servicioes.fechafin}"></td>
-        <td><a class="btn btn-danger" th:href="@{/servicioestacional/deleteserv/{servicio}/{area}/{fechaini}(servicio=${servicioes.servicio},area=${servicioes.area},fechaini=${servicioes.fechainicio})}" role="button">Borra</a>
+        <td><a class="btn btn-danger" th:href="@{/servicioestacional/deleteserv/{servicio}/{area}/{fechaini}(servicio=${servicioes.servicio},area=${servicioes.area},fechaini=${servicioes.fechainicio})}"
+               th:onclick="return confirm('¿Estás seguro/a de borrar el servicio '+[[${servicioes.servicio}]] + '?');"
+               role="button">Borrar</a>
         </td>
     </tr>
     </tbody>
