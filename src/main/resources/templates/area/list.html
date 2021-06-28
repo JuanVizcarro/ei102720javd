@@ -66,8 +66,7 @@
         <td><a class="btn btn-warning" th:href="@{/area/ocupacion/{nombre}(nombre=${area.nombre})}" role="button">Ocupación</a>
         </td>
         <td><a class="btn btn-danger" th:href="@{/area/delete/{nom}(nom=${area.nombre})}"
-               th:onclick="return confirm('¿Estás segur@ de borrar el area '
-[[${area.nombre}]] + '?');">
+               th:onclick="return confirm('¿Estás seguro/a de borrar el area '+[[${area.nombre}]] + '?');">
             Borrar</a>
         </td>
     </tr>
