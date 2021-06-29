@@ -2,7 +2,6 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <html xmlns:th="http://www.thymeleaf.org">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -39,14 +38,14 @@
                     <form>
                         <div class="input-group form-group">
                             <div class="input-group-prepend">
-                                <span class="input-group-text"><i class="fas fa-user"></i></span>
+                                <span class="input-group-text"><i class="fas fa-tree"></i></span>
                             </div>
                             <input type="text" placeholder="Numero Reserva" th:field="*{municipio}" readonly/>
                         </div>
 
                         <div class="input-group form-group">
                             <div class="input-group-prepend">
-                                <span class="input-group-text"><i class="fas fa-key"></i></span>
+                                <span class="input-group-text"><i class="fas fa-universal-access"></i></span>
                             </div>
                             <input type="text" placeholder="DNI" th:field="*{tipoAcceso}" readonly/>
                         </div>
@@ -54,14 +53,14 @@
 
                         <div class="input-group form-group">
                             <div class="input-group-prepend">
-                                <span class="input-group-text"><i class="fas fa-address-card"></i></span>
+                                <span class="input-group-text"><i class="fas fa-info-circle"></i></span>
                             </div>
                             <input type="text" placeholder="Fechas" th:field="*{descripcion}" readonly/>
                         </div>
 
                         <div class="input-group form-group">
                             <div class="input-group-prepend">
-                                <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+                                <span class="input-group-text"><i class="fas fa-sort-numeric-up"></i></span>
                             </div>
                             <input type="text" placeholder="Nº Personas" th:field="*{numeroDeZonas}" readonly/>
                         </div>
@@ -75,21 +74,21 @@
 
                         <div class="input-group form-group">
                             <div class="input-group-prepend">
-                                <span class="input-group-text"><i class="fas fa-address-book"></i></span>
+                                <span class="input-group-text"><i class="fas fa-location-arrow"></i></span>
                             </div>
                             <input type="text" placeholder="Hora de Salida" th:field="*{ubicacionGeografica}" readonly/>
                         </div>
 
                         <div class="input-group form-group">
                             <div class="input-group-prepend">
-                                <span class="input-group-text"><i class="fas fa-warehouse"></i></span>
+                                <span class="input-group-text"><i class="fas fa-question"></i></span>
                             </div>
                             <input type="text" placeholder="Tipo de area" th:field="*{tipoArea}" readonly/>
                         </div>
 
                         <div class="input-group form-group">
                             <div class="input-group-prepend">
-                                <span class="input-group-text"><i class="fas fa-warehouse"></i></span>
+                                <span class="input-group-text"><i class="fas fa-info"></i></span>
                             </div>
                             <p th:each="serviciofijo : ${serviciosfijos}">
                                 <input type="checkbox" th:field="*{caracteristicaFisica}" th:value="${serviciofijo}">
@@ -99,7 +98,7 @@
 
                         <div class="input-group form-group">
                             <div class="input-group-prepend">
-                                <span class="input-group-text"><i class="fas fa-flag"></i></span>
+                                <span class="input-group-text"><i class="fas fa-compass"></i></span>
                             </div>
                             <input type="text" placeholder="Area" th:field="*{orientacion}" readonly/>
                         </div>
@@ -113,14 +112,14 @@
 
                         <div class="input-group form-group">
                             <div class="input-group-prepend">
-                                <span class="input-group-text"><i class="fas fa-flag"></i></span>
+                                <span class="input-group-text"><i class="fas fa-comments"></i></span>
                             </div>
                             <input type="text" placeholder="Area" th:field="*{comentario}" readonly/>
                         </div>
 
                         <div class="input-group form-group">
                             <div class="input-group-prepend">
-                                <span class="input-group-text"><i class="fas fa-flag"></i></span>
+                                <span class="input-group-text"><i class="fas fa-images"></i></span>
                             </div>
                             <input type="text" placeholder="Imagen" th:field="*{imagen}" readonly/>
                         </div>
