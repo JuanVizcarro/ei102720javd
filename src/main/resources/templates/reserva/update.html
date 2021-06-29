@@ -1,73 +1,130 @@
-<!DOCTYPE html>
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <html xmlns:th="http://www.thymeleaf.org">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<!DOCTYPE html>
+<html>
 <head>
-  <title>Modificar reserva</title>
-  <meta charset="UTF-8" />
-  <link rel="stylesheet"
-        href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"/>
+  <title>Modificar Reserva</title>
+  <!--Made with love by Mutiullah Samim -->
+
+  <!--Bootsrap 4 CDN-->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+  <!--Fontawesome CDN-->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+
+  <!--Custom styles-->
+  <link rel="stylesheet" type="text/css" href="/css/sty.css"
+        th:href="@{/css/sty.css}"/>
 </head>
+
 <body>
-<h2>Modificar reserva</h2>
+<a class="btn btn-success" href="/area/carrusel" role="button">Atrás</a>
 <form action="#" th:action="@{/reserva/update}"
       th:object="${reserva}" method="post">
-  <table>
-    <tr>
-      <td><label>Número de reserva</label></td>
-      <td><input type="text" th:field="*{numeroReserva}" /></td>
-      <td th:if="${#fields.hasErrors('numeroReserva')}" th:errors="*{numeroReserva}"></td>
-    </tr>
-    <tr>
-      <td><label>Persona</label></td>
-      <td><input type="text" th:field="*{persona}" /></td>
-      <td th:if="${#fields.hasErrors('persona')}" th:errors="*{persona}"></td>
-    </tr>
-    <tr>
-      <td><label>Fecha</label></td>
-      <td><input type="date" th:field="*{fecha}" /></td>
-      <td th:if="${#fields.hasErrors('fecha')}" th:errors="*{fecha}"></td>
-    </tr>
-    <tr>
-      <td><label>Numero Personas</label></td>
-      <td><input type="number" th:field="*{numeroPersonas}" /></td>
-      <td th:if="${#fields.hasErrors('numeroPersonas')}" th:errors="*{numeroPersona}"></td>
-    </tr>
-    <tr>
-      <td><label>Hora de llegada</label></td>
-      <td><input type="time" th:field="*{horaInicio}" /></td>
-      <td th:if="${#fields.hasErrors('horaInicio')}" th:errors="*{horaInicio}"></td>
-    </tr>
-    <tr>
-      <td><label>Hora de salida</label></td>
-      <td><input type="time" th:field="*{horaFin}" /></td>
-      <td th:if="${#fields.hasErrors('horaFin')}" th:errors="*{horaFin}"></td>
-    </tr>
-    <tr>
-      <td><label>Limite Reserva</label></td>
-      <td><input type="number" th:field="*{limiteReserva}" /></td>
-      <td th:if="${#fields.hasErrors('limiteReserva')}" th:errors="*{limiteReserva}"></td>
-    </tr>
-    <tr>
-      <td><label>Area</label></td>
-      <td><input type="text" th:field="*{area}" /></td>
-      <td th:if="${#fields.hasErrors('area')}" th:errors="*{area}"></td>
-    </tr>
-    <tr>
-      <td><label>Zona</label></td>
-      <td><p th:each="zonavalue : ${zonaList}">
-        <input type="checkbox" th:field="*{zona}" th:value="${zonavalue}">
-        <label th:text="${zonavalue}"></label>
-      </p></td>
-      <td th:if="${#fields.hasErrors('zona')}" th:errors="*{zona}"></td>
-    </tr>
-    <tr>
-      <td><label>Horario Reserva</label></td>
-      <td><input type="text" th:field="*{horarioReserva}" /></td>
-      <td th:if="${#fields.hasErrors('horarioReserva')}" th:errors="*{horarioReserva}"></td>
-    </tr>
-    <tr>
-      <td colspan="2"><input type="submit" value="Modificar reserva" /></td>
-    </tr>
-  </table>
+
+  <div class="container">
+    <div class="d-flex justify-content-center h-100">
+      <div class="card">
+        <div class="card-header">
+          <h3>Modificar Reserva</h3>
+        </div>
+        <table>
+          <form>
+            <div class="input-group form-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text"><i class="fas fa-barcode"></i></span>
+              </div>
+              <input type="text" placeholder="Numero Reserva" th:field="*{numeroReserva}" readonly/>
+              <td th:if="${#fields.hasErrors('numeroReserva')}" th:errors="*{numeroReserva}"></td>
+            </div>
+
+            <div class="input-group form-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text"><i class="fas fa-id-card"></i></span>
+              </div>
+              <input type="text" placeholder="DNI" th:field="*{persona}" readonly/>
+              <td th:if="${#fields.hasErrors('persona')}" th:errors="*{persona}"></td>
+            </div>
+
+
+            <div class="input-group form-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text"><i class="fas fa-calendar-alt"></i></span>
+              </div>
+              <input type="date" placeholder="Fechas" th:field="*{fecha}"/>
+              <td th:if="${#fields.hasErrors('fecha')}" th:errors="*{fecha}"></td>
+            </div>
+
+            <div class="input-group form-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text"><i class="fas fa-user-friends"></i></span>
+              </div>
+              <input type="number" placeholder="Nº Personas" th:field="*{numeroPersonas}" />
+              <td th:if="${#fields.hasErrors('numeroPersonas')}" th:errors="*{numeroPersonas}"></td>
+            </div>
+
+            <div class="input-group form-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text"><i class="fas fa-user-clock"></i></span>
+              </div>
+              <input type="time" placeholder="Hora de Llegada" th:field="*{horaInicio}" />
+              <td th:if="${#fields.hasErrors('horaInicio')}" th:errors="*{horaInicio}"></td>
+            </div>
+
+
+            <div class="input-group form-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text"><i class="fas fa-clock"></i></span>
+              </div>
+              <input type="time" placeholder="Hora de Salida" th:field="*{horaFin}" />
+              <td th:if="${#fields.hasErrors('horaFin')}" th:errors="*{horaFin}"></td>
+            </div>
+
+            <div class="input-group form-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text"><i class="fas fa-list-ol"></i></span>
+              </div>
+              <input type="number" placeholder="Limite Reserva" th:field="*{limiteReserva}" readonly/>
+              <td th:if="${#fields.hasErrors('limiteReserva')}" th:errors="*{limiteReserva}"></td>
+            </div>
+
+            <div class="input-group form-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text"><i class="fas fa-map-marked-alt"></i></span>
+              </div>
+              <input type="text" placeholder="Area" th:field="*{area}" readonly/>
+            </div>
+
+            <div class="input-group form-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text"><i class="fas fa-search-location"></i></span>
+              </div>
+
+              <!--option value="No seleccionat">Selecciona el zona</option-->
+
+              <p th:each="zonavalue : ${zonaList}">
+                <input type="checkbox" th:field="*{zona}" th:value="${zonavalue}">
+                <label th:text="${zonavalue}"></label>
+              </p>
+              <td th:if="${#fields.hasErrors('zona')}" th:errors="*{zona}"></td>
+            </div>
+
+          </form>
+        </table>
+
+        <div class="form-group">
+          <input type="submit" value="Modificar" class="btn float-left login_btn">
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
 </form>
+
 </body>
+
 </html>

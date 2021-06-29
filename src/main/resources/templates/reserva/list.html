@@ -19,7 +19,6 @@
     <th scope="col">Limite Reserva</th>
     <th scope="col">Area</th>
     <th scope="col">Zona</th>
-    <th scope="col">Horario Reserva</th>
   </tr>
   </thead>
   <tbody>
@@ -33,7 +32,6 @@
     <td th:text="${reserva.limiteReserva}"></td>
     <td th:text="${reserva.area}"></td>
     <td th:text="${reserva.zona}"></td>
-    <td th:text="${reserva.horarioReserva}"></td>
     <td><a class="btn btn-danger" th:href="@{/reserva/delete/{numeroReserva}(numeroReserva=${reserva.numeroReserva})}"
            th:onclick="return confirm('¿Estás seguro/a de borrar la reserva '+[[${reserva.numeroReserva}]] + '?');"
            role="button">Borrar</a>
