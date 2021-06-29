@@ -1,7 +1,6 @@
 package proyectoSANA.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.jdbc.support.incrementer.SybaseAnywhereMaxValueIncrementer;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -12,16 +11,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import proyectoSANA.dao.AreaDao;
 import proyectoSANA.dao.ReservaDao;
 import proyectoSANA.dao.ZonaDao;
-import proyectoSANA.model.Area;
 import proyectoSANA.model.Reserva;
 import proyectoSANA.model.UserDetails;
 import proyectoSANA.model.Zona;
-
-import javax.jws.soap.SOAPBinding;
 import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Date;
 import java.util.List;
 
 @Controller
@@ -47,8 +41,7 @@ public class ReservaController {
         this.reservaDao=reservaDao;
     }
 
-    // Operacions: Crear, llistar, actualitzar, esborrar
-    // ...
+
     @RequestMapping(value="/add/{area}", method= RequestMethod.GET)
     public String addReserva(Model model, @PathVariable String area, HttpSession sesion) {
         sesion.setAttribute("nexturl","/reserva/add/"+area);

@@ -184,8 +184,16 @@ public class AreaController {
     public String OcFin(Model model, HttpSession sesion) {
         String area = (String) sesion.getAttribute("nombre");
         Ocupacion x = (Ocupacion) sesion.getAttribute("fech");
-        x.setArea(area);
         x.setNormal(reservaDao.getOcupacion(area, x.getFecha()));
+        int cant = reservaDao.getOcupacion(area, x.getFecha());
+
+        if(x.getNormal() == -1) {
+            cant = 0;
+        }
+
+        x.setArea(area);
+        x.setNormal(cant);
+
         model.addAttribute("dato", x);
         sesion.removeAttribute("fech");
         sesion.removeAttribute("nombre");

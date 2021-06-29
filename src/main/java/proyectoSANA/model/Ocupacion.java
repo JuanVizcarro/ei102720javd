@@ -6,6 +6,14 @@ import java.time.LocalDate;
 import java.util.Date;
 
 public class Ocupacion {
+
+
+    private int normal;
+    private String area;
+
+    public String getArea() {
+        return area;
+    }
     public int getNormal() {
         return normal;
     }
@@ -14,15 +22,10 @@ public class Ocupacion {
         this.normal = normal;
     }
 
-    private int normal;
-    public String getArea() {
-        return area;
-    }
-
     public void setArea(String area) {
         this.area = area;
     }
-    private String area;
+
     public LocalDate getFecha() {
         return fecha;
     }
